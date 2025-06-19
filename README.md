@@ -33,10 +33,18 @@ A 24/7 intelligent assistant that:
 - Figma (for UI/UX design)  
 
 ---
+## 💸 Pricing Strategy
 
+| Plan            | Price/month | Features |
+|-----------------|-------------|----------|
+| **Basic**       | ₹0          | Appointment booking, dashboard, featured in "Nearby Vets" |
+| **Pro**         | ₹499        | Video consults, medical uploads, reminders, specialization tags |
+| **Clinic Premium** | ₹1,499    | Multi-vet profile, priority listing, clinic dashboard, premium support |
+
+---
 
 ## 📎 Figma Design
-[🔗 View Design on Figma](https://www.figma.com/design/GdaQ2tChTVfVYbhKNGiWv1/petzz?node-id=0-1&t=d041KtkuqkuHnLWG-1)
+[🔗 View Design on Figma](https://www.figma.com/proto/GdaQ2tChTVfVYbhKNGiWv1/petzz?node-id=10-2&p=f&t=d041KtkuqkuHnLWG-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=10%3A2&show-proto-sidebar=1)
 
 ---
 
