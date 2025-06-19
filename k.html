@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Medicine Assistant</title>
+
+  <style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: url('https://i.pinimg.com/736x/1f/87/6e/1f876eb8b9aa6bc240b77bfa8e7974d4.jpg') no-repeat center top;
+        background-size: 900px 1000px; /* Width is 500px, height auto-scales */
+        background-repeat: no-repeat;
+        background-position: center top;
+    
+        height: 6vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Aligns chatbot container below image */
+        padding-top: 800px; /* Pushes content below the dogs */
+      }
+      
+
+    .chat-container {
+      width: 350px;
+      max-width: 90%;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s;
+      margin-top: -690px;
+    }
+
+    .chat-container:hover {
+      transform: scale(1.01);
+    }
+
+    header {
+        background: linear-gradient(to right, #4e8ef7, #6aa9ff); /* Fallback */
+        background: linear-gradient(90deg, #6a11cb, #89b4ff); /* Gradient for text */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        padding: 18px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-clip: text;
+      }
+      
+
+    .chat-box {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      max-height: 420px;
+      background-color: #fafafa;
+      scroll-behavior: smooth;
+
+    }
+
+    .message {
+      margin: 10px 0;
+      line-height: 1.6;
+      padding: 10px 14px;
+      border-radius: 16px;
+      max-width: 80%;
+      display: inline-block;
+      word-wrap: break-word;
+      font-size: 14px;
+    }
+
+    .user {
+      background: #e3f2fd;
+      color: #0d47a1;
+      align-self: flex-end;
+      text-align: right;
+      border-top-right-radius: 0;
+    }
+
+    .bot {
+      background: #f1f1f1;
+      color: #333;
+      align-self: flex-start;
+      text-align: left;
+      border-top-left-radius: 0;
+    }
+
+    form {
+      display: flex;
+      border-top: 1px solid #ddd;
+      background: #fff;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      border: none;
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 0;
+      outline: none;
+      background: #f9f9f9;
+    }
+
+    input[type="text"]:focus {
+      background: #ffffff;
+    }
+
+    button {
+      background: #4e8ef7;
+      color: white;
+      border: none;
+      padding: 0 18px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+
+
+
+
+
+    .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        background: #4e8ef7;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-weight: bold;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        transition: background 0.3s;
+        z-index: 10;
+      }
+      
+      .back-button:hover {
+        background: #2563eb;
+      }
+      
+  </style>
+</head>
+<body>
+    <a href="index.html" class="back-button" title="Go back to homepage">← Back</a>
+
+  <div class="chat-container">
+    <header>🐾 PetPal Medic</header>
+    <div class="chat-box" id="chatBox"></div>
+    <form id="chatForm">
+      <input type="text" id="userInput" placeholder="Describe your pet's issue..." autocomplete="off" required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="conditions.js"></script>
+
+  <script>
+    const chatBox = document.getElementById('chatBox');
+    const chatForm = document.getElementById('chatForm');
+    const userInput = document.getElementById('userInput');
+
+    chatForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const input = userInput.value.trim();
+      if (input) {
+        addMessage('user', input);
+        respond(input.toLowerCase());
+        userInput.value = '';
+      }
+    });
+
+    function addMessage(sender, text) {
+      const msg = document.createElement('div');
+      msg.classList.add('message', sender);
+      msg.innerText = text;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function respond(input) {
+      let found = false;
+
+      for (let condition of conditions) {
+        for (let keyword of condition.keywords) {
+          if (input.includes(keyword)) {
+            setTimeout(() => addMessage('bot', condition.response), 800);
+            found = true;
+            break;
+          }
+        }
+        if (found) break;
+      }
+
+      if (!found) {
+        setTimeout(() => addMessage('bot', "I'm sorry, I couldn't understand that. Please describe your pet's symptoms."), 800);
+      }
+    }
+  </script>
+</body>
+</html>

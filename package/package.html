@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subscription Plans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #00A0CC;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      height: 92px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      background: linear-gradient(90deg, #6bc1ff, #ffffff);
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      /* margin-right: 150px; removed as it conflicts with flex distribution */
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      width: 100%; /* Ensures it takes available width to push nav right */
+      justify-content: flex-start;
+    }
+
+    .logo img {
+      width: 120px;
+      max-height: 100px; /* Adjusted from 70px to match new header CSS */
+      object-fit: contain;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 25px; /* Adjusted from 20px to match new header CSS */
+      list-style: none;
+      margin-left: auto; /* Pushes the navigation to the far right within left-header */
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      font-size: 16px; /* Adjusted to match new header CSS */
+      font-weight: 600; /* Adjusted to match new header CSS */
+      color: #000; /* Adjusted from #0E2A47 to match new header CSS */
+      text-decoration: none;
+      padding: 5px 0; /* Adjusted to match new header CSS */
+      transition: color 0.3s ease; /* Adjusted to match new header CSS */
+    }
+
+    nav a:hover {
+      color: #007bff; /* Adjusted to match new header CSS */
+    }
+
+    .login-btn,
+    .contact {
+      background-color: #002a5c;
+      color: #fff;
+      padding: 10px 18px; /* Adjusted to match new header CSS */
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out; /* Adjusted to match new header CSS */
+      cursor: pointer; /* Added from new header CSS */
+    }
+
+    .login-btn:hover,
+    .contact:hover {
+      background-color: #003f8c; /* Added from new header CSS */
+      transform: translateY(-1px); /* Added from new header CSS */
+    }
+
+    .contact img {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 30px; /* Adjusted from 230% to match new header CSS and better positioning */
+      left: 0;
+      background-color: #ffffff; /* Adjusted from white to match new header CSS */
+      padding: 10px 0;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adjusted from 0 2px 8px rgba(0,0,0,0.2) to match new header CSS */
+      z-index: 99; /* Adjusted from 100 to match new header CSS */
+      min-width: 200px; /* Adjusted from 300px to match new header CSS */
+    }
+
+    .dropdown-menu li {
+      padding: 8px 20px; /* Added from new header CSS */
+    }
+
+    .dropdown-menu li a {
+      color: #333; /* Added from new header CSS */
+      font-size: 14px; /* Added from new header CSS */
+      font-weight: 500; /* Adjusted from 500px to 500 */
+    }
+
+    .dropdown-menu li a:hover {
+      color: #007bff; /* Added from new header CSS */
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 40px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      margin-left: 200px;
+      color: #004a99;
+      max-width: 620px;
+      margin-top: 100px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      margin-top: -30px;
+    }
+
+    .hero-content p {
+      font-size: 1.9rem;
+      color: #0e3258;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .app-buttons a img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .hero-image img {
+      max-width: 900px;
+      height: 500px;
+      margin-top: -450px;
+      margin-left: 800px;
+    }
+
+    .centered-heading {
+      font-size: 30px;
+      font-weight: 600;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .store-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .store-badge {
+      height: 50px;
+      cursor: pointer;
+    }
+
+    /* Subscription Cards */
+    .card-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 100px;
+      padding: 40px;
+      perspective: 1000px;
+      margin-bottom: 120px;
+    }
+
+    .wrapper {
+      position: relative;
+      perspective: 40em;
+      display: grid;
+      transform-style: preserve-3d;
+    }
+
+    .wrapper:before {
+      --bw: 9px;
+      content: '';
+      grid-area: 1 / 1;
+      background: transparent;
+      transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
+      pointer-events: none;
+      border: var(--bw) solid #000;
+      transition: .3s transform cubic-bezier(.25,.46,.45,1);
+    }
+
+    .wrapper:hover > div,
+    .wrapper:hover:before {
+      transform: none;
+    }
+
+    .card {
+      grid-area: 1 / 1;
+      width: 300px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 12px;
+      padding: 25px 20px;
+      color: #000;
+      font-size: 16px;
+      box-shadow: 0 10px 30px -3px rgba(0,0,0,.1);
+      transition: .3s transform cubic-bezier(.25,.46,.45,1);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      color: #374151;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 15px;
+      padding-left: 0;
+    }
+
+    .features li {
+      margin: 6px 0;
+      font-size: 0.9rem;
+    }
+
+    .features .disabled {
+      color: #9ca3af;
+      text-decoration: line-through;
+    }
+
+    .subscribe-btn {
+      background-color: #10b981;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    .subscribe-btn:hover {
+      background-color: #059669;
+    }
+
+    .basic-plan {
+      border-left: 4px solid #10b981;
+    }
+
+    .pro-plan {
+      border-left: 4px solid #facc15;
+    }
+
+    .premium-plan {
+      border-left: 4px solid #3b82f6;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: white;
+      color: #555;
+    }
+
+    .footer-columns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 80px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column {
+      min-width: 180px;
+      text-align: left;
+    }
+
+    .footer-column h4 {
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: #7b7a7a;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column a {
+      text-decoration: none;
+      color: #7c8694;
+      font-size: 14px;
+    }
+
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px auto;
+    }
+
+    .footer-logo img {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    .call-button {
+      background-color: #0d274d;
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <div class="logo">
+        <img src="image-removebg-preview (8).png" alt="Petzz Logo" class="logo-img">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../home-visit/home.html">Home Visit</a></li>
+          <li><a href="/main page/p.html">Multi-vet Clinic</a></li>
+          <li class="dropdown">
+            <a href="#" id="services-btn">Services ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="/preventive-care/preventive-care.html">Preventive Care</a></li>
+              <li><a href="/vac/vac-d.html">Vaccination and Deworming</a></li>
+              <li><a href="/surgery/sur.html">Surgery</a></li>
+              <li><a href="/groom/groom.html">Grooming</a></li>
+              <li><a href="#">Package</a></li>
+            </ul>
+          </li>
+          <li><a href="../pet/our vets/index.html">Our Vets</a></li>
+          <li><a href="#" class="login-btn">Doctor Login</a></li>
+          <li><span class="contact"><img src="icons8-headphones-32.png" alt="call"> +91-9620103670</span></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="animate-charcter" style="background: -webkit-linear-gradient(#e9e0ff, #9f6bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;">The package plan is clear and user-friendly, offering tiered options that grow with customer needs. Visually appealing and easy to compare — a smart way to boost engagement and conversions</h1>
+
+
+      <div class="hero-image">
+        <img src="image-removebg-preview (12).png" alt="Pet Image">
+      </div>
+    </div>
+  </section>
+
+
+
+  <div class="card-row">
+    <div class="wrapper">
+      <div class="card basic-plan">
+        <h3>🟢 Basic Plan</h3>
+        <p class="price">₹0/month</p>
+        <p class="description">Ideal for individual vets testing the platform.</p>
+        <ul class="features">
+          <li>✔️ Featured in <strong>"Nearby Vets"</strong></li>
+          <li>✔️ Basic appointment scheduling</li>
+          <li>✔️ View dashboard for upcoming visits</li>
+          <li class="disabled">❌ No video consultations</li>
+          <li class="disabled">❌ Medical record uploads not available</li>
+          <li class="disabled">❌ No alerts or reminders</li>
+          <li class="disabled">❌ No badge/profile boost</li>
+        </ul>
+        <button class="subscribe-btn">Get Started</button>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="card pro-plan">
+        <h3>🟡 Pro Plan</h3>
+        <p class="price">₹499/month</p>
+        <p class="description">For full-time vets who want powerful tools.</p>
+        <ul class="features">
+          <li>✅ All Basic Plan features included</li>
+          <li>✔️ Integrated video consultations</li>
+          <li>✔️ Upload &amp; view medical records</li>
+          <li>✔️ Full appointment dashboard</li>
+          <li>✔️ Custom precaution notes</li>
+          <li>✔️ SMS/email alerts &amp; reminders</li>
+          <li>✔️ Vet specialization tags</li>
+        </ul>
+        <button class="subscribe-btn">Upgrade to Pro</button>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="card premium-plan">
+        <h3>🔵 Clinic Premium</h3>
+        <p class="price">₹1,499/month</p>
+        <p class="description">For multi-vet clinics and hospitals.</p>
+        <ul class="features">
+          <li>✅ All Pro Plan features included</li>
+          <li>✔️ Team-based multi-vet profiles</li>
+          <li>✔️ Central clinic dashboard</li>
+          <li>✔️ Priority search listing</li>
+          <li>✔️ Early access to beta features</li>
+          <li>✔️ Premium support access</li>
+        </ul>
+        <button class="subscribe-btn">Go Premium</button>
+      </div>
+    </div>
+  </div>
+<div style="background-color: white; padding-top: 20px; padding-bottom: 40px;">
+  <h3 class="centered-heading">Download Our Mobile App to Book a Consultation</h3>
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/" target="_blank">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="store-badge">
+    </a>
+    <a href="https://play.google.com/store" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="store-badge">
+    </a>
+  </div>
+</div>
+
+  <footer class="footer" style="background-color: white; margin-top: -30px;">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Doctor Login</a></li>
+          <li><a href="#">Our Vetz</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Terms Of Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Preventive Care</a></li>
+          <li><a href="#">Grooming</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Help Center</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="https://petzz.org/static/petzz/images/new_logo.jpg" alt="Petzz Logo">
+      <p>© 2017 Activx Animal Health Technologies Pvt Ltd</p>
+      <a href="tel:+919620103670" class="call-button">
+        <span>📞</span> +91 96201 03670
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

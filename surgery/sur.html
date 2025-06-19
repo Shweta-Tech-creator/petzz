@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Petzz Header</title>
+  <style>
+    /* === RESET === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background-color: #cdedff;
+    }
+
+    /* === HEADER === */
+    header {
+      width: 100%;
+      height: 92px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      background: linear-gradient(90deg, #6bc1ff, #ffffff);
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      width: 120px;
+      max-height: 100px;
+      object-fit: contain;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      text-decoration: none;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    .login-btn,
+    .contact {
+      background-color: #002a5c;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+      cursor: pointer;
+    }
+
+    .login-btn:hover,
+    .contact:hover {
+      background-color: #003f8c;
+      transform: translateY(-1px);
+    }
+
+    .contact img {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: #ffffff;
+      padding: 10px 0;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+      min-width: 200px;
+    }
+
+    .dropdown-menu li {
+      padding: 8px 20px;
+    }
+
+    .dropdown-menu li a {
+      color: #333;
+      font-size: 14px;
+      font-weight: 500px;
+    }
+
+    .dropdown-menu li a:hover {
+      color: #007bff;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .hero {
+      padding: 80px 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+       
+    .hero h1{
+       font-size: 50px;
+       font-weight: 600;
+
+background: -webkit-linear-gradient(#9ae1ff, #227eff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+       
+    }
+      
+        .hero-image img {
+          max-height: 500px;
+          width: 300px;
+          margin-left: 200px;
+          margin-top: -70px;
+        }
+
+        .animate-charcter {
+          font-size: 32px;
+          font-weight: 800;
+          color: #0e2a47;
+          margin-bottom: 10px;
+        }
+        .area {
+          background: linear-gradient(to left, #8f94fb, #4e54c8);
+          width: 100%;
+          min-height: 50vh;
+          position: relative;
+          overflow: hidden;
+          z-index: 0;
+        }
+        
+        .circles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: -1;
+        }
+        
+        .circles li {
+          position: absolute;
+          display: block;
+          list-style: none;
+          width: 20px;
+          height: 20px;
+          background: rgba(255, 255, 255, 0.15);
+          animation: animate 25s linear infinite;
+          bottom: -150px;
+          border-radius: 50%;
+        }
+        
+        .circles li:nth-child(1) {
+          left: 25%;
+          width: 80px;
+          height: 80px;
+          animation-delay: 0s;
+        }
+        
+        .circles li:nth-child(2) {
+          left: 10%;
+          width: 20px;
+          height: 20px;
+          animation-delay: 2s;
+          animation-duration: 12s;
+        }
+        
+        .circles li:nth-child(3) {
+          left: 70%;
+          width: 20px;
+          height: 20px;
+          animation-delay: 4s;
+        }
+        
+        .circles li:nth-child(4) {
+          left: 40%;
+          width: 60px;
+          height: 60px;
+          animation-delay: 0s;
+          animation-duration: 18s;
+        }
+        
+        .circles li:nth-child(5) {
+          left: 65%;
+          width: 20px;
+          height: 20px;
+          animation-delay: 0s;
+        }
+        
+        .circles li:nth-child(6) {
+          left: 75%;
+          width: 110px;
+          height: 110px;
+          animation-delay: 3s;
+        }
+        
+        .circles li:nth-child(7) {
+          left: 35%;
+          width: 150px;
+          height: 150px;
+          animation-delay: 7s;
+        }
+        
+        .circles li:nth-child(8) {
+          left: 50%;
+          width: 25px;
+          height: 25px;
+          animation-delay: 15s;
+          animation-duration: 45s;
+        }
+        
+        .circles li:nth-child(9) {
+          left: 20%;
+          width: 15px;
+          height: 15px;
+          animation-delay: 2s;
+          animation-duration: 35s;
+        }
+        
+        .circles li:nth-child(10) {
+          left: 85%;
+          width: 150px;
+          height: 150px;
+          animation-delay: 0s;
+          animation-duration: 11s;
+        }
+        
+        @keyframes animate {
+          0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+            border-radius: 0;
+          }
+        
+          100% {
+            transform: translateY(-1000px) rotate(720deg);
+            opacity: 0;
+            border-radius: 50%;
+          }
+        }
+        .slider-thumb {
+          position: relative;
+          width: fit-content;
+          margin-left: 1000px;
+          margin-top: -350px;
+        }
+        
+        .slider-thumb::before {
+          position: absolute;
+          content: "";
+          left: 30%;
+          top: 20%;
+          width: 450px;
+          height: 450px;
+          background: #17141d;
+          border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
+          will-change: border-radius, transform, opacity;
+          animation: sliderShape 5s linear infinite;
+          display: block;
+          z-index: -1;
+        }
+        
+        @keyframes sliderShape {
+          0%, 100% {
+            border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+            transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+          }
+          34% {
+            border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+            transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+          }
+          50% {
+            transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+          }
+          67% {
+            border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+            transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+          }
+        }
+
+
+
+
+
+        .benefits-section {
+          position: relative;
+          padding: 80px 20px;
+          background: linear-gradient(to bottom, #eaf6ff, #f0f6fc);
+          overflow: hidden;
+          color: #0E2A47;
+          text-align: center;
+        }
+        
+        .benefits-section .content {
+          position: relative;
+          z-index: 2;
+        }
+        
+        .benefits-section .wave {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          z-index: 1;
+        }
+        
+        .benefits-section h2 {
+          font-size: 36px;
+          font-weight: 700;
+          margin-bottom: 15px;
+        }
+        
+        .benefits-section .underline {
+          width: 50px;
+          height: 4px;
+          background-color: #0E2A47;
+          margin: 15px auto 30px;
+        }
+        
+        .benefit-boxes {
+          display: flex;
+          justify-content: center;
+          gap: 100px;
+          flex-wrap: wrap;
+          padding-top: 30px;
+        }
+        
+        .benefit-boxes .box {
+          max-width: 250px;
+        }
+        
+        .benefit-boxes .box img {
+          height: 90px;
+          margin-bottom: 20px;
+        }
+        
+        .benefit-boxes .box h4 {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 8px;
+        }
+        
+        .benefit-boxes .box p {
+          font-size: 16px;
+          color: #444;
+        }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="left-header">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="image-removebg-preview (8).png" alt="Petzz Logo">
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <ul style="margin-right: 600px;">
+        <li><a href="../home-visit/home.html">Home Visit</a></li>
+        <li><a href="/main page/p.html">Multi-vet Clinic</a></li>
+        <li class="dropdown">
+          <a href="#" id="services-btn">Services ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="../preventive-care/preventive-care.html">Preventive Care</a></li>
+            <li><a href="../vac/vac-d.html">Vaccination & Deworming</a></li>
+            <li><a href="#">Surgery</a></li>
+            <li><a href="/groom/groom.html">Grooming</a></li>
+            <li><a href="/package/package.html">Package</a></li>
+          </ul>
+        </li>
+        <li><a href="../pet/our vets/index.html">Our Vets</a></li>
+        <li><a href="#" class="login-btn">Doctor Login</a></li>
+        <li><span class="contact"><img src="icons8-headphones-32.png" alt="call"> +91-9620103670</span></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section class="hero"> <div class="hero-content"> 
+    <h1 class="animate-charcter">Every heartbeat you save in silence speaks volumes of your compassion. In your hands lies the trust of those who can't speak</h1>
+
+ 
+    <div class="slider-thumb">
+        <div class="hero-image">
+          <img src="image-removebg-preview (11).png" alt="Pet Image">
+        </div>
+      </div>
+       </section>
+
+<!-- Bubble animation background -->
+<!-- <ul class="circles">
+  <li></li><li></li><li></li><li></li><li></li>
+  <li></li><li></li><li></li><li></li><li></li>
+</ul>
+</div> -->
+
+<!-- Petzz Surgical Services Section -->
+<!-- Petzz Surgical Services Section (with updated background) -->
+<div class="section" style="text-align: center; padding: 60px 20px; color: #0E2A47;">
+<h2 style="font-size: 36px; font-weight: 700; margin: 50px 0 15px;">
+Do you know that the Petzz network also includes expert Surgeons?
+</h2>
+<div class="underline" style="width: 50px; height: 4px; background-color: #0E2A47; margin: 15px auto 30px;"></div>
+<p style="max-width: 800px; margin: 0 auto 40px; font-size: 18px; line-height: 1.8;">
+At Petzz we intend to take care of all aspects of your pet's health, even the most delicate and
+critical health conditions. Hence we have expert clinics and renowned surgeons to provide your
+pet with the right kind of treatment always.
+</p>
+</div>
+
+
+
+<section class="benefits-section">
+<div class="content">
+<h2>Benefits We Provide</h2>
+<div class="underline"></div>
+<div class="benefit-boxes">
+<div class="box">
+  <img src="https://petzz.org/static/petzz/images/icons/clinic.png" alt="Expert Clinics" />
+  <h4>Expert Clinics</h4>
+  <p>Carefully selected clinics with the right infrastructure for surgical care</p>
+</div>
+<div class="box">
+  <img src="https://petzz.org/static/petzz/images/icons/surgeon.png" alt="Expert Surgeons" />
+  <h4>Expert Surgeons</h4>
+  <p>Expert surgeons with specific surgical expertise</p>
+</div>
+<div class="box">
+  <img src="https://petzz.org/static/petzz/images/icons/care.png" alt="Comprehensive Care" />
+  <h4>Comprehensive Care</h4>
+  <p>The right combination of in-clinic and in-house service</p>
+</div>
+</div>
+</div>
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+<path fill="#cce6ff" fill-opacity="1"
+d="M0,160L30,144C60,128,120,96,180,112C240,128,300,192,360,186.7C420,181,480,107,540,85.3C600,64,660,96,720,122.7C780,149,840,171,900,181.3C960,192,1020,192,1080,165.3C1140,139,1200,85,1260,80C1320,75,1380,117,1410,138.7L1440,160L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+<animate attributeName="d" dur="10s" repeatCount="indefinite"
+  values="M0,160L30,144C60,128,120,96,180,112C240,128,300,192,360,186.7C420,181,480,107,540,85.3C600,64,660,96,720,122.7C780,149,840,171,900,181.3C960,192,1020,192,1080,165.3C1140,139,1200,85,1260,80C1320,75,1380,117,1410,138.7L1440,160L1440,320L0,320Z;
+          
+          M0,192L30,165.3C60,139,120,85,180,96C240,107,300,181,360,170.7C420,160,480,64,540,69.3C600,75,660,181,720,192C780,203,840,117,900,106.7C960,96,1020,160,1080,176C1140,192,1200,160,1260,138.7C1320,117,1380,107,1410,101.3L1440,96L1440,320L0,320Z;
+          
+          M0,160L30,144C60,128,120,96,180,112C240,128,300,192,360,186.7C420,181,480,107,540,85.3C600,64,660,96,720,122.7C780,149,840,171,900,181.3C960,192,1020,192,1080,165.3C1140,139,1200,85,1260,80C1320,75,1380,117,1410,138.7L1440,160L1440,320L0,320Z" />
+</path>
+</svg>
+</section>
+
+
+<!-- Surgeries Section -->
+<div class="section" style="text-align: center; padding: 60px 20px;  color: #0E2A47;">
+<h2 style="font-size: 36px; font-weight: 700; margin: 50px 0 15px;">Common Surgical Interventions Include</h2>
+<div class="underline" style="width: 50px; height: 4px; background-color: #0E2A47; margin: 15px auto 30px;"></div>
+<div style="display: flex; justify-content: center; gap: 120px; margin-top: 50px; flex-wrap: wrap;">
+<div style="max-width: 300px;">
+<img src="https://petzz.org/static/petzz/images/icons/tissues.png" alt="Soft Tissue Surgery" style="height: 90px; margin-bottom: 15px;">
+<h4 style="font-size: 22px; font-weight: 700; margin-bottom: 10px;">Soft Tissue Surgery</h4>
+<p style="font-size: 17px; color: #333;">Pet Spay/Neutering, Oral Haematoma, Tumor Excision, Herniorrhaphy etc</p>
+</div>
+<div style="max-width: 300px;">
+<img src="https://petzz.org/static/petzz/images/icons/orthopedics.png" alt="Orthopedic Surgery" style="height: 90px; margin-bottom: 15px;">
+<h4 style="font-size: 22px; font-weight: 700; margin-bottom: 10px;">Orthopedic Surgery</h4>
+<p style="font-size: 17px; color: #333;">Dental Scaling, Pinning etc</p>
+</div>
+</div>
+<p style="font-size: 15px; color: #333; margin: 30px 0 20px;">*and other procedures depending on the condition of the pet and Doctor's prescription</p>
+<button style="background-color: #0E2A47; color: white; padding: 14px 30px; border-radius: 10px; font-size: 17px; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#143a63'" onmouseout="this.style.backgroundColor='#0E2A47'">
+Call 📞 +91 96201 03670 To know more
+</button>
+</div>
+
+
+</body>
+</html>

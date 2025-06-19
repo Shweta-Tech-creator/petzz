@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Onboarding</title>
+  <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #0a0746, #c3c0ff);
+        color: #1a237e;
+      }
+      
+      /* Container */
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        max-width: 1100px;
+        height: 90vh;
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+      }
+      
+      .container:hover {
+        transform: scale(1.005);
+      }
+      
+      /* Sidebar */
+      .sidebar {
+        width: 35%;
+        background: linear-gradient(135deg, #1a237e, #283593);
+        color: #fff;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      
+      .sidebar h2 {
+        margin-bottom: 20px;
+        font-size: 26px;
+        font-weight: 700;
+      }
+      
+      .steps {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .step {
+        padding: 12px 0;
+        border-left: 4px solid transparent;
+        cursor: pointer;
+        opacity: 0.6;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      
+      .step:hover {
+        opacity: 1;
+        padding-left: 8px;
+      }
+      
+      .step.active {
+        border-color: #ffccbc;
+        opacity: 1;
+        font-weight: bold;
+      }
+      
+      .step.active::before {
+
+        position: absolute;
+        left: -20px;
+        color: #ffc107;
+      }
+      
+      /* Sidebar Image */
+      .dog-img {
+        max-width: 100%;
+        border-radius: 50%;
+        box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease;
+      }
+      
+      .dog-img:hover {
+        transform: scale(1.05);
+      }
+      
+      .save-exit {
+        margin-top: 20px;
+        color: #cfd8dc;
+        text-decoration: underline;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+      
+      .save-exit:hover {
+        color: #ffffff;
+      }
+      
+      /* Form Area */
+      .form-area {
+        width: 65%;
+        padding: 40px;
+        background: #ffffff;
+        overflow-y: auto;
+        transition: background 0.3s;
+      }
+      
+      .form-step {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        animation: fadeIn 0.4s ease-in-out;
+      }
+      
+      .form-step.active {
+        display: flex;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      /* Inputs */
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      textarea,
+      select {
+        padding: 12px;
+        font-size: 16px;
+        width: 100%;
+        border: 1px solid #cfd8dc;
+        border-radius: 10px;
+        transition: border 0.3s, box-shadow 0.3s;
+        background: #f9fbff;
+        color: #1a237e;
+      }
+      
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: #3f51b5;
+        box-shadow: 0 0 8px rgba(63, 81, 181, 0.3);
+      }
+      
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      
+      /* Two-column layout */
+      .two-col {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      
+      /* Navigation Buttons */
+      .form-nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+      
+      #prevBtn,
+      #nextBtn {
+        padding: 12px 28px;
+        font-size: 16px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      #prevBtn {
+        background: transparent;
+        color: #1a237e;
+        border: 2px solid #1a237e;
+      }
+      
+      #prevBtn:hover {
+        background: #e3f2fd;
+        box-shadow: 0 0 10px rgba(26, 35, 126, 0.2);
+      }
+      
+      #nextBtn {
+        background: linear-gradient(90deg, #1a237e, #283593);
+        color: white;
+        border: none;
+      }
+      
+      #nextBtn:hover {
+        background: #3f51b5;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(26, 35, 126, 0.3);
+      }
+      
+      /* Confirmation */
+      .confirmation-box {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #cfd8dc;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+      
+      .confirmation-box:hover {
+        box-shadow: 0 0 12px rgba(63, 81, 181, 0.1);
+      }
+      
+      .confirmation-box p {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #1a237e;
+      }
+      
+      /* Final Confirm Button */
+      #confirmBtn {
+        padding: 12px 28px;
+        background: #1a237e;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+      }
+      
+      #confirmBtn:hover {
+        background: #3949ab;
+        transform: scale(1.05);
+        box-shadow: 0 8px 18px rgba(26, 35, 126, 0.2);
+      }
+      
+      
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2>🐾 PETZZ</h2>
+      <ul class="steps">
+        <li class="step active" data-step="1">Human profile</li>
+        <li class="step" data-step="2">Pet basics</li>
+        <li class="step" data-step="3">Pet details</li>
+        <li class="step" data-step="4">Confirm</li>
+      </ul>
+      <img src="https://cdn.outsideonline.com/wp-content/uploads/2023/03/Funny_Dog_S.jpg" alt="dog" class="dog-img">
+      <a href="index.html" class="save-exit">Save and exit</a>
+    </div>
+    <div class="form-area">
+      <form id="onboarding-form">
+        <div class="form-step active" id="step-1">
+          <h2>Tell us about yourself</h2>
+          <input type="text" name="humanName" placeholder="Your Name">
+          <input type="email" name="humanEmail" placeholder="Your Email">
+          <input type="tel" name="humanPhone" placeholder="Phone Number">
+          <textarea name="humanAddress" placeholder="Address"></textarea>
+        </div>
+        <div class="form-step" id="step-2">
+          <h2>Pet Basics</h2>
+          <input type="text" name="petName" placeholder="Pet's name">
+          <input type="date" name="petBirthday" placeholder="Birthday">
+          <input type="text" name="petBreed" placeholder="Pet's breed">
+          <input type="text" name="petSpecies" placeholder="Species (Dog/Cat/etc)">
+          <input type="text" name="petAge" placeholder="Pet's age">
+          <input type="text" name="petWeight" placeholder="Weight (e.g., 25 lbs)">
+          <div class="two-col">
+            <select name="petGender">
+              <option>Female</option>
+              <option>Male</option>
+            </select>
+            <select name="petNeutered">
+              <option>Spayed/Neutered</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-step" id="step-3">
+          <h2>Pet Details</h2>
+          <textarea name="allergies" placeholder="Allergies..."></textarea>
+          <textarea name="medication" placeholder="Medication history..."></textarea>
+          <textarea name="vaccination" placeholder="Vaccination history..."></textarea>
+        </div>
+        <div class="form-step" id="step-4">
+          <h2>Confirm Your Information</h2>
+          <div id="confirmation-summary" class="confirmation-box"></div>
+          <button type="button" id="confirmBtn">Confirm & Save</button>
+        </div>
+        <div class="form-nav">
+          <button type="button" id="prevBtn">Back</button>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    let currentStep = 1;
+    const steps = document.querySelectorAll('.step');
+    const formSteps = document.querySelectorAll('.form-step');
+
+    const updateForm = () => {
+      formSteps.forEach((step, i) => {
+        step.classList.toggle('active', i === currentStep - 1);
+      });
+      steps.forEach((step, i) => {
+        step.classList.toggle('active', i === currentStep - 1);
+      });
+
+       // Hide "Next" button on step 4
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.style.display = currentStep === 4 ? 'none' : 'inline-block';
+
+      if (currentStep === 4) fillConfirmation();
+    };
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentStep < 4) currentStep++;
+      updateForm();
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentStep > 1) currentStep--;
+      updateForm();
+    });
+
+    steps.forEach((step, index) => {
+      step.addEventListener('click', () => {
+        currentStep = index + 1;
+        updateForm();
+      });
+    });
+
+    const fillConfirmation = () => {
+      const form = document.forms['onboarding-form'];
+      document.getElementById('confirmation-summary').innerHTML = `
+        <p><strong>Name:</strong> ${form.humanName.value}</p>
+        <p><strong>Email:</strong> ${form.humanEmail.value}</p>
+        <p><strong>Phone:</strong> ${form.humanPhone.value}</p>
+        <p><strong>Address:</strong> ${form.humanAddress.value}</p>
+        <p><strong>Pet Name:</strong> ${form.petName.value}</p>
+        <p><strong>Birthday:</strong> ${form.petBirthday.value}</p>
+        <p><strong>Breed:</strong> ${form.petBreed.value}</p>
+        <p><strong>Species:</strong> ${form.petSpecies.value}</p>
+        <p><strong>Age:</strong> ${form.petAge.value}</p>
+        <p><strong>Weight:</strong> ${form.petWeight.value}</p>
+        <p><strong>Gender:</strong> ${form.petGender.value}</p>
+        <p><strong>Spayed/Neutered:</strong> ${form.petNeutered.value}</p>
+        <p><strong>Allergies:</strong> ${form.allergies.value}</p>
+        <p><strong>Medication:</strong> ${form.medication.value}</p>
+        <p><strong>Vaccination:</strong> ${form.vaccination.value}</p>
+      `;
+    };
+
+    document.getElementById('confirmBtn').addEventListener('click', () => {
+      alert("✅ Your data has been saved successfully!");
+      // Here you can add code to send form data to backend or save to localStorage
+    });
+
+    updateForm();
+  </script>
+</body>
+</html>

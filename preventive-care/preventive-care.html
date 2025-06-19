@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petzz Healthcare</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background: rgba(164, 202, 255, 0.995);
+    }
+    header {
+      width: 100%;
+      height: 92px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      background: linear-gradient(90deg, #6bc1ff, #ffffff);
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      margin-right: 150px;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .logo img {
+      width: 120px;
+      max-height: 100px;
+      object-fit: contain;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      text-decoration: none;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    .login-btn,
+    .contact {
+      background-color: #002a5c;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+      cursor: pointer;
+    }
+
+    .login-btn:hover,
+    .contact:hover {
+      background-color: #003f8c;
+      transform: translateY(-1px);
+    }
+
+    .contact img {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: #ffffff;
+      padding: 10px 0;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+      min-width: 200px;
+    }
+
+    .dropdown-menu li {
+      padding: 8px 20px;
+    }
+
+    .dropdown-menu li a {
+      color: #333;
+      font-size: 14px;
+      font-weight: 500px;
+    }
+
+    .dropdown-menu li a:hover {
+      color: #007bff;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .hero {
+      background: url('dog3.jpg') no-repeat;
+      background-size: cover;
+      height: 550px;
+      display: flex;
+      align-items: center;
+      padding: 0 30px;
+    }
+    .hero-content {
+      margin-left: 200px;
+      color: #0E2A47;
+      max-width: 620px;
+      margin-top: -130px;
+    }
+    .hero h1 {
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 2.3rem;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: #0E2A47;
+    }
+    .app-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .app-buttons a img {
+      height: 60px;
+      cursor: pointer;
+    }
+    .app-buttons a:nth-child(1) img,
+    .app-buttons a:nth-child(2) img {
+      width: 180px;
+    }
+
+    /* === HEALTHCARE SECTION === */
+.healthcare-section {
+    text-align: center;
+    padding: 60px 20px;
+  
+    color: #0E2A47;
+    border-top: 1px solid #c0e0ff;
+  }
+  .healthcare-section h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+  .healthcare-section p {
+    font-size: 1.15rem;
+    max-width: 750px;
+    margin: 0 auto 50px auto;
+    line-height: 1.7;
+    color: #2c3e50;
+  }
+  
+  /* === PACKAGE CARDS === */
+  .packages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  .package {
+    background:rgb(116, 162, 255);
+    padding: 35px 25px;
+    border-radius: 20px;
+    max-width: 320px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  .package:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+  .package img {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 5px solid #014c89;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  .package h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1f3a60;
+    margin-bottom: 20px;
+  }
+  .view-btn {
+    padding: 10px 22px;
+    background-color: #0E2A47;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .view-btn:hover {
+    background-color: #144f91;
+  }
+  
+  /* === APP DOWNLOAD SECTION === */
+  .centered-heading {
+    
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0E2A47;
+    text-align: center;
+    margin: 50px 0 20px 0;
+  }
+  .store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+  .store-badge {
+    height: 55px;
+    transition: transform 0.3s ease;
+  }
+  .store-badge:hover {
+    transform: scale(1.05);
+  }
+  
+  /* === FOOTER SECTION === */
+  .footer {
+    background: rgb(166, 219, 255);
+    padding: 60px 20px 30px;
+    color: #6c757d;
+    border-top: 1px solid #e0e0e0;
+  }
+  .footer-columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    margin-bottom: 40px;
+  }
+  .footer-column h4 {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    color: #334e68;
+  }
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-column li {
+    margin-bottom: 14px;
+  }
+  .footer-column a {
+    text-decoration: none;
+    color: #58687a;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+  .footer-column a:hover {
+    color: #0E2A47;
+  }
+  
+  .footer-logo {
+    text-align: center;
+  }
+  .footer-logo img {
+    height: 65px;
+    margin-bottom: 10px;
+  }
+  .footer-logo p {
+    font-size: 14px;
+    color: #999;
+    margin: 10px 0;
+  }
+  .call-button {
+    display: inline-block;
+    background-color: #0d274d;
+    color: #fff;
+    padding: 10px 24px;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+  }
+  .call-button:hover {
+    background-color: #123a6f;
+  }
+  
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="image-removebg-preview (8).png" alt="Petzz Logo">
+      </div>
+  
+      <!-- Navigation -->
+      <nav>
+        <ul style="margin-right: 600px;">
+          <li><a href="../home-visit/home.html">Home Visit</a></li>
+          <li><a href="/main page/p.html">Multi-vet Clinic</a></li>
+          <li class="dropdown">
+            <a href="#" id="services-btn">Services ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../preventive-care/preventive-care.html">Preventive Care</a></li>
+              <li><a href="../vac/vac-d.html">Vaccination & Deworming</a></li>
+              <li><a href="/surgery/sur.html">Surgery</a></li>
+              <li><a href="/groom/groom.html">Grooming</a></li>
+              <li><a href="/package/package.html">Package</a></li>
+            </ul>
+          </li>
+          <li><a href="../pet/our vets/index.html">Our Vets</a></li>
+          <li><a href="#" class="login-btn">Doctor Login</a></li>
+          <li><span class="contact"><img src="icons8-headphones-32.png" alt="call"> +91-9620103670</span></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Don't Let Your Pet Fall Sick</h1>
+      <p><strong>Your Pet Needs A Healthcare Plan Too</strong></p>
+      <div class="app-buttons">
+        <a href="https://apps.apple.com/" target="_blank">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+        </a>
+        <a href="https://play.google.com/store" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="healthcare-section">
+    <h2>Introducing Petzz Healthcare Packages</h2>
+    <p>We believe that every pet is special and hence we have instituted dedicated healthcare plans based on your pet's age and specie. These plans ensure our vets visit your pet regularly and your pet is healthy and happy</p>
+    <div class="packages">
+      <div class="package">
+        <img src="https://petzz.org/media/services/banner/cat_qDUXqrF.jpg" alt="Cat Package">
+        <h3>Preventive Care Packages for Cat</h3>
+        <button class="view-btn" onclick="window.location.href='cat-view(1).html'">❉ View</button>
+      </div>
+      <div class="package">
+        <img src="https://petzz.org/media/services/banner/dog_XDjNHvs.jpg" alt="Dog Package">
+        <h3>Preventive Care Packages for Dog</h3>
+        <button class="view-btn" onclick="window.location.href='dog-view(1).html'">❉ View</button>
+      </div>
+    </div>
+  </section>
+
+  <h3 class="centered-heading">Download Our Mobile App to Book a Consultation</h3>
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/" target="_blank">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="store-badge">
+    </a>
+    <a href="https://play.google.com/store" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="store-badge">
+    </a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Doctor Login</a></li>
+          <li><a href="#">Our Vetz</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Terms Of Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Preventive Care</a></li>
+          <li><a href="#">Grooming</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Help Center</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="https://petzz.org/static/petzz/images/new_logo.jpg" alt="Petzz Logo">
+      <p>©️ 2017 Activx Animal Health Technologies Pvt Ltd</p>
+      <a href="tel:+919620103670" class="call-button">
+        <span>📞</span> +91 96201 03670
+      </a>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const servicesBtn = document.getElementById('services-btn');
+      const dropdown = document.querySelector('.dropdown');
+  
+      servicesBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+  
+      // Optional: close dropdown when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!dropdown.contains(e.target) && e.target !== servicesBtn) {
+          dropdown.classList.remove('open');
+        }
+      });
+    });
+
+
+
+      document.querySelectorAll('.dropdown-menu li a').forEach(item => {
+        item.addEventListener('click', function () {
+          // Remove 'selected' from all items
+          document.querySelectorAll('.dropdown-menu li a').forEach(el => el.classList.remove('selected'));
+          // Add 'selected' to the clicked item
+          this.classList.add('selected');
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veterinary Medicine Doctors</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+    padding: 40px;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1400px; 
+    margin: auto;
+    padding: 20px;
+  }
+  
+  
+  .breadcrumb {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #004d40;
+  }
+  
+  .doctor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+  }
+  
+  
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    padding: 25px 20px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(0, 200, 83, 0.15));
+    transform: rotate(45deg);
+    z-index: 0;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .card:hover::before {
+    opacity: 1;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 4px solid #e0f7fa;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .card h3 {
+    font-size: 20px;
+    color: #00796b;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card p {
+    font-size: 14px;
+    margin: 8px 0 18px;
+    color: #666;
+    z-index: 1;
+    position: relative;
+  }
+  
+  /* Button Style */
+  .card button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .card button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+  }
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a> > <a href="#">Our Doctors</a> > <strong>Veterinary Medicine</strong>
+    </nav>
+
+    <h2 class="title">Veterinary Medicine Doctors</h2>
+
+    <div class="doctor-cards">
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/7b/4d/e0/7b4de0c0abc72eb7e2553e9773a94f29.jpg" alt="Doctor"/>
+        <h3>Dr. Ajit Gore</h3>
+        <p>B.V.Sc & A.H, 12+ years of experience</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/ea/54/72/ea547252e46ebd775eb8f478424f022f.jpg" alt="Doctor"/>
+        <h3>Dr. Sneha Kulkarni</h3>
+        <p>Veterinary Physician, 10+ years of experience</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/ac/82/ee/ac82ee9d88b3667a30c20f5d43b0cb32.jpg" alt="Doctor"/>
+        <h3>Dr. Arvind Patel</h3>
+        <p>SFocused on animal welfare advocacy and NGO support for 10 years.</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/d2/e1/71/d2e171c6d145cdbbdd9331066a90060c.jpg" alt="Doctor"/>
+        <h3>Dr. Bapat Dhananjay</h3>
+        <p>Senior Vet, 25+ years experience</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/ab/82/39/ab8239279c35b4802dc98fb789c1bfab.jpg" alt="Doctor"/>
+        <h3>Dr. Vinod Chavan</h3>
+        <p> 26 years in healthcare</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/81/a9/d6/81a9d66e131bec8c155a8a9484d9d6c4.jpg" alt="Doctor"/>
+        <h3>Dr. Parth Mahajan</h3>
+        <p>Specialist in reproductive health and pet breeding programs for 5 years.</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/a8/be/93/a8be93722e2af19ade1c91f950b23646.jpg" alt="Doctor"/>
+        <h3>Dr. Tanmay Kulkarni</h3>
+        <p> Certified in ultrasound diagnostics and imaging, with 6 years of experience.</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/49/f8/c2/49f8c2cf42f28dde4721838aa07edf0e.jpg" alt="Doctor"/>
+        <h3>Dr. Vikram Desai</h3>
+        <p>Leading veterinary nutritionist with 6 years of diet formulation for pets.</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/18/f9/28/18f9287a8f44146f0c43e2b2f7c1568a.jpg" alt="Doctor"/>
+        <h3>Dr. Rajat Verma </h3>
+        <p>Wildlife veterinarian with experience working in conservation parks and rescue missions for 11 years.</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/60/98/11/609811458921d4de83c38ff499bd5082.jpg" alt="Doctor"/>
+        <h3>Dr. Priya Nambiar </h3>
+        <p>Focuses on pet nutrition and wellness programs with 4 years of experience in urban clinics.</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/f9/17/0a/f9170aae6929fb26af41afd496e3d61b.jpg" alt="Doctor"/>
+        <h3>Dr. Rina Sharma</h3>
+        <p>5+ years of experience in treating domestic pets and small animals with a focus on preventive care.</p>
+        <button>Book Appointment</button>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/33/68/22/336822c32cd5f275307b133559801b48.jpg" alt="Doctor"/>
+        <h3>Dr. Aarti Shah</h3>
+        <p>Specializes in orthopedic surgeries for dogs and cats with over 8 years of clinical practice.</p>
+        <button>Book Appointment</button>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>

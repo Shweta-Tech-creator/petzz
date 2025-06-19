@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In - Doctor For Animals</title>
+  <style>
+
+    /* Import Google Fonts for a modern look */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+    
+    /* Custom Properties (CSS Variables) for a clean palette */
+    :root {
+        --primary-brand-color: #007bff; /* A vibrant blue */
+        --primary-brand-dark: #0056b3; /* Darker blue for hover */
+        --accent-color: #28a745; /* A success green */
+        --text-color-dark: #343a40; /* Dark charcoal for primary text */
+        --text-color-medium: #6c757d; /* Muted gray for secondary text */
+        --text-color-light: #adb5bd; /* Very light gray for subtle text */
+        --background-light: #f8f9fa; /* Off-white for general background */
+        --background-white: #ffffff; /* Pure white for elements */
+        --border-color-light: #e9ecef; /* Light gray for borders */
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08); /* Soft, subtle shadow */
+        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly more prominent */
+        --shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.12);
+        --border-radius-default: 6px; /* Slightly more rounded corners */
+    }
+    
+    /* Base Styles */
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Inter', sans-serif; /* Modern sans-serif font */
+        background-color: var(--background-light); /* Soft background */
+        margin: 0;
+        padding: 0;
+        line-height: 1.6; /* Improved readability */
+        color: var(--text-color-dark);
+    }
+    
+    /* Global Container for content (optional, but good for centering) */
+    .container {
+        max-width: 1200px; /* Standard max width */
+        margin: 0 auto;
+        padding: 0 20px; /* Horizontal padding */
+    }
+    
+    /* ======= Navbar ======= */
+    .navbar {
+       background-color: #d6eaff;
+        box-shadow: var(--shadow-light); /* Softer shadow */
+        padding: 15px 30px; /* Increased vertical padding for space */
+        position: sticky; /* Make it sticky */
+        top: 0;
+        z-index: 1000; /* Ensure it stays on top */
+    }
+    
+    .navbar-top {
+        display: flex;
+        justify-content: space-between; /* Pushes logo to left, nav-buttons to right */
+        align-items: center; /* Vertically center logo and buttons */
+        flex-wrap: wrap;
+        max-width: 1400px; /* Allow wider layout for top elements */
+        margin: 0 auto; /* Center the top content */
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px; /* Slightly more gap */
+        font-family: 'Roboto', sans-serif; /* Different font for logo for distinction */
+        font-weight: 700; /* Bolder logo text */
+        font-size: 24px; /* Larger logo text */
+        color: var(--primary-brand-color); /* Brand color for logo */
+        /* margin-left: 0; - Removed as justify-content: space-between handles positioning */
+    }
+    
+    .logo img {
+        height: 50px; /* Slightly smaller for balance */
+        border-radius: var(--border-radius-default); /* Optional: slight rounding for logo image */
+    }
+    
+    .nav-buttons {
+        display: flex;
+        flex-direction: row; /* Keep buttons in a row for top navbar */
+        align-items: center;
+        gap: 20px; /* Space between button group and cart */
+        /* Removed margin-left properties, justify-content on parent handles this */
+    }
+    
+    .button-group {
+        display: flex;
+        gap: 12px; /* Reduced gap between buttons for tighter grouping */
+    }
+    
+    .btn {
+        background-color: var(--primary-brand-color);
+        color: var(--background-white);
+        border: none;
+        padding: 10px 22px; /* Refined padding */
+        border-radius: var(--border-radius-default); /* Apply custom radius */
+        font-weight: 600;
+        font-size: 15px; /* Slightly smaller font for buttons */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+    }
+    
+    .btn:hover {
+        background-color: var(--primary-brand-dark);
+        transform: translateY(-1px); /* Slight lift on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    }
+    
+    .call-btn {
+        background-color: transparent;
+        color: var(--primary-brand-color);
+        border: 1px solid var(--primary-brand-color); /* Outline style */
+        padding: 9px 20px; /* Adjusted padding for outline */
+    }
+    
+    .call-btn:hover {
+        background-color: var(--primary-brand-color);
+        color: var(--background-white);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cart {
+        display: flex; /* Use flex for cart icon and count */
+        align-items: center;
+        gap: 5px; /* Space between icon and count */
+        color: var(--text-color-medium); /* Muted cart icon color */
+        font-size: 20px; /* Larger icon size */
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    
+    .cart:hover {
+        color: var(--primary-brand-color);
+    }
+    
+    .cart .count {
+        background: var(--primary-brand-color);
+        color: var(--background-white);
+        border-radius: 50%;
+        padding: 3px 7px; /* Slightly more prominent count badge */
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 1; /* Ensure text sits correctly */
+        display: inline-flex; /* Use inline-flex for vertical centering */
+        align-items: center;
+        justify-content: center;
+        min-width: 20px; /* Ensure circular shape for single/double digits */
+        min-height: 20px;
+    }
+    
+    /* Bottom Links Section (Directly below navbar-top, spanning full width) */
+    .bottom-links {
+        display: flex;
+        justify-content: flex-start; /* Align links to the left */
+        flex-wrap: wrap;
+        gap: 30px; /* Increased gap for more breathing room */
+        margin-top: 25px; /* Space from the top part of the navbar */
+        max-width: 1400px; /* Match navbar-top width */
+        margin-left: auto; /* Center with auto margins */
+        margin-right: auto;
+        padding: 0 30px; /* Match navbar padding */
+    }
+    
+    .bottom-links a {
+        font-size: 15px;
+        text-decoration: none;
+        color: var(--text-color-medium); /* Muted color for default state */
+        font-weight: 500; /* Less bold, more refined */
+        transition: color 0.3s ease, transform 0.2s ease;
+        padding: 5px 0; /* Add a little vertical padding for clickability */
+        position: relative; /* For underline effect */
+    }
+    
+    .bottom-links a:hover {
+        color: var(--primary-brand-color); /* Highlight on hover */
+        transform: translateY(-1px);
+    }
+    
+    .bottom-links a.active::after { /* Optional: add an active state visual */
+        content: '';
+        position: absolute;
+        bottom: -5px; /* Position below text */
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-brand-color);
+        border-radius: 2px;
+    }
+    
+    /* Main Navigation Links (If separate from bottom-links) */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 30px; /* Consistent spacing */
+        margin-top: 25px; /* Space from the section above */
+        max-width: 1400px; /* Match other sections */
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 30px; /* Consistent padding */
+    }
+    
+    nav a {
+        color: var(--text-color-medium);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+        transition: color 0.3s ease, transform 0.2s ease;
+        padding: 5px 0;
+        position: relative;
+    }
+    
+    nav a:hover {
+        color: var(--primary-brand-color);
+        transform: translateY(-1px);
+    }
+    
+    nav a.active { /* Example active state for main nav links */
+        color: var(--primary-brand-color);
+        font-weight: 600;
+    }
+    
+    nav a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-brand-color);
+        border-radius: 2px;
+    }
+    
+    
+    /* --- Responsive Adjustments (Enhanced) --- */
+    @media (max-width: 1200px) {
+        .navbar-top,
+        .bottom-links,
+        nav {
+            padding: 0 25px; /* Slightly less padding for smaller desktops */
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .navbar {
+            padding: 15px 20px; /* Adjust padding for tablets */
+        }
+    
+        .navbar-top {
+            flex-direction: column; /* Stack logo/buttons vertically */
+            align-items: center; /* Center them when stacked */
+            gap: 20px; /* Space between stacked elements */
+        }
+    
+        .logo {
+            /* margin-left: 0; - Already removed in main styles */
+            font-size: 22px; /* Slightly smaller logo text */
+        }
+    
+        .logo img {
+            height: 45px; /* Smaller logo image */
+        }
+    
+        .nav-buttons {
+            flex-direction: column; /* Stack buttons vertically */
+            gap: 15px;
+        }
+    
+        .button-group {
+            width: 100%; /* Make buttons take full width if stacked */
+            justify-content: center; /* Center buttons within their group */
+            gap: 10px;
+        }
+    
+        .btn {
+            width: auto; /* Allow buttons to size based on content */
+            max-width: 160px; /* Limit button width if needed */
+            font-size: 14px;
+            padding: 9px 18px;
+        }
+    
+        .bottom-links,
+        nav {
+            justify-content: center; /* Center the links when wrapped */
+            padding: 0 20px; /* Adjust padding */
+            text-align: center;
+            margin-top: 20px; /* Adjust top margin for better spacing */
+            gap: 20px; /* Reduce gap between wrapped links */
+        }
+    
+        .bottom-links a,
+        nav a {
+            font-size: 14px; /* Smaller font for links */
+            padding: 4px 0;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 10px 15px; /* Further reduced padding for smaller screens */
+        }
+    
+        .logo {
+            font-size: 20px;
+        }
+    
+        .logo img {
+            height: 40px;
+        }
+    
+        .nav-buttons {
+            gap: 10px;
+        }
+    
+        .button-group {
+            gap: 8px;
+        }
+    
+        .btn {
+            padding: 8px 15px;
+            font-size: 13px;
+        }
+    
+        .bottom-links,
+        nav {
+            flex-direction: column; /* Stack all links vertically on mobile */
+            gap: 10px; /* Reduced gap between stacked links */
+            margin-top: 15px;
+        }
+    
+        .bottom-links a,
+        nav a {
+            font-size: 13px; /* Smaller font size for links */
+            padding: 5px 0;
+            width: fit-content; /* Allow links to hug content if text-align is center */
+            margin: 0 auto; /* Center individual links */
+        }
+    
+        .bottom-links a.active::after,
+        nav a.active::after {
+            width: 50%; /* Shorter underline for stacked links */
+            left: 25%; /* Center underline */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .navbar-top {
+            gap: 15px; /* Slightly less gap */
+        }
+        .logo {
+            font-size: 18px;
+        }
+        .logo img {
+            height: 35px;
+        }
+        .btn {
+            padding: 7px 12px;
+            font-size: 12px;
+        }
+        .cart {
+            font-size: 18px;
+        }
+        .cart .count {
+            padding: 2px 6px;
+            font-size: 10px;
+            min-width: 18px;
+            min-height: 18px;
+        }
+        .bottom-links,
+        nav {
+            gap: 8px;
+        }
+        .bottom-links a,
+        nav a {
+            font-size: 12px;
+        }
+    }
+    
+    
+
+    /* ======= Login Page ======= */
+/* Import Google Fonts for a modern look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+/* Custom Properties (CSS Variables) for a clean palette */
+:root {
+    --primary-brand-color: #007bff; /* A vibrant blue */
+    --primary-brand-dark: #0056b3; /* Darker blue for hover */
+    --accent-color: #28a745; /* A success green */
+
+    --text-color-primary: #343a40; /* Dark charcoal for primary text */
+    --text-color-secondary: #6c757d; /* Muted gray for secondary text */
+    --text-color-light: #adb5bd; /* Very light gray for subtle text */
+
+    --background-light: #f8f9fa; /* Off-white for general background */
+    --background-white: #ffffff; /* Pure white for elements */
+    --background-medium-gray: #f2f3f4; /* A slightly darker light gray for sections */
+
+    --border-color-light: #e9ecef; /* Light gray for borders */
+    --border-color-medium: #dee2e6; /* Medium gray for input borders */
+
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05); /* Softer, subtle shadow */
+    --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.1); /* More prominent for cards */
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+}
+
+/* Ensure global font and box-sizing are applied */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-light); /* Using the defined light background */
+    color: var(--text-color-primary);
+}
+
+/* --- Section Title (h1) --- */
+h1 {
+    text-align: center;
+    font-size: 2.8rem; /* Larger, more impactful heading */
+    font-family: 'Roboto', sans-serif; /* Use a heading font */
+    font-weight: 700;
+    margin-top: 60px; /* More top margin */
+    margin-bottom: 50px; /* More bottom margin */
+    color: var(--text-color-primary); /* Darker heading color */
+    letter-spacing: -0.5px; /* Slight negative letter spacing for headlines */
+}
+
+/* --- Login/Registration Container --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Slightly reduced gap for a tighter feel */
+    max-width: 1200px; /* Adjusted max-width for overall content */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add horizontal padding for smaller screens */
+    flex-wrap: wrap; /* Allows cards to wrap */
+    align-items: flex-start; /* Align cards to the top if they have different heights */
+}
+
+/* --- Card Style --- */
+.card {
+    background-color: var(--background-white);
+    border-radius: var(--border-radius-md); /* More rounded corners for softness */
+    box-shadow: var(--shadow-medium); /* Nicer, softer shadow */
+    padding: 40px; /* Increased padding inside cards */
+    flex: 1; /* Allows cards to grow and shrink */
+    min-width: 320px; /* Adjusted min-width for better responsiveness */
+    max-width: 550px; /* Increased max-width for forms */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: var(--shadow-hover); /* More pronounced shadow on hover */
+}
+
+.card h2 {
+    font-size: 1.8rem; /* Larger and more prominent card title */
+    font-weight: 600;
+    margin-bottom: 25px; /* More space below heading */
+    color: var(--text-color-primary);
+    font-family: 'Roboto', sans-serif; /* Use heading font */
+}
+
+.card p {
+    font-size: 1rem; /* Base font size for paragraphs */
+    color: var(--text-color-secondary); /* Muted paragraph color */
+    line-height: 1.7; /* Increased line height for readability */
+    margin-bottom: 15px; /* Space between paragraphs */
+}
+
+.card label {
+    display: block;
+    margin-top: 20px; /* More space above labels */
+    margin-bottom: 8px; /* Space between label and input */
+    font-size: 0.95rem; /* Slightly larger label font */
+    font-weight: 600;
+    color: var(--text-color-primary); /* Darker label color */
+}
+
+.card input[type="text"],
+.card input[type="password"],
+.card input[type="email"] { /* Added email type for completeness */
+    width: 100%;
+    padding: 12px 15px; /* Slightly more padding */
+    border: 1px solid var(--border-color-medium); /* Lighter, more modern border */
+    border-radius: var(--border-radius-sm); /* Standard border radius */
+    font-size: 1rem; /* Consistent font size */
+    color: var(--text-color-primary);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.card input[type="text"]:focus,
+.card input[type="password"]:focus,
+.card input[type="email"]:focus {
+    border-color: var(--primary-brand-color); /* Highlight border on focus */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle blue glow on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* --- Button Style (Reused from Navbar, but redefined for this context if different) --- */
+/* If you want all .btn to be the same, remove this specific definition for .card .btn */
+.card .btn {
+    background-color: var(--primary-brand-color);
+    color: var(--background-white);
+    border: none;
+    padding: 12px 25px; /* Slightly larger padding for form buttons */
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 1rem; /* Slightly larger font */
+    margin-top: 30px; /* More space above the button */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block; /* Allows padding and margins */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card .btn:hover {
+    background-color: var(--primary-brand-dark);
+    transform: translateY(-2px); /* More pronounced lift */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.forgot {
+    margin-left: 15px; /* Increased margin for better separation */
+    color: var(--primary-brand-color); /* Brand color for link */
+    font-size: 0.95rem; /* Consistent font size */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot:hover {
+    color: var(--primary-brand-dark);
+    text-decoration: underline; /* Underline on hover for clarity */
+}
+
+/* --- Password Visibility Toggle --- */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: stretch; /* Stretch children to fill height */
+}
+
+.password-wrapper input[type="password"] {
+    flex: 1;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-top: 0; /* Remove margin from input, will be handled by wrapper */
+}
+
+.toggle-visibility {
+    background-color: var(--background-medium-gray); /* Lighter background for toggle */
+    color: var(--text-color-secondary); /* Muted icon color */
+    border: 1px solid var(--border-color-medium); /* Match input border */
+    border-left: none; /* No left border */
+    border-top-right-radius: var(--border-radius-sm); /* Rounded only on right top */
+    border-bottom-right-radius: var(--border-radius-sm); /* Rounded only on right bottom */
+    padding: 0 12px; /* Adjusted padding */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px; /* Match input height for visual alignment */
+    /* width: 28px; - Removed fixed width, let padding control it */
+    margin-top: 0; /* Remove margin-top, should align directly with input */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.1rem; /* Icon size */
+}
+
+.toggle-visibility:hover {
+    background-color: var(--border-color-medium); /* Darken slightly on hover */
+    color: var(--text-color-primary); /* Darken icon color */
+}
+
+/* --- App Download Section --- */
+.app-download-section {
+    background-color: var(--background-medium-gray); /* Slightly darker gray for the section */
+    padding: 60px 20px; /* More vertical padding */
+    margin-top: 60px; /* More space from above content */
+    border-top: 1px solid var(--border-color-light); /* Soft border top */
+    text-align: center; /* Center content within this section */
+    /* Removed min-height unless necessary, let content define height */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.2rem;
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+
+    .login-container {
+        gap: 25px;
+        padding: 0 15px;
+    }
+
+    .card {
+        padding: 30px;
+        min-width: 300px; /* Adjusted min-width */
+        max-width: 450px; /* Adjusted max-width */
+    }
+
+    .card h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .card label {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+
+    .card input[type="text"],
+    .card input[type="password"],
+    .card input[type="email"] {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .toggle-visibility {
+        height: 42px; /* Match new input height */
+        padding: 0 10px;
+        font-size: 1rem;
+    }
+
+    .card .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        margin-top: 25px;
+    }
+
+    .forgot {
+        font-size: 0.9rem;
+    }
+
+    .app-download-section {
+        padding: 50px 15px;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    .login-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center stacked cards */
+        gap: 20px;
+    }
+
+    .card {
+        width: 90%; /* Take up most of the width */
+        max-width: 400px; /* Limit max width even when stacked */
+        padding: 25px;
+    }
+
+    .card h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .card label {
+        font-size: 0.85rem;
+    }
+
+    .card input[type="text"],
+    .card input[type="password"],
+    .card input[type="email"] {
+        padding: 9px 10px;
+        font-size: 0.9rem;
+    }
+
+    .toggle-visibility {
+        height: 38px; /* Match new input height */
+        padding: 0 8px;
+        font-size: 0.9rem;
+    }
+
+    .card .btn {
+        width: 100%; /* Full width button */
+        padding: 10px 15px;
+        margin-top: 20px;
+    }
+
+    .forgot {
+        margin-left: 0; /* Remove margin if button is full width */
+        display: block; /* Make it a block element to go on new line */
+        text-align: center;
+        margin-top: 10px; /* Add some space above it */
+    }
+
+    .app-download-section {
+        padding: 40px 10px;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-top: 30px;
+        margin-bottom: 25px;
+    }
+
+    .login-container {
+        padding: 0 10px;
+    }
+
+    .card {
+        padding: 20px;
+        width: 100%; /* Full width on smallest screens */
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+    }
+    .card p {
+        font-size: 0.85rem;
+    }
+    .card label {
+        font-size: 0.8rem;
+    }
+    .card input[type="text"],
+    .card input[type="password"],
+    .card input[type="email"] {
+        font-size: 0.85rem;
+    }
+    .toggle-visibility {
+        height: 36px; /* Match smaller input */
+        font-size: 0.85rem;
+    }
+    .card .btn {
+        padding: 9px 12px;
+        font-size: 0.9rem;
+        margin-top: 15px;
+    }
+    .forgot {
+        font-size: 0.85rem;
+    }
+    .app-download-section {
+        padding: 30px 10px;
+        margin-top: 30px;
+    }
+}
+
+      
+
+.centered-heading {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin: 30px 0; /* Add space above and below */
+  }
+  
+  
+  
+  .download-section h3 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  
+  .store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .store-badge {
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  
+  .footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    color: #555;
+  }
+  
+  .footer-columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 250px;
+    margin-bottom: 40px;
+    margin-right: 200px;
+  }
+  
+  .footer-column h4 {
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #7b7a7a;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column li {
+    margin: 6px 0;
+    margin-bottom: 16px;
+  }
+  
+  .footer-column a {
+    text-decoration: none;
+    color: #7c8694;
+    font-size: 14px;
+  }
+  .footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  /* Optional: vertically center if full height */
+    text-align: center;
+    margin: 40px auto; /* Horizontally centers and gives vertical spacing */
+    width: fit-content;
+  }
+  
+  .footer-logo img {
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-logo p {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #777;
+  }
+  
+  .call-button {
+    display: inline-block;
+    background-color: #0d274d;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+      
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-top">
+      <div class="logo">
+        <img src="https://doctorforanimals.com/static/image/logo.svg" alt="Doctor For Animals" />
+      
+      </div>
+      <div class="nav-buttons">
+        <div class="button-group">
+          <button class="btn" style="    margin-left: 700px;">Doctor Login</button>
+          <button class="btn call-btn">🎧 +91-9620103670</button>
+        </div>
+    </div>
+        <div class="bottom-links">
+          <a href="#" class="account">👤 Account</a>
+          <a href="#" class="cart">🛒 <span class="count">0</span></a>
+        </div>
+ 
+
+    <nav style="margin-right:500px ;">
+      <a href="#">🛒 Shop Now</a>
+      <a href="#">𓃡  Vet Home Visits</a>
+      <a href="#">𓉞  Clinic Bookings</a>
+      <a href="#">☎  Video Consultation</a>
+      <a href="#">Services ▾</a>
+    </nav>
+  </header>
+
+  <h1>Sign in</h1>
+
+  <div class="login-container">
+    <!-- Left Card: New Customer -->
+    <div class="card">
+      <h2>NEW CUSTOMER</h2>
+      <p>
+        By creating an account with our store, you will be able to move through the checkout process faster,
+        store multiple shipping addresses, view and track your orders in your account and more.
+      </p>
+      <button class="btn">REGISTER</button>
+    </div>
+
+    <!-- Right Card: Login -->
+    <div class="card">
+      <h2>LOGIN</h2>
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" placeholder="Mobile Number" />
+
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Password" />
+        <button class="toggle-visibility" type="button">
+            <img id="eyeIcon" src="https://static.thenounproject.com/png/4334035-200.png" style="height: 16px;">
+          </button>
+          
+      </div>
+
+      <div style="margin-top: 20px;">
+        <a class="btn" href="../pet/index.html">Login</a>
+        <a class="forgot" href="#">Forgot Password?</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-download-section">
+
+<h3 class="centered-heading">Download Our Mobile App to Book a Consultation</h3>
+
+
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/" target="_blank">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="store-badge" />
+    </a>
+
+    <a href="https://play.google.com/store" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="store-badge" />
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
+<footer class="footer"></footer>
+  <div class="footer-columns">
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Doctor Login</a></li>
+        <li><a href="#">Our Vetz</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Terms Of Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Preventive Care</a></li>
+        <li><a href="#">Grooming</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Help Center</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-logo">
+    <img src="https://petzz.org/static/petzz/images/new_logo.jpg" alt="Petzz Logo" />
+    <p>© 2017 Activx Animal Health Technologies Pvt Ltd</p>
+    <a href="tel:+919620103670" class="call-button">
+      <span>📞</span> +91 96201 03670
+    </a>
+  </div>
+</footer>
+</div>
+  <script>
+    const toggleBtn = document.querySelector(".toggle-visibility");
+    const passwordInput = document.getElementById("password");
+    const eyeIcon = document.getElementById("eyeIcon");
+  
+    toggleBtn.addEventListener("click", function () {
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.src = " https://static.thenounproject.com/png/4334035-200.png"; // eye with dash
+      } else {
+        passwordInput.type = "password";
+        eyeIcon.src = "https://toppng.com/uploads/preview/invisible-vector-password-eye-icon-11562916497wis7nkruhq.png"; // eye open
+      }
+    });
+  </script>
+  
+  
+</body>
+
+</html>  

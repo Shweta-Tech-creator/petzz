@@ -1,0 +1,413 @@
+body {
+    margin: 0;
+      font-family: 'Poppins', sans-serif; /* Changed font to Poppins for a modern feel */
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); /* Softer, modern gradient */
+      color: #1e293b; /* Darker, sophisticated text color */
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+    .logo-text {
+      font-size: 28px; /* Larger, more impactful */
+      font-weight: 800; /* Bolder */
+      margin-left: 10px;
+      letter-spacing: 0.05em; /* Slight letter spacing */
+      background: linear-gradient(90deg, #3b2e92, #68a5ff); /* Golden gradient for logo text */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px; /* Increased padding */
+      background: #001444; /* Deep blue-black */
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+      font-size: 18px; /* Slightly adjusted font size */
+      position: sticky;
+      top: 0;
+      z-index: 1000; /* Ensures it stays on top */
+    }
+    .topbar nav a {
+      margin: 0 15px; /* Increased spacing */
+      color: #cbd5e1; /* Softer white for nav links */
+      text-decoration: none;
+      font-weight: 500; /* Medium weight */
+      position: relative; /* For underline effect */
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+    .topbar nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background-color:  #3b2e92; /* Orange underline */
+      left: 50%;
+      bottom: -8px;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+  }
+  
+  .topbar nav a:hover {
+      color:  #3b2e92; /* Vibrant orange on hover */
+      transform: translateY(-2px);
+  }
+  
+  .topbar nav a:hover::after {
+      width: 100%;
+  }
+  
+  .right-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Increased gap */
+  }
+  
+  .book-btn {
+    background: linear-gradient(90deg,#3b2e92 0%, #ffd78e 100%); /* Vibrant orange gradient */
+    color: white;
+    padding: 10px 22px; /* More padding */
+    border: none;
+    border-radius: 25px; /* Pill-shaped button */
+    cursor: pointer;
+    font-weight: 700; /* Bolder */
+    letter-spacing: 0.02em;
+    box-shadow: 0 5px 15px rgba(255, 124, 0, 0.4); /* Stronger shadow */
+    transition: all 0.3s ease;
+  }
+  
+  .book-btn:hover {
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 20px rgba(255, 124, 0, 0.6); /* More prominent shadow on hover */
+    background: linear-gradient(90deg, #3b2e92 0%, #ff7c00 100%); /* Reverse gradient on hover */
+  }
+  
+    
+    .container {
+      display: flex;
+      padding: 30px; /* Increased padding */
+      max-width: 1400px; /* Max width for content */
+      margin: auto; /* Center the container */
+    }
+    
+    .sidebar {
+      width: 280px; /* Slightly wider */
+      background: #ffffffcc; /* Subtle transparency */
+      border-radius: 20px; /* More rounded corners */
+      padding: 30px 25px; /* More padding */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 25px rgba(255, 159, 0, 0.15); /* Modern shadow */
+      margin-right: 30px; /* More spacing */
+      position: sticky;
+      top: 30px; /* Adjusted top position */
+      height: fit-content;
+      backdrop-filter: blur(8px); /* Glassmorphism effect */
+      transition: box-shadow 0.3s ease;
+  }
+  
+  .sidebar:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12), 0 0 35px rgba(255, 159, 0, 0.3);
+  }
+  
+  .sidebar .avatar {
+      width: 120px; /* Larger avatar */
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 20px; /* More spacing below */
+      box-shadow: 0 5px 15px rgba(0, 102, 255, 0.5); /* Glowing effect */
+      border: 4px solid  #3b2e92; /* Orange border */
+      transition: transform 0.3s ease;
+  }
+  
+  .sidebar .avatar:hover {
+      transform: scale(1.08); /* Pop effect on hover */
+  }
+  
+  .sidebar h3 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: #0f172a; /* Darker heading */
+      letter-spacing: 0.05em;
+      text-transform: uppercase; /* Uppercase for prominence */
+  }
+  
+  .sidebar ul {
+      list-style: none;
+      padding: 0;
+  }
+  
+  .sidebar li {
+      padding: 14px 18px; /* More padding */
+      border-radius: 12px; /* More rounded */
+      margin-bottom: 12px; /* More spacing */
+      cursor: pointer;
+      display: flex; /* For icon alignment if you use them */
+      align-items: center;
+      font-weight: 600;
+      color: #475569; /* Muted text color */
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .sidebar li .icon { /* Placeholder for icon styling if you add Font Awesome or similar */
+      margin-right: 15px;
+      font-size: 20px;
+      color: #ff9f00; /* Icon color */
+  }
+  
+  .sidebar li:hover,
+  .sidebar li.active {
+      background: linear-gradient(90deg, #4545ff, #3b2e92); /* Orange gradient on hover/active */
+      color: white; /* White text */
+      box-shadow: 0 6px 15px rgba(0, 110, 255, 0.4); /* Stronger shadow */
+      transform: translateX(8px); /* Slide effect */
+  }
+  .main-content {
+    /* Existing styles, kept as is */
+    width: 100%;
+    height: 100%; /* This is later overridden by height: fit-content; */
+    background: #ffffffcc; /* Subtle transparency */
+    border-radius: 20px; /* More rounded corners */
+    /* Current padding: padding: 30px 25px; */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 25px rgba(255, 159, 0, 0.15); /* Modern shadow */
+    margin-right: 30px; /* More spacing */
+    top: 30px; /* Adjusted top position */
+    height: fit-content;
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    transition: box-shadow 0.3s ease;
+
+    /* --- Changes to increase the size --- */
+    padding: 900px 50px; /* Increased both vertical and horizontal padding */
+    max-width: 800px; /* Allows it to grow wider than its default 100% if its parent allows,
+                         but limits it on very large screens for better readability.
+                         Adjust this value based on your layout needs. */
+    /* You could also consider min-width if it's getting too small on mobile: */
+    /* min-width: 300px; */
+}
+.calendar-dashboard {
+    display: flex;
+    gap: 30px;
+    padding-top: 30px;
+  }
+  
+  .appointments-side {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .appointment-card {
+    background: #ffffffcc;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    width: 400px; /* You can set this to any value you like */
+  }
+  
+  .appointment-card h4 {
+    margin-bottom: 12px;
+    color: #3b2e92;
+  }
+  
+  .appt-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 4px solid #3b2e92;
+    background: #f3f4f6;
+    border-radius: 8px;
+  }
+  
+  .upload-box {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .upload-box input[type=file] {
+    display: none;
+  }
+  
+  .upload-box label {
+    padding: 8px 14px;
+    background: linear-gradient(90deg, #3b2e92, #68a5ff);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .status-section {
+    margin-top: 20px;
+  }
+  
+  .status-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .status-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #444;
+    color: white;
+    transition: background-color 0.2s ease;
+  }
+  .status-btn:hover {
+    background-color: #666;
+  }
+  
+  
+  .vet-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .vet-card:hover {
+    transform: translateY(-4px);
+  }
+
+
+
+ 
+  .appointments-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* spacing between sections */
+    padding: 20px;
+  }
+  
+  
+  h2 {
+    color: #1a237e;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .appointments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .appointment-card {
+    background: #ffffff;
+    border-left: 5px solid #1a237e;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+    margin-left: 0;
+    width: 80%;
+  }
+  
+  .appointment-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .status-tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 12px;
+    background: #e3f2fd;
+    color: #1a237e;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .status-tag.pending {
+    background: #fff3cd;
+    color: #ffa000;
+  }
+  .upload-button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: #1a237e;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background: #3949ab;
+  }
+  
+  .precautions h2,
+  .upload-records h2 {
+    margin-left: 0; /* Align with card content */
+    margin-top: 0;  /* Remove extra spacing if needed */
+    color: #1a237e;
+    font-size: 22px;
+    padding: 0 0 10px 0;
+  }
+  
+  
+  .appointments1-container,
+  .appointments-container2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .appointment1-card,
+  .appointment2-card {
+    background: #ffffff;
+    border-left: 5px solid #1a237e;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+    margin-left: 0; /* Keep it aligned with other cards */
+    width: 100%;     /* Match width */
+  }
+  
+  
+  .upload-button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: #1a237e;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background: #3949ab;
+  }
+  
+
+
+  .sidebar ul li a {
+    display: block;           /* makes the whole <a> clickable like <li> */
+    color: inherit;           /* inherits text color from li if any */
+    text-decoration: none;    /* removes underline */
+    padding: 10px 15px;       /* adjust spacing if needed */
+  }
+  
+  .sidebar ul li.active a {
+    font-weight: bold;
+    background-color: #f0f0f0; /* highlight active link */
+    border-radius: 8px;
+  }

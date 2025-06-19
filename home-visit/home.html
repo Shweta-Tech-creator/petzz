@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Visit - Petzz</title>
+  <style>
+ /* RESET + BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f4f8;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  background: linear-gradient(90deg, #6bc1ff, #ffffff);
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.left-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 120px;
+  height: 110px;
+}
+
+nav {
+  margin-left: 40px;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+nav li a {
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #1a202c;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+nav li a:hover {
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* BUTTONS */
+.login-btn,
+.contact {
+  background-color: #002a5c;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn:hover,
+.contact:hover {
+  background-color: #003f8c;
+  transform: translateY(-2px);
+}
+
+.login-btn:active,
+.contact:active {
+  transform: translateY(0);
+}
+
+.contact img {
+  width: 18px;
+  height: 18px;
+}
+
+/* VISIT SECTION */
+.visit-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  margin-top: 80px;
+}
+
+.visit-img img {
+  width: 560px;
+  height: 390px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(162, 202, 255, 0.1);
+  transition: transform 0.3s;
+  margin-top: -60px;
+}
+
+.visit-img img:hover {
+  transform: scale(1.03);
+}
+
+.visit-info {
+  max-width: 400px;
+  position: relative;
+  top: -70px;
+}
+
+.visit-info h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #1a202c;
+}
+
+.visit-info p {
+  font-size: 15px;
+  margin-bottom: 10px;
+  word-spacing: 10px;
+}
+
+.package-includes {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.package-includes ul li {
+  margin-bottom: 8px;
+}
+
+.visit-info .btns {
+  margin-bottom: 30px;
+}
+
+.visit-info .btns a {
+  background-color: #002a5c;
+  color: #fff;
+  padding: 10px 22px;
+  margin-right: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.visit-info .btns a:hover {
+  background-color: #003f8c;
+  color: #0c5fc4;
+}
+
+/* CALLBACK SECTION */
+.callback-section {
+  background-color: #b9d5ed;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: -75px;
+}
+
+.callback-section h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #1a202c;
+}
+
+.callback-section input,
+.callback-section button {
+  width: 250px;
+  max-width: 90%;
+  margin: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  transition: box-shadow 0.2s;
+}
+
+.callback-section input:focus,
+.callback-section button:focus {
+  outline: none;
+  border: 2px solid #66afe9;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.callback-section button {
+  background-color: #0E2A47;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* CENTERED HEADING */
+.centered-heading {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin: 30px 0;
+  color: #1a202c;
+}
+
+/* DOWNLOAD SECTION */
+.download-section h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #2d3748;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.store-badge {
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.store-badge:hover {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+  color: #555;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 150px;
+  margin-bottom: 40px;
+}
+
+.footer-column h4 {
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #4a5568;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin: 6px 0;
+  margin-bottom: 16px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #7c8694;
+  font-size: 14px;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 40px auto;
+}
+
+.footer-logo img {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #777;
+}
+
+.call-button {
+  display: inline-block;
+  background-color: #0d274d;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.call-button:hover {
+  background-color: #133c6c;
+}
+
+.call-icon {
+  width: 16px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 230%;
+  left: 0;
+  background: white;
+  border-radius: 5px;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  width: 300px;
+}
+
+.dropdown-menu li a {
+  padding: 8px 20px;
+  display: block;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #0E2A47;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+.dropdown {
+  position: relative;
+}
+
+
+      
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="image-removebg-preview (8).png" alt="Petzz Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../home-visit/home.html">Home Visit</a></li>
+        <li><a href="/main page/p.html">Multi-vet Clinic</a></li>
+        <li class="dropdown">
+          <a href="#" id="services-btn">Services ▾</a>
+          <ul class="dropdown-menu" id="services-menu">
+            <li><a href="../preventive-care/preventive-care.html">Preventive Care</a></li>
+            <li><a href="../vac/vac-d.html">Vaccination and Deworming</a></li>
+            <li><a href="/surgery/sur.html">Surgery</a></li>
+            <li><a href="/groom/groom.html">Grooming</a></li>
+            <li><a href="/package/package.html">Package</a></li>
+          </ul>
+        </li>
+        <li><a href="../pet/our vets/index.html">Our Vets</a></li>
+        <li><a href="#" class="login-btn">Doctor Login</a></li>
+        <li><span class="contact"><img src="icons8-headphones-32.png" alt="Call Icon"> +91-9620103670</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="visit-section">
+    <div class="visit-img">
+      <img src="https://petzz.org/static/petzz/images/packages/services/single-visit-petzz.jpg" alt="Vet and Dog">
+    </div>
+    <div class="visit-info">
+      <h2>Single Visit</h2>
+      <p>Want your pet checked up at home? Call Petzz and With our team of expert vets, we ensure the best care for your pets, right at your doorstep.</p>
+      <div class="btns">
+        <h2>Visit and Consultation</h2>
+        <a href="../loading.html">Book Online</a>
+        <a href="tel:+919620103670" id="callButton">
+            <img src="phone-call.png" class="call-icon"> Book On Call
+          </a>
+          
+
+      </div>
+      <div class="package-includes">
+        <strong>Package Includes</strong>
+        <ul>
+          <li>1 x Comprehensive Physical Exam</li>
+          <li>Our vets carry the essential medicines with them</li>
+          <li>Medicine charges are extra</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="callback-section">
+    <h3>Want to know more about <span style="color: green;">Get a call back</span>.</h3>
+    <p>Our customer executive will get back to you soon. <em>(* We don't spam you:-)</em></p>
+    <input type="text" id="name"  placeholder="Name *" required>
+    <input type="text" id="phone" placeholder="Phone Number *" required>
+
+    <button>Submit</button>
+
+  </section>
+
+
+  <h3 class="centered-heading">Download Our Mobile App to Book a Consultation</h3>
+
+
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/" target="_blank">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="store-badge" />
+    </a>
+
+    <a href="https://play.google.com/store" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="store-badge" />
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
+<footer class="footer"></footer>
+  <div class="footer-columns">
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Doctor Login</a></li>
+        <li><a href="#">Our Vetz</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Terms Of Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Preventive Care</a></li>
+        <li><a href="#">Grooming</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Help Center</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-logo">
+    <img src="https://petzz.org/static/petzz/images/new_logo.jpg" alt="Petzz Logo" />
+    <p>© 2017 Activx Animal Health Technologies Pvt Ltd</p>
+    <a href="tel:+919620103670" class="call-button">
+      <span>📞</span> +91 96201 03670
+    </a>
+  </div>
+</footer>
+
+
+
+    <script>
+        const callBtn = document.getElementById("callButton");
+      
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+          // Mobile devices already support tel links
+          callBtn.setAttribute("href", "tel:+919620103670");
+        } else {
+          // On desktop, do NOT use confirm or intercept the click
+          // Just allow the default tel: link to open FaceTime or default calling app
+          // No JavaScript needed here — the system popup will appear automatically
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+          const servicesBtn = document.getElementById('services-btn');
+          const dropdown = document.querySelector('.dropdown');
+      
+          servicesBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+          });
+      
+          // Optional: close dropdown when clicking outside
+          document.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target) && e.target !== servicesBtn) {
+              dropdown.classList.remove('open');
+            }
+          });
+        });
+    
+    
+    
+          document.querySelectorAll('.dropdown-menu li a').forEach(item => {
+            item.addEventListener('click', function () {
+              // Remove 'selected' from all items
+              document.querySelectorAll('.dropdown-menu li a').forEach(el => el.classList.remove('selected'));
+              // Add 'selected' to the clicked item
+              this.classList.add('selected');
+            });
+          });
+     
+      </script>
+      
+
+  
+  
+
+</body>
+
+
+  
+</html>

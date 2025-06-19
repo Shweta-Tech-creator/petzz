@@ -1,0 +1,305 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Using 'Poppins' for headlines/bold text, 'Inter' for body, with fallbacks */
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  /* Dynamic, soft, ethereal background gradient for a premium feel */
+  background: linear-gradient(135deg, #e3f6f5 0%, #d1f0ea 50%, #b8e9e1 100%); /* Soft teals and light blues */
+  padding: 50px 30px; /* Increased padding */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centered vertically for a clean presentation */
+  min-height: 100vh;
+  color: #37474f; /* Sophisticated dark grey text */
+  text-rendering: optimizeLegibility; /* Enhance text readability */
+  -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit browsers */
+}
+
+/* Main Container - The central element of attraction */
+.container {
+  background: #ffffff; /* Crisp white, highly contrasting background */
+  padding: 50px 45px; /* Generous padding for content to breathe */
+  border-radius: 32px; /* Super rounded corners for a soft, friendly look */
+  /* Multi-layered, elegant shadow for maximum depth and hover transition */
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15), /* Primary deep shadow */
+              0 10px 25px rgba(0, 0, 0, 0.08); /* Secondary softer shadow */
+  width: 100%;
+  max-width: 850px; /* Wider container for better content flow */
+  /* Smoother, slightly elastic transition for a natural feel */
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: 1px solid #e0f2f7; /* Very subtle light blue border */
+  overflow: hidden; /* Ensures shadows and borders are contained */
+}
+
+.container:hover {
+  /* Even deeper, more diffused shadow on hover */
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.22),
+              0 15px 35px rgba(0, 0, 0, 0.12);
+  transform: translateY(-12px); /* Pronounced lift on hover */
+}
+
+/* Header - Branding and Identity */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px; /* More vertical space */
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap */
+  margin-bottom: 18px;
+}
+
+.logo img {
+  height: 32px; /* Larger logo icon */
+  max-width: 100%;
+  filter: drop-shadow(0 4px 8px rgba(23, 162, 184, 0.4)); /* Teal shadow for the logo */
+}
+
+.logo-text {
+  font-family: 'Poppins', sans-serif; /* Poppins for the logo text */
+  font-size: 40px; /* Significantly larger text */
+  font-weight: 800; /* Extra bold */
+  color: #1abc9c; /* Fresh teal accent color */
+  letter-spacing: 2px; /* Increased letter spacing for impact */
+  text-transform: uppercase;
+  text-shadow: 0 3px 8px rgba(26, 188, 156, 0.3); /* Softer, more vibrant text shadow */
+  transition: color 0.3s ease;
+}
+
+.logo-text:hover {
+  color: #16a085; /* Slightly darker teal on hover */
+}
+
+/* Breadcrumb - Navigational context */
+.breadcrumb {
+  font-size: 16px; /* Larger font */
+  color: #7f8c8d; /* Muted, professional grey */
+  margin-bottom: 25px;
+  letter-spacing: 0.8px; /* Improved letter spacing */
+  font-weight: 500; /* Medium weight */
+}
+
+/* Title - Primary content heading */
+.title {
+  font-size: 38px; /* Even larger and more commanding title */
+  font-family: 'Poppins', sans-serif; /* Poppins for title */
+  font-weight: 800; /* Extra bold */
+  color: #2c3e50; /* Deep, rich charcoal color */
+  margin-bottom: 40px; /* More space */
+  text-align: center;
+  line-height: 1.25; /* Tighter line height for large text */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Very subtle text shadow */
+}
+
+/* Search Input - Interactive search bar */
+.search-container {
+  margin-bottom: 40px; /* Generous space below search */
+  position: relative; /* For potential icon placement */
+}
+
+.search-container input {
+  width: 100%;
+  padding: 18px 25px; /* Increased padding */
+  border: 2px solid #cfd8dc; /* Solid, clean border */
+  border-radius: 16px; /* More rounded */
+  font-size: 18px; /* Larger, readable font */
+  color: #455a64; /* Darker text */
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.08); /* More pronounced inset shadow */
+  background-color: #fcfcfc; /* Very light background */
+}
+
+.search-container input::placeholder {
+  color: #90a4ae; /* Softer placeholder color */
+  opacity: 0.8; /* Slight transparency */
+}
+
+.search-container input:focus {
+  border-color: #3498db; /* Bright blue on focus */
+  outline: none;
+  /* More vibrant and expansive glow on focus */
+  box-shadow: 0 0 0 6px rgba(52, 152, 219, 0.3), inset 0 4px 8px rgba(0, 0, 0, 0.12);
+  background-color: #ffffff; /* Pure white on focus */
+  transform: scale(1.005); /* Very slight scale for a "popping" effect */
+}
+
+/* Doctor List - Display of items */
+.doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px; /* Increased gap between items */
+}
+
+/* Doctor Card - The core interactive element */
+.doctor-item {
+  /* Luxurious, subtle gradient for the card background */
+  background: linear-gradient(135deg, #f8fcfc 0%, #e0f2f7 100%); /* Very light blue to white */
+  border: 1px solid #d0e8ff; /* Soft blue border */
+  padding: 22px 30px; /* Generous padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 18px; /* Very rounded corners */
+  color: #283593; /* Deep, professional blue */
+  font-weight: 700;
+  /* Smooth, combined transition for all effects */
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Soft initial shadow */
+  text-decoration: none;
+  position: relative;
+  overflow: hidden; /* Ensures inner elements don't spill during transforms */
+}
+
+.doctor-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 188, 156, 0.05) 0%, rgba(52, 152, 219, 0.05) 100%); /* Very subtle overlay */
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0; /* Ensure it's behind content */
+  border-radius: inherit; /* Inherit border radius */
+}
+
+.doctor-item:hover::before {
+  opacity: 1; /* Fade in overlay on hover */
+}
+
+.doctor-item:hover {
+  /* More intense, vibrant gradient on hover */
+  background: linear-gradient(135deg, #e6f7ff 0%, #cceeff 100%); /* Brighter blue gradient */
+  border-color: #81d4fa; /* Lighter blue border */
+  cursor: pointer;
+  transform: translateY(-8px) scale(1.02); /* More pronounced lift and scale */
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15),
+              0 6px 15px rgba(0, 0, 0, 0.08); /* Enhanced shadow */
+}
+
+.doctor-item .doctor-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  z-index: 1; /* Ensure text is above pseudo-element */
+}
+
+.doctor-item .doctor-name {
+  font-size: 1.25rem; /* Larger, more prominent name */
+  font-weight: 700;
+  color: #1a73e8; /* Vibrant blue for the name */
+  margin-bottom: 5px; /* More space */
+  letter-spacing: 0.2px;
+}
+
+.doctor-item .doctor-specialty {
+  font-size: 1rem; /* Clearer specialty text */
+  font-weight: 500;
+  color: #546e7a; /* Muted, readable grey for specialty */
+  letter-spacing: 0.1px;
+}
+
+/* Arrow - Indicator of interactivity */
+.arrow {
+  font-size: 30px; /* Larger, more visible arrow */
+  color: #90a4ae; /* Muted grey for initial state */
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 1; /* Ensure arrow is above pseudo-element */
+}
+
+.doctor-item:hover .arrow {
+  transform: translateX(15px); /* More dynamic slide effect */
+  color: #3498db; /* Bright blue on hover */
+}
+
+/* Basic Responsiveness - Adapting to smaller screens */
+@media (max-width: 768px) {
+  body {
+    padding: 30px 15px;
+  }
+  .container {
+    padding: 40px 25px;
+    border-radius: 25px;
+  }
+  .logo-text {
+    font-size: 32px;
+    letter-spacing: 1.2px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .search-container input {
+    padding: 16px 20px;
+    font-size: 17px;
+  }
+  .doctor-item {
+    padding: 18px 22px;
+    border-radius: 14px;
+  }
+  .doctor-item .doctor-name {
+    font-size: 1.1rem;
+  }
+  .doctor-item .doctor-specialty {
+    font-size: 0.95rem;
+  }
+  .arrow {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 10px;
+  }
+  .container {
+    padding: 30px 15px;
+    border-radius: 20px;
+  }
+  .logo-text {
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+  .title {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+  .search-container input {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+  .doctor-item {
+    flex-direction: column; /* Stack details and arrow on very small screens */
+    align-items: flex-start;
+    padding: 15px 20px;
+    border-radius: 12px;
+  }
+  .doctor-item .doctor-details {
+    margin-bottom: 10px; /* Space between text and arrow when stacked */
+  }
+  .doctor-item .doctor-name {
+    font-size: 1.05rem;
+  }
+  .doctor-item .doctor-specialty {
+    font-size: 0.85rem;
+  }
+  .arrow {
+    align-self: flex-end; /* Push arrow to the right if stacked */
+    transform: none !important; /* Reset arrow transform when stacked */
+    color: #424242 !important; /* Reset arrow color when stacked */
+  }
+  .doctor-item:hover .arrow {
+    transform: none; /* Override hover transform */
+    color: #424242; /* Override hover color */
+  }
+}

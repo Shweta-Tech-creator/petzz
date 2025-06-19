@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petzz Care</title>
+    <style>
+      body{
+        background: rgb(74, 182, 254);
+      }
+ 
+        /* NEW HEADER CSS */
+        header {
+            width: 100%;
+            height: 92px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            background: linear-gradient(90deg, #6bc1ff, #ffffff);
+            border-bottom: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .left-header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .logo img {
+            width: 120px;
+            max-height: 100px;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+            margin-left: auto;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+            text-decoration: none;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .login-btn,
+        .contact {
+            background-color: #002a5c;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+            cursor: pointer;
+        }
+
+        .login-btn:hover,
+        .contact:hover {
+            background-color: #003f8c;
+            transform: translateY(-1px);
+        }
+
+        .contact img {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Dropdown Styles */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            background-color: #ffffff;
+            padding: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+            min-width: 200px;
+        }
+
+        .dropdown-menu li {
+            padding: 8px 20px;
+        }
+
+        .dropdown-menu li a {
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .dropdown-menu li a:hover {
+            color: #007bff;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        /* END NEW HEADER CSS */
+
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        /* Header (Original - some might be overridden by new CSS) */
+        /* This section contains styles that were previously for the header but may now be redundant or overridden.
+           I've kept them for reference, but the new header CSS above is designed to take precedence. */
+        /*
+        header {
+            width: 100%;
+            height: 92px;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .left-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .logo img {
+            width: 120px;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        .logo {
+            margin-left: 30px;
+            margin-right: 50px;
+        }
+
+        nav {
+            margin-left: 40px;
+        }
+
+        nav ul {
+            margin-top: -5px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        nav li a {
+            font-size: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+        nav li a.login-btn,
+        nav li .contact {
+            position: relative;
+            top: 3px;
+        }
+
+        .login-btn {
+            background-color: #002a5c;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .contact {
+            background-color: #002a5c;
+            font-weight: bold;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        .contact img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0E2A47;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 230%;
+            left: 0;
+            background: white;
+            border-radius: 5px;
+            padding: 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 100;
+            width: 300px;
+        }
+
+        .dropdown-menu li {
+            padding: 0px 0px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li:hover {
+            background-color: #f0f0f0;
+        }
+
+        .dropdown.open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            padding: 6px 17px;
+            display: block;
+            font-weight: normal;
+            line-height: 1.1;
+            white-space: nowrap;
+            color: #0E2A47;
+            text-decoration: none;
+        }
+
+        .dropdown-menu li a.selected {
+            background-color: #007BFF;
+            color: white;
+            font-weight: normal;
+        }
+        */
+        /* End of Original Header CSS (commented out/potentially overridden) */
+
+        /* Hero Section */
+
+        .hero-content {
+            margin-left: 200px;
+            color: #0E2A47;
+            max-width: 620px;
+            margin-top: 130px;
+        }
+
+        .hero h1 {
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .hero .hero-content h1 {
+            font-size: 4.1rem;
+            background: rgb(58, 58, 255);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.9rem;
+            margin-bottom: 25px;
+            color: #0E2A47;
+            font-weight: 8;
+        }
+
+
+        .app-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            margin-top: 20px;
+
+        }
+
+        .app-buttons a img {
+            height: 60px;
+            cursor: pointer;
+        }
+
+
+        .app-buttons a:nth-child(1) img {
+            width: 130px; /* App Store */
+        }
+
+        .app-buttons a:nth-child(2) img {
+            width: 130px; /* Google Play */
+        }
+        .hero-image img {
+            height: 700px;
+            width: auto;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-left: 700px;
+            margin-top: -350px ;
+        }
+
+
+        .healthcare-plans {
+            text-align: center;
+            padding: 40px 20px;
+         
+            color: #0d2c53;
+        }
+
+        .healthcare-plans h2 {
+            font-size: 2rem;
+            margin-bottom: 60px;
+            font-weight: 400;
+            color: #2c3e50;
+        }
+
+        .healthcare-plans h3 {
+            font-size: 1.7rem;
+            margin-top: 40px;
+            font-weight: 400;
+            color: #2c3e50;
+        }
+
+        .healthcare-plans p {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 70px;
+            margin-top: 25px;
+        }
+
+        .plans-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px; /* Space between cards */
+            margin-bottom: 40px;
+        }
+
+        .plan-card {
+          background: linear-gradient(90deg, #b3dcff, #9ee8ff);
+            border: 1px solid #e2e8f0; /* Soft border */
+            border-radius: 15px; /* Rounded card corners */
+            width: 320px; /* Consistent card width */
+            padding: 30px; /* Padding inside cards */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft card shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content vertically */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-8px); /* Lift effect on hover */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+        }
+
+        .plan-card img {
+            width: 120px; /* Larger image */
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #63b3ed; /* Accent border */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.3rem; /* Larger heading */
+            color: #0d2c53;
+            font-weight: 600; /* Semi-bold */
+            text-align: center;
+        }
+
+        .price-tag {
+            background-color: #ffcc00; /* Yellow accent */
+            color: #1a202c; /* Dark text on yellow */
+            font-size: 14px; /* Slightly larger font */
+            padding: 8px 12px; /* More padding */
+            border-radius: 6px; /* Rounded corners */
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 15px; /* Space below price tag */
+        }
+
+        .plan-card ul {
+            list-style: none; /* Remove default disc */
+            text-align: left;
+            padding: 0; /* Remove default padding */
+            margin: 20px 0 30px 0; /* More vertical margin */
+            font-size: 15px;
+            color: #4a5568;
+            flex-grow: 1; /* Allows list to take available space */
+            width: 100%; /* Ensure list takes full width for padding */
+        }
+
+        .plan-card ul li {
+            position: relative;
+            padding-left: 25px; /* Space for custom bullet */
+            margin-bottom: 10px; /* Space between list items */
+        }
+
+        .plan-card ul li::before {
+            content: '✔️'; /* Custom checkmark bullet */
+            position: absolute;
+            left: 0;
+            color: #4c51bf; /* Accent color for bullet */
+            font-size: 1.1em;
+            top: 0;
+        }
+
+        .plan-card button {
+            background-color: #4c51bf; /* Accent blue button */
+            color: white;
+            border: none;
+            padding: 12px 25px; /* More padding */
+            border-radius: 8px; /* Rounded button */
+            cursor: pointer;
+            margin-top: auto; /* Pushes button to bottom */
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(76, 81, 191, 0.2);
+            width: 100%; /* Full width button */
+        }
+
+        .plan-card button:hover {
+            background-color: #3f46a8;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(76, 81, 191, 0.3);
+        }
+
+        .plan-card button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(76, 81, 191, 0.2);
+        }
+        .section {
+            padding: 30px 10px;
+        }
+
+        .section h3 {
+            font-size: 1.8rem; /* Larger heading */
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+
+        .section p {
+            font-size: 1.05rem; /* Slightly larger paragraph */
+            line-height: 1.8; /* Improved line height for readability */
+            margin-bottom: 25px; /* Space between paragraphs */
+            color: #4a5568;
+        }
+
+        .centered-heading {
+            font-size: 30px;
+            font-weight: 600;
+            text-align: center;
+            margin: 30px 0; /* Add space above and below */
+        }
+
+
+        .download-section h3 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .store-badge {
+            height: 50px;
+            cursor: pointer;
+        }
+
+
+
+
+        .footer {
+    
+            text-align: center;
+            padding: 40px 20px;
+            font-family: sans-serif;
+            color: #555;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 250px;
+            margin-bottom: 40px;
+            margin-right: 200px;
+        }
+
+        .footer-column h4 {
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: #7b7a7a;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin: 6px 0;
+            margin-bottom: 16px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: #7c8694;
+            font-size: 14px;
+        }
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 40px auto;
+            width: fit-content;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #777;
+        }
+
+        .call-button {
+            display: inline-block;
+            background-color: #0d274d;
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: 700;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left-header">
+            <div class="logo">
+                <img src="image-removebg-preview (8).png" alt="Petzz Logo" class="logo-img">
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="../home-visit/home.html">Home Visit</a></li>
+                    <li><a href="/main page/p.html">Multi-vet Clinic</a></li>
+                    <li class="dropdown">
+                        <a href="#" id="services-btn">Services ▾</a>
+                        <ul class="dropdown-menu" id="services-menu">
+                            <li><a href="../preventive-care/preventive-care.html">Preventive Care</a></li>
+                            <li><a href="../vac/vac-d.html">Vaccination and Deworming</a></li>
+                            <li><a href="/surgery/sur.html">Surgery</a></li>
+                            <li><a href="/groom/groom.html">Grooming</a></li>
+                            <li><a href="/package/package.html">Package</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pet/our vets/index.html">Our Vets</a></li>
+                    <li><a href="#" class="login-btn">Doctor Login</a></li>
+                    <li><span class="contact"><img src="icons8-headphones-32.png"> +91-9620103670</span></li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Comprehensive Care For Your Feline Friend</h1>
+            <p><strong>Gift Your Pet The Petzz Protection</strong></p>
+            <div class="app-buttons">
+                <a href="https://apps.apple.com/" target="_blank">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+                </a>
+                <a href="https://play.google.com/store" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="image-removebg-preview (13).png" alt="Pet Image">
+            </div>
+
+        </section>
+
+
+
+
+
+        <section class="healthcare-plans">
+            <h2>Introducing Doctor For Animals Healthcare Plans</h2>
+
+            <h3>Cat Care Plans (0-12 Months)</h3>
+            <p>Packages that are curated to cater to all your Kitten health needs</p>
+
+            <div class="plans-container">
+                <div class="plan-card">
+                    <img src="https://petzz.org/media/services/kitten-care-petzz.jpg" alt="Kitten Care">
+                    <h4>Kitten Care</h4>
+                    <span class="price-tag">₹ 5999.00/Year</span>
+                    <ul class="plan-list">
+                        <li>3x Vaccination (Combined)</li>
+                        <li>6x Deworming (1 Tab)</li>
+                        <li>2x Vaccination (Anti Rabies)</li>
+                        <li>4x Comprehensive Physical Exam</li>
+                    </ul>
+                    <button>Book Now</button>
+                </div>
+
+                <div class="plan-card">
+                    <img src="https://petzz.org/media/services/kitten-super-care-petzz.jpg" alt="Kitten Super Care">
+                    <h4>Kitten Super Care</h4>
+                    <span class="price-tag">₹ 7499.00/Year</span>
+                    <ul class="plan-list">
+                        <li>3x Vaccination (Combined)</li>
+                        <li>1x Blood Test (CBC)</li>
+                        <li>6x Deworming (1 Tab)</li>
+                        <li>2x Vaccination (Anti Rabies)</li>
+                        <li>4x Comprehensive Physical Exam</li>
+                    </ul>
+                    <button>Book Now</button>
+                </div>
+
+                <div class="plan-card">
+                    <img src="https://petzz.org/media/services/kitten-extra-care-petzz.jpg" alt="Kitten Extra Care">
+                    <h4>Kitten Extra Care</h4>
+                    <span class="price-tag">₹ 9999.00/Year</span>
+                    <ul class="plan-list">
+                        <li>3x Vaccination (Combined)</li>
+                        <li>10x Comprehensive Physical Exam</li>
+                        <li>1x Blood Test (CBC)</li>
+                        <li>6x Deworming (1 Tab)</li>
+                        <li>2x Vaccination (Anti Rabies)</li>
+                    </ul>
+                    <button>Book Now</button>
+                </div>
+
+                <div class="plan-card">
+                    <img src="https://petzz.org/media/services/kitten-complete-care-petzz.jpg" alt="Kitten Complete Care">
+                    <h4>Kitten Complete Care</h4>
+                    <span class="price-tag">₹ 14999.00/Year</span>
+                    <ul class="plan-list">
+                        <li>3x Vaccination (Combined)</li>
+                        <li>1x Spay/Neuter Surgery</li>
+                        <li>12x Comprehensive Physical Exam</li>
+                        <li>1x Blood Test (CBC)</li>
+                        <li>6x Deworming (1 Tab)</li>
+                        <li>2x Vaccination (Anti Rabies)</li>
+                    </ul>
+                    <button>Book Now</button>
+                </div>
+            </div>
+
+            <h3>Cat Care Plans (1+ Year)</h3>
+            <p>Packages that are curated to cater to all your Kitten health needs</p>
+        </section>
+
+
+
+
+        <div class="plans-container">
+            <div class="plan-card">
+                <img src="https://petzz.org/media/services/catzz-essential-petzz_CrUGGj5.jpg" alt="Catzz Essential">
+                <h4>Catzz Essential</h4>
+                <span class="price-tag">₹ 2999.00/Year</span>
+                <ul class="plan-list">
+                    <li>1x Vaccination ( Combined )</li>
+                    <li>4x Deworming (2 Tab)</li>
+                    <li>1x Vaccination ( Anti Rabies )</li>
+                    <li>3x Comprehensive Physical Exam</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+
+            <div class="plan-card">
+                <img src="https://petzz.org/media/services/catzz-active-petzz.jpg" alt="Catzz Active">
+                <h4>Catzz Active</h4>
+                <span class="price-tag">₹ 4999.00/Year</span>
+                <ul class="plan-list">
+                    <li>1x Vaccination ( Combined )</li>
+                    <li>4x Deworming (2 Tab)</li>
+                    <li>1x Vaccination ( Anti Rabies )</li>
+                    <li>1x Blood Test ( CBC )</li>
+                    <li>4x Comprehensive Physical Exam</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+
+            <div class="plan-card">
+                <img src="https://petzz.org/media/services/catzz-complete-petzz.jpg" alt="Catzz Complete">
+                <h4>Catzz Complete</h4>
+                <span class="price-tag">₹ 5999.00/Year</span>
+                <ul class="plan-list">
+                    <li>1x Vaccination ( Combined )</li>
+                    <li>6x Comprehensive Physical Exam</li>
+                    <li>2x Dental Exam</li>
+                    <li>4x Deworming (2 Tab)</li>
+                    <li>1x Vaccination (Anti Rabies)</li>
+                    <li>1x Blood Test ( CBC )</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+
+            <div class="plan-card">
+                <img src="https://petzz.org/media/services/catzz-senior-petzz.jpg" alt="catzz Senior">
+                <h4>Catzz Senior</h4>
+                <span class="price-tag">₹ 9999.00/Year</span>
+                <ul class="plan-list">
+                    <li>1x Vaccination (Combined)</li>
+                    <li>1x Lipid Profiling</li>
+                    <li>1x Anal Gland Cleaning</li>
+                    <li>1x Urine Test</li>
+                    <li>1x BloodChemistry</li>
+                    <li>2x Dental Exam</li>
+                    <li>12x Comprehensive Physical Exam</li>
+                    <li>1x Blood Test ( CBC )</li>
+                    <li>2x Vaccination ( Anti Rabies )</li>
+                    <li>4x Comprehensive Physical Exam</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+        </div>
+
+
+
+    <div class="section">
+        <h3>Comprehensive Doorstep Care for Cats</h3>
+        <p>
+            At petzz we believe in providing the best care for your pets. A major part of this care, we believe, can and should be delivered at your home where your pets feel safe. Hence, we have created a network of cat vets and other feline professionals to cater to your pets directly at your doorstep. Our experts come from diverse backgrounds and expertise in treatment of a wide spectrum of cat breeds and species. We believe in prognosis rather than diagnosis and believe that your pets should not be allowed to fall sick in the first place. Hence, we have instituted special healthcare plans which ensure regular preventive health check-ups directly at your home. Apart from health check-ups our cat doctors can also deliver core services like cat vaccinations, cat deworming tablet administration. We also have a team of expert cat groomers who can take care of the sanitary needs of your beloved cats at your home at a time of your choosing.
+            We know that not all the treatments can be done at home, especially those involving surgical intervention. Hence, our vet network also consists of cat clinics and cat hospitals who expertise in surgical and higher tier treatments. It is our aim to provide the best care for your pets and the complete system is geared towards it.
+
+
+        </p>
+
+        <h3>Preventive Care is Best Care</h3>
+        <p>
+            Through our experience, we have come to believe that since pets can’t always communicate their pain and sufferings (and sometimes even hide them) like humans can it is always good to go for scheduled checks for your pet. With this goal in mind, we have instituted specially designed pet health packages for your pet. These packages, delivered by a family vet of your choice will ensure that your pet get regularly checked for ailments. These packages also ensure that core medications and vaccinations are administered to ensure your pet is healthy and happy. Call our Petzz helpline now to know more.
+        </p>
+
+        <h3>Comprehensive Healthcare Solutions</h3>
+        <p>
+            Since our pets can’t express themselves like humans can, it is important to focus on prognosis rather than diagnosis of diseases. Hence, we have installed specially designed preventive healthcare plans which ensure regular vet visits at your home. As a part of these plans, we assign your cat a family vet who will regularly visit your cat regularly and makes sure he/she is healthy and happy. He will also ensure that core medications and vaccinations are delivered on time for your beloved pet.
+        </p>
+
+        <h3>Can we treat everything at home?</h3>
+        <p>
+            90% of feline doctor visits happen to administer kitten and adult cat vaccines (including anti rabies and combines vaccine), administer dewormer dosage, dietary issues, and fever. Our cat vets carry all the necessary medications ant can treat all these ailments directly at your home. We also have a medicine delivery facility and can deliver the of medications as prescribed by the vet at your home.
+
+
+        </p>
+    </div>
+
+    <h3 class="centered-heading">Download Our Mobile App to Book a Consultation</h3>
+
+
+    <div class="store-buttons">
+        <a href="https://apps.apple.com/" target="_blank">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="store-badge" />
+        </a>
+
+        <a href="https://play.google.com/store" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="store-badge" />
+        </a>
+    </div>
+    </div>
+
+
+
+
+    <footer class="footer"></footer>
+    <div class="footer-columns">
+        <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">Doctor Login</a></li>
+                <li><a href="#">Our Vetz</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Terms Of Services</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="#">Preventive Care</a></li>
+                <li><a href="#">Grooming</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-logo">
+        <img src="https://petzz.org/static/petzz/images/new_logo.jpg" alt="Petzz Logo" />
+        <p>© 2017 Activx Animal Health Technologies Pvt Ltd</p>
+        <a href="tel:+919620103670" class="call-button">
+            <span>📞</span> +91 96201 03670
+        </a>
+    </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const servicesBtn = document.getElementById('services-btn');
+            const dropdown = document.querySelector('.dropdown');
+
+            servicesBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                dropdown.classList.toggle('open');
+            });
+
+            // Optional: close dropdown when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!dropdown.contains(e.target) && e.target !== servicesBtn) {
+                    dropdown.classList.remove('open');
+                }
+            });
+        });
+
+
+        document.querySelectorAll('.dropdown-menu li a').forEach(item => {
+            item.addEventListener('click', function () {
+                // Remove 'selected' from all items
+                document.querySelectorAll('.dropdown-menu li a').forEach(el => el.classList.remove('selected'));
+                // Add 'selected' to the clicked item
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>

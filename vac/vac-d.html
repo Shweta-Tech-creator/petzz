@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #0e2a47;
+            background-color: #fff;
+            text-align: center;
+          }
+        /* Header */
+ body{
+    background: rgba(164, 202, 255, 0.995);;
+  }
+
+    /* NEW HEADER CSS */
+    header {
+        width: 100%;
+        height: 72px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        background: linear-gradient(90deg, #6bc1ff, #ffffff);
+        border-bottom: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .left-header {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .logo img {
+        width: 120px;
+        max-height: 100px;
+        object-fit: contain;
+    }
+
+    nav ul {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        list-style: none;
+        margin-left: auto;
+    }
+
+    nav li {
+        position: relative;
+    }
+
+    nav a {
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+        text-decoration: none;
+        padding: 5px 0;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: #007bff;
+    }
+
+    .login-btn,
+    .contact {
+        background-color: #002a5c;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+        cursor: pointer;
+    }
+
+    .login-btn:hover,
+    .contact:hover {
+        background-color: #003f8c;
+        transform: translateY(-1px);
+    }
+
+    .contact img {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        background-color: #ffffff;
+        padding: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+        min-width: 200px;
+    }
+
+    .dropdown-menu li {
+        padding: 8px 20px;
+    }
+
+    .dropdown-menu li a {
+        color: #333;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .dropdown-menu li a:hover {
+        color: #007bff;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    /* END NEW HEADER CSS */
+
+
+    /* General Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+  /* Hero Section */
+  .hero-section {
+    background: url('doc (1).webp') no-repeat center center/cover;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative; /* important to anchor absolute children */
+    color: #0E2A47;
+    height: 500px; /* set fixed height if needed */
+    overflow: hidden;
+  }
+  .hero-title-pill {
+    background-color: rgba(200, 200, 200, 0.9); /* soft grey */
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 999px;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .hero-overlay {
+    background: rgba(255, 255, 255, 0.7); /* translucent white */
+    position: absolute; /* overlay mode */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* center it */
+    width: 100%;
+    height: 470px; /* or auto */
+
+    padding: 30px;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+  .hero-subtitle {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #0E2A47;
+  }
+  
+  .hero-cta {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px 0 15px;
+    color: #0E2A47;
+  }
+  
+  .app-buttons img {
+    height: 50px;
+    margin: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .hero-overlay-content {
+    margin-top: 70px; /* or padding-top: 40px; */
+    text-align: center;
+  }
+  
+  .vaccination-section {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .dog-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .title h1 {
+    font-size: 30px;
+    margin: 10px 0;
+    font-weight: 700;
+  }
+  
+  .underline {
+    width: 70px;
+    height: 4px;
+    background-color: #333;
+    margin: 0 auto 20px;
+  }
+  
+  .schedule-heading {
+    font-size: 24px;
+    margin: 30px 0;
+  }
+  
+  .vaccination-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .image img {
+    width: 200px;
+    height: auto;
+  }
+  
+  .vaccination-table {
+    flex: 1;
+    border: 1px solid #000b60;
+    padding: 20px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    margin-left: 140px;
+  }
+  
+  .table-header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-weight: bold;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .table-body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: left;
+    gap: 10px;
+  }
+  
+  .table-body h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #0E2A47;
+  }
+  
+  .table-body ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  .note {
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: left;
+    color: #0E2A47;
+  }
+  
+
+
+ 
+  .vaccination-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+
+  }
+  
+  .vaccination-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .card {
+    background: linear-gradient(90deg, #b3dcff, #9ee8ff);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .card ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .card .note {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .price {
+    background-color: #27ae60;
+    color: #ffffff;
+    padding: 6px 2px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .price{
+    width: 70px;
+  }
+  
+  .card button {
+    background-color: #0E2A47;
+    color: #ffffff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    width: fit-content;
+  }
+  
+  .vaccine-components {
+    margin-top: 50px;
+    text-align: left;
+  }
+  
+  .title-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-left: 60px;
+  }
+  
+  .star {
+    color: #0E2A47;
+    font-size: 28px;
+  }
+  
+  .components-grid {
+    display: flex;
+    gap: 140px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-left: 60px;
+  }
+  
+  .components-grid h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .components-grid ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cta-box {
+    background: linear-gradient(90deg, #92ccff, #008ab4);  
+    margin-top: -280px;
+    border-radius: 16px;
+    padding: 35px 5px;
+    font-size: 35px;
+    text-align: center;
+    font-weight: lighter;
+  }
+  .cta-box{
+    width: 600px;
+    margin-left: 630px;
+  }
+  
+  .cta-box a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+  }
+
+  .cta-box a:hover {
+    color: #003772; /* Dark blue on hover */
+  }
+  .light-grey-line {
+    border: none;           /* Remove default border */
+    height: 1px;            /* Line thickness */
+    background-color: #000000;  /* Light grey color */
+    margin: 20px 0;         /* Optional spacing above and below */
+  }
+  
+  .care-box {
+    background: linear-gradient(90deg, #92ccff, #008ab4);     /* Light grey */
+    padding: 40px 60px;
+    border-radius: 40px;
+    text-align: left;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    margin-left: 50px ;
+    margin-top: -40px;
+  }
+  
+  .care-box p {
+    color: #0E2A47;
+    font-size: 28px;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  .care-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .care-link:hover {
+    color: #0E2A47; /* Dark blue */
+    text-decoration: none;
+  }
+
+
+
+  .vaccine-components1 {
+    margin-top: 50px;
+    text-align: left;
+    margin-left: 175px;
+  }
+  
+  .title-with-icon1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-left: 60px;
+  }
+  
+  .star1 {
+    color: #0E2A47;
+    font-size: 28px;
+  }
+  
+  .components-grid1 {
+    display: flex;
+    gap: 140px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-left: 60px;
+  }
+  
+  .components-grid1 h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .components-grid1 ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .centered-heading {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin: 30px 0; /* Add space above and below */
+    margin-top: -45px;
+  }
+  
+  
+  
+  .download-section h3 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  
+  .store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: -140px;
+    margin-left: 200px;
+  }
+  
+  .store-badge {
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  
+  .footer {
+   
+    text-align: center;
+    padding: 40px 20px;
+    font-family: sans-serif;
+    color: #555;
+    margin-top: -120px;
+    margin-right: 200px;
+  }
+  
+  .footer-columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 150px;
+    margin-bottom: 40px;
+    margin-right: 400px;
+  }
+  
+  .footer-column h4 {
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #7b7a7a;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column li {
+    margin: 6px 0;
+    margin-bottom: 16px;
+  }
+  
+  .footer-column a {
+    text-decoration: none;
+    color: #7c8694;
+    font-size: 14px;
+  }
+  .footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  /* Optional: vertically center if full height */
+    text-align: center;
+    margin: 40px auto; /* Horizontally centers and gives vertical spacing */
+    width: fit-content;
+    margin-left: 260px;
+  }
+  
+  .footer-logo img {
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-logo p {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #777;
+  }
+  
+  .call-button {
+    display: inline-block;
+    background-color: #0d274d;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left-header">
+          <div class="logo">
+            <img src="image-removebg-preview (8).png" alt="Petzz Logo">
+          </div>
+          <nav>
+            <ul>
+              <li><a href="home.html">Home Visit</a></li>
+              <li><a href="/main page/p.html">Multi-vet Clinic</a></li>
+              <li class="dropdown">
+                <a href="#" id="services-btn">Services ▾</a>
+                <ul class="dropdown-menu" id="services-menu">
+                  <li><a href="/preventive-care/preventive-care.html">Preventive Care</a></li>
+                  <li><a href="#">Vaccination and Deworming</a></li>
+                  <li><a href="/surgery/sur.html">Surgery</a></li>
+                  <li><a href="/groom/groom.html">Grooming</a></li>
+                  <li><a href="/package/package.html">Package</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Our Vets</a></li>
+              <li><a href="#" class="login-btn">Doctor Login</a></li>
+              <li><span class="contact"><img src="icons8-headphones-32.png"> +91-9620103670</span></li>
+            </ul>
+          </nav>
+          
+        </div>
+      </header>
+
+
+      <div class="hero-section">
+        <div class="hero-overlay">
+            <div class="hero-overlay-content">
+            <div class="hero-title-pill">Vaccination and Deworming</div>
+            <p class="hero-subtitle">
+              Vaccination and Deworming For Your Pets At Your Home By Our Experts
+            </p>
+            <h2 class="hero-cta">Book Now</h2>
+            <div class="app-buttons">
+                <a href="https://apps.apple.com/" target="_blank">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="store-badge" />
+                  </a>
+              
+                  <a href="https://play.google.com/store" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="store-badge" />
+                  </a>
+            </div>
+        </div>
+      </div>
+      </div>
+      <section class="vaccination-section">
+        <h2 class="title">
+            <h2 class="about-title">
+                <i class="fa-solid fa-dog" style="font-size:60px;"></i> Dog Vaccination
+              </h2>
+              
+          <div class="underline"></div>
+        </div>
+    
+        <h2 class="schedule-heading">Dog Vaccination Schedule</h2>
+    
+        <div class="vaccination-container">
+          <div class="image">
+            <img src="https://petzz.org/static/petzz/images/display/dog_display.png" alt="Puppy">
+          </div>
+          <div class="vaccination-table">
+            <div class="table-header">
+              <div></div>
+              <div>Puppy</div>
+              <div></div>
+              <div>Adult</div>
+            </div>
+            <div class="table-body">
+              <div>
+                <h3>6 - 8 Weeks</h3>
+                <ul>
+                  <li>Distemper</li>
+                  <li>Hepatitis</li>
+                  <li>Parvovirus</li>
+                  <li>Parainfluenza</li>
+                  <li>Parvovirus</li>
+                  <li>Leptospirosis</li>
+                  <li>Bordatella (kennel Cough)*</li>
+                </ul>
+              </div>
+              <div>
+                <h3>10 - 12 Weeks</h3>
+                <ul>
+                  <li>Distemper</li>
+                  <li>Hepatitis</li>
+                  <li>Parvovirus</li>
+                  <li>Parainfluenza</li>
+                  <li>Parvovirus</li>
+                  <li>Leptospirosis</li>
+                  <li>Rabies</li>
+                  <li>Coronavirus*</li>
+                </ul>
+              </div>
+              <div>
+                <h3>14 - 16 Weeks</h3>
+                <ul>
+                  <li>Distemper</li>
+                  <li>Hepatitis</li>
+                  <li>Parvovirus</li>
+                  <li>Parainfluenza</li>
+                  <li>Parvovirus</li>
+                  <li>Leptospirosis</li>
+                  <li>Rabies</li>
+                  <li>Coronavirus*</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Annually</h3>
+                <ul>
+                  <li>Distemper</li>
+                  <li>Hepatitis</li>
+                  <li>Parvovirus</li>
+                  <li>Parainfluenza</li>
+                  <li>Parvovirus</li>
+                  <li>Leptospirosis</li>
+                  <li>Rabies</li>
+                  <li>Coronavirus*</li>
+                </ul>
+              </div>
+            </div>
+            <p class="note">* Coronavirus and Bordatella (kennel Cough) are optional</p>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="vaccination-section">
+        <h2>Vaccination Services</h2>
+    
+        <div class="card-container">
+          <div class="card">
+            <h3>Anti Rabies Vaccination</h3>
+            <ul>
+              <li>1x Health Checkup and Counselling</li>
+              <li>1x Vet Visit</li>
+              <li>1x Antirabies Vaccination</li>
+            </ul>
+            <p class="note">* Deworming Charges would be extra as per your pet's weight</p>
+            <div class="price">₹ 749.00</div>
+            <hr class="light-grey-line" />
+            <button>Book Now</button>
+          </div>
+    
+          <div class="card">
+            <h3>7 in 1 Vaccination</h3>
+            <ul>
+              <li>1x 7 in 1 Combined Vaccination</li>
+              <li>1x Health Checkup and Counselling</li>
+              <li>1x Vet Visit</li>
+              <li>1x Antirabies Vaccination</li>
+            </ul>
+            <p class="note">* Deworming Charges would be extra as per your pet's weight</p>
+            <div class="price">₹ 1599.00</div>
+            <hr class="light-grey-line" />
+            <button>Book Now</button>
+          </div>
+    
+          <div class="card">
+            <h3>9 in 1 Vaccination</h3>
+            <ul>
+              <li>1x 9 in 1 Combined Vaccination</li>
+              <li>1x Health Checkup and Counselling</li>
+              <li>1x Vet Visit</li>
+              <li>1x Antirabies Vaccination</li>
+            </ul>
+            <p class="note">* Deworming Charges would be extra as per your pet's weight</p>
+            <div class="price">₹ 1749.00</div>
+            <hr class="light-grey-line" />
+            <button>Book Now</button>
+          </div>
+        </div>
+    
+        <div class="vaccine-components" >
+          <div class="title-with-icon">
+            <span class="star">★</span>
+            <h3>Vaccine Components</h3>
+          </div>
+    
+          <div class="components-grid">
+            <div>
+              <h4>7 In 1 Vaccination</h4>
+              <ul>
+                <li>Canine Distemper</li>
+                <li>Adenovirus Type 2</li>
+                <li>Hepatitis</li>
+                <li>Parainfluenza</li>
+                <li>Parvovirus</li>
+                <li>Leptospira Canicola</li>
+                <li>Leptospira Grippotyphosa</li>
+              </ul>
+            </div>
+            <div>
+              <h4>9 In 1 Vaccination</h4>
+              <ul>
+                <li>Canine Distemper</li>
+                <li>Adenovirus Type 2</li>
+                <li>Hepatitis</li>
+                <li>Parainfluenza</li>
+                <li>Parvovirus</li>
+                <li>Leptospira Canicola</li>
+                <li>Leptospira Grippotyphosa</li>
+                <li>Leptospira Icterohaemorrhagiae</li>
+                <li>Leptospira Pomona</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    
+        <div class="cta-box">
+          For Preventive Care and Puppy Care Packages Please Visit 
+          <a href="../preventive-care/dog-view(1).html">Here</a>
+        </div>
+        
+      </section>
+
+      <hr class="light-grey-line" style="width: 1000px; height: 1px; background-color: #d3d3d3; border: none; margin: 70px auto; margin-top:130px;" />
+
+
+      <section class="vaccination-section">
+        <h2 class="title">
+            <h2 class="about-title">
+                <i class="fa-solid fa-cat" style="font-size:60px; margin-top:-120px;"></i> Cat Vaccination
+              </h2>
+              
+          <div class="underline"></div>
+        </div>
+        <h2 class="schedule-heading">Cat Vaccination Schedule</h2>
+
+        <div class="vaccination-container">
+          <div class="image">
+            <img src="https://petzz.org/static/petzz/images/display/cat_display.png" alt="Puppy"  style="margin-right: 40px;">
+          </div>
+    
+
+          <div class="vaccination-table">
+            <div class="table-header">
+              <div></div>
+              <div>Kitten</div>
+              <div></div>
+              <div>Adult</div>
+            </div>
+            <div class="table-body">
+              <div>
+                <h3>6 - 8 Weeks</h3>
+                <ul>
+                  <li>Panleukopenia</li>
+                  <li>Calcivirus</li>
+                  <li>Rhinotracheitis</li>
+                </ul>
+              </div>
+              <div>
+                <h3>10 - 12 Weeks</h3>
+                <ul>
+                  <li>Panleukopenia</li>
+                  <li>Calcivirus</li>
+                  <li>Rhinotracheitis</li>
+                  <li>Rabies</li>
+            
+                </ul>
+              </div>
+              <div>
+                <h3>14 - 16 Weeks</h3>
+                <ul>
+                  <li>Panleukopenia</li>
+                  <li>Calcivirus</li>
+                  <li>Rhinotracheitis</li>
+                  <li>Rabies</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Annually</h3>
+                <ul>
+                  <li>Panleukopenia</li>
+                  <li>Calcivirus</li>
+                  <li>Rhinotracheitis</li>
+                  <li>Rabies</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section class="vaccination-section">
+        <h2>Vaccination Services</h2>
+    
+        <div class="card-container">
+          <div class="card">
+            <h3>Anti Rabies Vaccination</h3>
+            <ul>
+              <li>1x Health Checkup and Counselling</li>
+              <li>1x Vet Visit</li>
+              <li>1x Antirabies Vaccination</li>
+            </ul>
+            <p class="note">* Deworming Charges would be extra as per your pet's weight</p>
+            <div class="price">₹ 749.00</div>
+            <hr class="light-grey-line" />
+            <button>Book Now</button>
+          </div>
+    
+          <div class="card">
+            <h3>Feline Combined Vaccination</h3>
+            <ul>
+              <li>1x Feline Combined Vaccination/li>
+              <li>1x Health Checkup and Counselling</li>
+              <li>1x Vet Visit</li>
+              <li>1x Antirabies Vaccination</li>
+            </ul>
+            <p class="note">* Deworming Charges would be extra as per your pet's weight</p>
+            <div class="price">₹ 1749.00</div>
+            <hr class="light-grey-line" />
+            <button>Book Now</button>
+          </div>
+        </div>
+
+          <div class="vaccine-components1">
+            <div class="title-with-icon1">
+              <span class="star1">★</span>
+              <h3>Vaccine Components</h3>
+            </div>
+          
+            <div class="components-grid1"   style="margin-top: -40px;">
+              <div style="margin-top: 10px; >
+                <h4>Feline Combined Vaccine</h4>
+                <ul style="margin-top: 30px;">
+                  <li>Feline Viral Rhinotracheitis</li>
+                  <li>Calcivirus</li>
+                  <li>Panleukopenia</li>
+                </ul>
+              </div>
+
+              <div class="care-box">
+                <p>
+                  For Preventive<br>
+                  Care and Kitten<br>
+                  Care Packages<br>
+                  Please Visit <a href="../preventive-care/cat-view(1).html" class="care-link">Here</a>
+                </p>
+              </div>
+
+              <h3 class="centered-heading">Download Our Mobile App to Book a Consultation</h3>
+
+
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/" target="_blank">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="store-badge" />
+    </a>
+
+    <a href="https://play.google.com/store" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="store-badge" />
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
+<footer class="footer"></footer>
+  <div class="footer-columns">
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Doctor Login</a></li>
+        <li><a href="#">Our Vetz</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Terms Of Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Preventive Care</a></li>
+        <li><a href="#">Grooming</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Help Center</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-logo">
+    <img src="https://petzz.org/static/petzz/images/new_logo.jpg" alt="Petzz Logo" />
+    <p>© 2017 Activx Animal Health Technologies Pvt Ltd</p>
+    <a href="tel:+919620103670" class="call-button">
+      <span>📞</span> +91 96201 03670
+    </a>
+  </div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const servicesBtn = document.getElementById('services-btn');
+        const dropdown = document.querySelector('.dropdown');
+    
+        servicesBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          dropdown.classList.toggle('open');
+        });
+    
+        // Optional: close dropdown when clicking outside
+        document.addEventListener('click', function (e) {
+          if (!dropdown.contains(e.target) && e.target !== servicesBtn) {
+            dropdown.classList.remove('open');
+          }
+        });
+      });
+  
+
+        document.querySelectorAll('.dropdown-menu li a').forEach(item => {
+          item.addEventListener('click', function () {
+            // Remove 'selected' from all items
+            document.querySelectorAll('.dropdown-menu li a').forEach(el => el.classList.remove('selected'));
+            // Add 'selected' to the clicked item
+            this.classList.add('selected');
+          });
+        });
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

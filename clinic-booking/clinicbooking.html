@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In - Doctor For Animals</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ======= Navbar ======= */
+    .navbar {
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 10px 30px;
+    }
+
+    .navbar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+        font-size: 18px;
+        margin-left: 150px;
+      }
+  
+      .logo img {
+        height: 60px;
+
+      }
+  
+    .nav-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+ 
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      margin-left: 690px;
+    }
+
+    .btn {
+      background-color: #003c8c;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .call-btn {
+      font-size: 16px;
+    }
+
+    .bottom-links {
+      margin-top: 40px;
+      display: flex;
+      gap: 0px;
+    }
+
+    .bottom-links a {
+      font-size: 14px;
+      text-decoration: none;
+      color: #0d2c53;
+      font-weight: bold;
+      margin-right: 60px;
+      margin-top: 40px;
+    }
+ 
+      
+
+    .cart .count {
+      background: #003c8c;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+      margin-left: 3px;
+    }
+
+  
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; /* or center, if you want them centered */
+        gap: 5px; /* this handles vertical spacing if wrapped */
+        margin-left: 140px;
+      }
+      
+    nav a {
+        color: #022755;
+        text-decoration: none;
+        font-weight: 450;
+        font-size: 16px;
+        margin: 0px 0px 0 30px;  /* top: 5px, right: 15px, bottom: 0, left: 0 */
+        margin-top: -15px;
+        
+
+      }
+      nav a:hover {
+        color: red;
+      }
+
+    /* ======= Login Page ======= */
+    h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        color: #2c2f4a;
+      }
+  
+      .login-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        max-width: 1300px;
+        margin: auto;
+        flex-wrap: wrap;
+      }
+  
+      .card {
+        background-color: #fff;
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 30px;
+        flex: 1;
+        min-width: 400px;
+        max-width: 900px;
+      }
+  
+      .card h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #2c2f4a;
+      }
+  
+      .card p {
+        font-size: 15px;
+        color: #444;
+        line-height: 1.6;
+      }
+  
+      .card label {
+        display: block;
+        margin-top: 15px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1b2e5a;
+      }
+  
+      .card input[type="text"],
+      .card input[type="password"] {
+        width: 100%;
+        padding: 12px 14px;
+        margin-top: 8px;
+        border: 1px solid #003c8c;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+  
+      .btn {
+        background-color: #003c8c;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 15px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+  
+      .forgot {
+        margin-left: 10px;
+        color: #003c8c;
+        font-size: 14px;
+        text-decoration: none;
+      }
+  
+      .password-wrapper {
+        position: relative;
+        display: flex;
+      }
+  
+      .password-wrapper input[type="password"] {
+        flex: 1;
+        border-right: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+  
+      .toggle-visibility {
+        background-color: rgb(189, 189, 189);
+        border: none;
+        padding: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        width: 28px;
+        margin-top: 8px;
+
+      }
+      .app-download-section {
+        background-color: #f9f9f9; /* lightest grey */
+        min-height: 300px; 
+        padding: 50px 10px;
+        margin-top: 50px;
+        border-top: 1px solid #ccc;
+      }
+      
+
+      
+
+.centered-heading {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin: 30px 0; /* Add space above and below */
+  }
+  
+  
+  
+  .download-section h3 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  
+  .store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .store-badge {
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  
+  .footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    color: #555;
+  }
+  
+  .footer-columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 250px;
+    margin-bottom: 40px;
+    margin-right: 200px;
+  }
+  
+  .footer-column h4 {
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #7b7a7a;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column li {
+    margin: 6px 0;
+    margin-bottom: 16px;
+  }
+  
+  .footer-column a {
+    text-decoration: none;
+    color: #7c8694;
+    font-size: 14px;
+  }
+  .footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  /* Optional: vertically center if full height */
+    text-align: center;
+    margin: 40px auto; /* Horizontally centers and gives vertical spacing */
+    width: fit-content;
+  }
+  
+  .footer-logo img {
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-logo p {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #777;
+  }
+  
+  .call-button {
+    display: inline-block;
+    background-color: #0d274d;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+      
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-top">
+      <div class="logo">
+        <img src="https://doctorforanimals.com/static/image/logo.svg" alt="Doctor For Animals" />
+      
+      </div>
+      <div class="nav-buttons">
+        <div class="button-group">
+          <button class="btn">Doctor Login</button>
+          <button class="btn call-btn">🎧 +91-9620103670</button>
+        </div>
+    </div>
+        <div class="bottom-links">
+          <a href="#" class="account">👤 Account</a>
+          <a href="#" class="cart">🛒 <span class="count">0</span></a>
+        </div>
+ 
+
+    <nav>
+      <a href="#">🛒 Shop Now</a>
+      <a href="#">𓃡  Vet Home Visits</a>
+      <a href="#">𓉞  Clinic Bookings</a>
+      <a href="#">☎  Video Consultation</a>
+      <a href="#">Services ▾</a>
+    </nav>
+  </header>
+
+  <h1>Sign in</h1>
+
+  <div class="login-container">
+    <!-- Left Card: New Customer -->
+    <div class="card">
+      <h2>NEW CUSTOMER</h2>
+      <p>
+        By creating an account with our store, you will be able to move through the checkout process faster,
+        store multiple shipping addresses, view and track your orders in your account and more.
+      </p>
+      <button class="btn">REGISTER</button>
+    </div>
+
+    <!-- Right Card: Login -->
+    <div class="card">
+      <h2>LOGIN</h2>
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" placeholder="Mobile Number" />
+
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Password" />
+        <button class="toggle-visibility" type="button">
+            <img id="eyeIcon" src="https://static.thenounproject.com/png/4334035-200.png" style="height: 16px;">
+          </button>
+          
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button class="btn">Login</button>
+        <a class="forgot" href="#">Forgot Password?</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-download-section">
+
+<h3 class="centered-heading">Download Our Mobile App to Book a Consultation</h3>
+
+
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/" target="_blank">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="store-badge" />
+    </a>
+
+    <a href="https://play.google.com/store" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="store-badge" />
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
+<footer class="footer"></footer>
+  <div class="footer-columns">
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Doctor Login</a></li>
+        <li><a href="#">Our Vetz</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Terms Of Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Preventive Care</a></li>
+        <li><a href="#">Grooming</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Help Center</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-logo">
+    <img src="https://petzz.org/static/petzz/images/new_logo.jpg" alt="Petzz Logo" />
+    <p>© 2017 Activx Animal Health Technologies Pvt Ltd</p>
+    <a href="tel:+919620103670" class="call-button">
+      <span>📞</span> +91 96201 03670
+    </a>
+  </div>
+</footer>
+</div>
+  <script>
+    const toggleBtn = document.querySelector(".toggle-visibility");
+    const passwordInput = document.getElementById("password");
+    const eyeIcon = document.getElementById("eyeIcon");
+  
+    toggleBtn.addEventListener("click", function () {
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.src = " https://static.thenounproject.com/png/4334035-200.png"; // eye with dash
+      } else {
+        passwordInput.type = "password";
+        eyeIcon.src = "https://toppng.com/uploads/preview/invisible-vector-password-eye-icon-11562916497wis7nkruhq.png"; // eye open
+      }
+    });
+  </script>
+  
+  
+</body>
+
+</html>  

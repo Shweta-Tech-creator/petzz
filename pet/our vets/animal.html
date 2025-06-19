@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veterinary Medicine Doctors</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+    padding: 40px;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1400px; 
+    margin: auto;
+    padding: 20px;
+  }
+  
+  
+  .breadcrumb {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #004d40;
+  }
+  
+  .doctor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+  }
+  
+  
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    padding: 25px 20px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(0, 200, 83, 0.15));
+    transform: rotate(45deg);
+    z-index: 0;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .card:hover::before {
+    opacity: 1;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 4px solid #e0f7fa;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .card h3 {
+    font-size: 20px;
+    color: #00796b;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card p {
+    font-size: 14px;
+    margin: 8px 0 18px;
+    color: #666;
+    z-index: 1;
+    position: relative;
+  }
+  
+  /* Button Style */
+  .card button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .card button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+  }
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+</head>
+<body>
+ 
+
+    <div class="container">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a> > <a href="#">Our Doctors</a> > <strong>Animal Ear & Skin Medication</strong>
+        </nav>
+      
+        <h2 class="title">Animal Ear & Skin Medication Doctors</h2>
+      
+        <div class="doctor-cards">
+          <div class="card">
+            <img src="https://content.jdmagicbox.com/v2/comp/pune/v4/020pxx20.xx20.240306041432.b5v4/catalogue/dr-neha-kulkarni-hadapsar-pune-gynaecologist-and-obstetrician-doctors-qk6iqsjetk.jpg" alt="Doctor" />
+            <h3>Dr. Neha Kulkarni</h3>
+            <p>Expert in treating chronic ear infections and allergic dermatitis in pets.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://irins.org/assets/profile_images/1649714.jpg" alt="Doctor" />
+            <h3>Dr. Arvind Rao</h3>
+            <p>Veterinary dermatologist specializing in otitis externa and mange treatment.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxA_RHPeBeSDGzwcP7dCLMCp3hU_nZ0FWaxg&s" alt="Doctor" />
+            <h3>Dr. Pooja Sethi</h3>
+            <p>Over 7 years managing autoimmune skin conditions and ear canal tumors in dogs.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://mydoctorshub.com/wp-content/uploads/2024/09/Dr.-Rohit-Nanda-eye-surgeon.jpg" alt="Doctor" />
+            <h3>Dr. Rohit Nanda</h3>
+            <p>Specialist in fungal ear infections and medicated skin treatments for pets.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://i0.wp.com/otwaymedical.com.au/wp-content/uploads/2023/02/OMC-Meenal-e1682055160236.jpg?w=1200&ssl=1" alt="Doctor" />
+            <h3>Dr. Meenal Joshi</h3>
+            <p>Treats skin allergies, hot spots, and chronic otitis in cats and dogs.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZuwmE4ew48a1k_kYi3EtEKqsuE-6TZI1O7w&s" alt="Doctor" />
+            <h3>Dr. Rajeev Chopra</h3>
+            <p>10+ years experience managing bacterial skin infections and ear polyp removal.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMcJvm-I1xI_88ugDo57ZvIOYC6KfrdErqVg&s" alt="Doctor" />
+            <h3>Dr. Ishita Khan</h3>
+            <p>Focus on allergy testing and customized treatment for pet skin irritations.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://ghealth121.com/wp-content/uploads/2021/12/Dr.-Manish-Srivastava.jpg" alt="Doctor" />
+            <h3>Dr. Manish Srivastava</h3>
+            <p>Renowned for treating ear mites and parasitic skin infections in animals.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQHK7MDQDUuaDA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726123623983?e=2147483647&v=beta&t=EXX6kWCFgBGCkQQAL8eoRtbYW3QZwVATbXf-x5_lThE" alt="Doctor" />
+            <h3>Dr. Nisha Dugar</h3>
+            <p>Specialist in topical and systemic therapies for severe skin disorders.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToEMsTEGXh7tVWQ0lm-lCsF_MfqgwCzOY-mw&s" alt="Doctor" />
+            <h3>Dr. Zaid Khan</h3>
+            <p>Experienced in ear flushing techniques and chronic dermatitis treatment.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQF32mA-k0tEWA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1719143325301?e=2147483647&v=beta&t=Akfbh14bkBsvUL9XMwKkQnGumO1lPAqSpuJCpIxAfV4" alt="Doctor" />
+            <h3>Dr. Tanya Rane</h3>
+            <p>Focused on skin biopsies and advanced medicated ear therapies in pets.</p>
+            <button>Book Appointment</button>
+          </div>
+          <div class="card">
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQExFywWDishjQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1703274543927?e=2147483647&v=beta&t=4ekwGv-mMue93oy5bhIJJZQ4JqcY_8Hz1jndg_KPJGc" alt="Doctor" />
+            <h3>Dr. Kabir Mehta</h3>
+            <p>Expert in managing chronic skin lesions and immune-mediated skin conditions.</p>
+            <button>Book Appointment</button>
+          </div>
+        </div>
+      </div>
+      
+</body>
+</html>

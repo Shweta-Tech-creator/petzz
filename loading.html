@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redirecting... Doctor For Animals</title>
+  <style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: white;
+        color: #0d2c53;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        position: relative;
+      }
+  
+      .notice {
+     
+        top: 100px;
+
+        font-size: 14px;
+        color: #0d2c53;
+        max-width: 600px;
+        margin-top: -450px;
+        text-align: center;
+        margin-bottom: 150px;
+      }
+  
+
+      h1 {
+        font-size: 35px;
+        margin: 40px 0 20px;
+      }
+  
+      .logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+  
+      .logo {
+        height: 50px;
+      }
+  
+      .dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+  
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: blue;
+        opacity: 0.3;
+        animation: blink 1.2s infinite;
+      }
+  
+      .dot1 {
+        animation-delay: 0s;
+      }
+      .dot2 {
+        animation-delay: 0.2s;
+      }
+      .dot3 {
+        animation-delay: 0.4s;
+      }
+  
+      @keyframes blink {
+        0%, 80%, 100% {
+          opacity: 0.3;
+        }
+        40% {
+          opacity: 1;
+        }
+      }
+</style>
+  <script>
+    // Redirect after 2 minutes (120000 ms)
+    setTimeout(() => {
+      window.location.href = "../home-visit/book-online.html"; // Replace with your actual URL
+    }, 5000);
+  </script>
+</head>
+<body>
+  <div class="redirect-container">
+    <p class="notice"><strong>“Redirecting you to our new website. Please wait a moment while we transfer you”</strong></p>
+    <h1>Doctor For Animals</h1>
+    <div class="logos">
+      <img src="https://petzz.org/static/petzz/images/new_logo.jpg" alt="Petzz Logo" class="logo" />
+      <div class="dots">
+        <span class="dot dot1"></span>
+        <span class="dot dot2"></span>
+        <span class="dot dot3"></span>
+      </div>
+      <img src="https://petzz.org/static/image/logo.svg" alt="Doctor For Animals Logo" class="logo" />
+    </div>
+  </div>
+</body>
+</html>

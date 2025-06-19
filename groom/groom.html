@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Grooming</title>
+  <style>
+    /* RESET AND GENERAL */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        
+        
+       
+    }
+
+    /* HEADER */
+    header {
+        width: 100%;
+        height: 72px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        background: linear-gradient(90deg, #6bc1ff, #ffffff);
+        border-bottom: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        z-index: 999;
+        position: relative;
+    }
+
+    .left-header {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .logo img {
+        width: 120px;
+        max-height: 100px;
+        object-fit: contain;
+    }
+
+    nav ul {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        list-style: none;
+        margin-left: auto;
+    }
+
+    nav a {
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+        text-decoration: none;
+        padding: 5px 0;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: #007bff;
+    }
+
+    .login-btn,
+    .contact {
+        background-color: #002a5c;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+        cursor: pointer;
+    }
+
+    .login-btn:hover,
+    .contact:hover {
+        background-color: #003f8c;
+        transform: translateY(-1px);
+    }
+
+    .contact img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .dropdown {
+        position: relative; /* Add this */
+    }
+    
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%; /* directly below the Services button */
+        left: 0;
+        background-color: #ffffff;
+        padding: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        min-width: 200px;
+    }
+    
+    .dropdown-menu li {
+        padding: 8px 20px;
+    }
+
+    .dropdown-menu li a {
+        color: #333;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .dropdown-menu li a:hover {
+        color: #007bff;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* HERO SECTION */
+    .hero {
+        background: linear-gradient(90deg, #6b9aff, #4bf3ff);
+        padding: 60px 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+        margin-bottom: 15px;
+        color: #002a5c;
+    }
+
+    .hero p {
+        font-size: 18px;
+        color: #222;
+    }
+
+    .app-buttons {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .app-buttons img {
+        height: 50px;
+    }
+
+    .hero-image img {
+        width: 300px;
+        max-width: 200%;
+ 
+        margin-top: 30px;
+    }
+
+    /* TITLE AND DESCRIPTION SHARED STYLE */
+    .title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 600;
+        margin-top: 40px;
+    }
+
+    .desc {
+        text-align: center;
+        max-width: 600px;
+        margin: 10px auto 40px;
+        font-size: 14px;
+        color: #666;
+    }
+
+    /* BOOKING SECTION */
+    .booking-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin: 0 auto 60px;
+        max-width: 1500px; /* Increase this value as needed */
+        width: 100%;
+        padding: 0 20px; /* Optional: Add side padding for smaller screens */
+        margin-top: -60px;
+      }
+      
+    .appointment-form {
+        background: linear-gradient(90deg, #a1e0ff, #ffffff);
+        padding: 30px;
+        border-radius: 8px;
+        width: 500px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        margin-right: 400px;
+    }
+
+    .appointment-form h2 {
+        margin-bottom: 10px;
+    }
+
+    .selectors {
+        display: flex;
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    input[type="date"],
+    input[type="time"] {
+        padding: 10px;
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .next-btn {
+        background: #00108c;
+        color: rgb(255, 255, 255);
+        border: none;
+        padding: 12px 18px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+
+    .dog-img {
+        max-width: 500px;
+        height: 500px;
+    }
+
+    /* OUR WORK */
+    .our-work {
+        padding: 40px 20px;
+        background: linear-gradient(90deg, #6b9aff, #4bf3ff);
+        margin-top: -160px;
+    }
+
+    .work-images {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .work-images img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* PRICING */
+    .pricing {
+        background: linear-gradient(90deg, #a1e0ff, #ffffff);
+        padding: 40px 20px;
+        margin-top: -50px;
+
+      
+    }
+
+    .pricing-cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        background: linear-gradient(90deg, #84bafb, #d3f3ff);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 20px;
+        width: 320px;
+        text-align: center;
+        position: relative;
+    }
+
+    .card::after {
+        content: '';
+        background: #d3f3ff;
+        position: absolute;
+        left: 10px;
+        bottom: -15px;
+        height: 40px;
+        width: 90%;
+        border-radius: 6px;
+        z-index: -1;
+    }
+
+    .card h3 {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .card h3 span {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .pkg {
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    .card ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+        font-size: 14px;
+        color: #444;
+    }
+
+    .card ul li {
+        margin: 6px 0;
+    }
+
+    .card button {
+        background: #000;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+
+    /* DOWNLOAD OUR MOBILE APP SECTION */
+.download-section {
+    text-align: center; /* Center the content inside this div */
+    padding: 60px 20px; /* Add some padding around the section */
+    background-color: #f0f8ff; /* A light background to separate it from the main content */
+    border-top: 1px solid #e0e0e0; /* Subtle top border */
+    border-bottom: 1px solid #e0e0e0; /* Subtle bottom border */
+    margin-top: 50px; /* Add some space above this section */
+}
+
+.centered-heading {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 auto 30px; /* Adjust margin for proper spacing below */
+    color: #1a202c;
+    max-width: 800px; /* Limit width for better readability */
+}
+
+.store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.store-badge {
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out; /* Add ease-in-out for smoother transition */
+}
+
+.store-badge:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* --- */
+/* FOOTER */
+.footer {
+    background-color: #0d274d; /* Darker blue for a strong footer background */
+    text-align: center;
+    padding: 50px 20px 30px; /* Adjusted padding */
+    font-family: 'Inter', sans-serif;
+    color: #a0aec0; /* Lighter text color for contrast */
+    margin-top: 50px; /* Space between the download section and footer */
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px; /* Adjusted gap to be slightly less wide */
+    margin-bottom: 40px;
+    max-width: 1200px; /* Max width to keep columns from spreading too far */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-column {
+    min-width: 150px; /* Ensure columns don't get too narrow */
+    text-align: left;
+}
+
+.footer-column h4 {
+    font-weight: 700;
+    margin-bottom: 18px; /* Slightly more space below heading */
+    font-size: 17px; /* Slightly larger font size */
+    color: #e2e8f0; /* Lighter color for column headings */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 12px; /* Consistent spacing between list items */
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #cbd5e0; /* Lighter color for links */
+    font-size: 15px; /* Slightly larger link font */
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #63b3ed; /* A vibrant blue on hover */
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 40px auto 20px; /* Adjust top and bottom margin */
+}
+
+.footer-logo img {
+    height: 60px;
+    margin-bottom: 12px; /* Space below logo */
+}
+
+.footer-logo p {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #a0aec0; /* Consistent text color */
+}
+
+.call-button {
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center;
+    background-color: #3182ce; /* A more inviting blue for the call button */
+    color: #fff;
+    padding: 12px 25px; /* More padding for a bigger button */
+    font-weight: 700;
+    border-radius: 8px; /* More rounded corners */
+    text-decoration: none;
+    font-size: 16px; /* Larger font size */
+    margin-top: 20px; /* More space above */
+    gap: 8px; /* Space between icon and text */
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+.call-button:hover {
+    background-color: #2b6cb0; /* Slightly darker on hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
+}
+
+.call-button span { /* Targeting the emoji directly if it's within a span */
+    font-size: 18px; /* Make the emoji slightly larger */
+    vertical-align: middle; /* Align vertically with text */
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="left-header">
+        <div class="logo">
+            <img src="image-removebg-preview (8).png" alt="Petzz Logo">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="../home-visit/home.html">Home Visit</a></li>
+                <li><a href="/main page/p.html">Multi-vet Clinic</a></li>
+                <li class="dropdown">
+                    <a href="#" id="services-btn">Services ▾</a>
+                    <ul class="dropdown-menu" id="services-menu">
+                        <li><a href="/preventive-care/preventive-care.html">Preventive Care</a></li>
+                        <li><a href="/vac/vac-d.html">Vaccination and Deworming</a></li>
+                        <li><a href="/surgery/sur.html">Surgery</a></li>
+                        <li><a href="#">Grooming</a></li>
+                        <li><a href="/package/package.html">Package</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pet/our vets/index.html">Our Vets</a></li>
+                <li><a href="#" class="login-btn">Doctor Login</a></li>
+                <li><span class="contact"><img src="icons8-headphones-32.png"> +91-9620103670</span></li>
+            </ul>
+        </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+        <h1>Gentle Grooming for Happy Pets</h1>
+        <p><strong>Pamper. Groom. Repeat.</strong></p>
+        <div class="app-buttons">
+            <a href="https://apps.apple.com/" target="_blank">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+            </a>
+            <a href="https://play.google.com/store" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+            </a>
+        </div>
+        <div class="hero-image">
+            <img src="image-removebg-preview (18).png" alt="Pet Image">
+        </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking">
+    <h1 class="title">Book Now</h1>
+    <p class="desc">Treat your pet to a refreshing grooming session — book your appointment in just a few clicks!</p>
+    
+    <div class="booking-box">
+      <div class="appointment-form">
+        <h2>Book an appointment</h2>
+        <label>When do you want to come?</label>
+        <div class="selectors">
+          <input type="date" />
+          <input type="time" />
+        </div>
+        <button class="next-btn">Next Step ➔</button>
+      </div>
+      <img class="dog-img" src="https://i.pinimg.com/736x/25/fd/06/25fd06b8cb5ec0ed826be61d41ea985c.jpg" alt="Cute dog" />
+    </div>
+  </section>
+
+  <!-- OUR WORK -->
+  <section class="our-work">
+    <h2 class="title">Our Work</h2>
+    <p class="desc">From stylish trims to soothing spa treatments, our grooming experts ensure your pet looks and feels their best.</p>
+    <div class="work-images">
+      <img src="https://i.pinimg.com/736x/4e/3b/47/4e3b47e4f586764d310b42af2d041cde.jpg" />
+      <img src="https://i.pinimg.com/736x/80/8a/0c/808a0c5bb151b866f032795bb8d282ce.jpg" />
+      <img src="https://i.pinimg.com/736x/36/01/51/3601518f8d44a772692105d91fe2eda9.jpg" />
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <h2 class="title">Pricing Table</h2>
+    <p class="desc">Choose the perfect grooming package for your pet — from basic care to premium pampering, we’ve got it all covered.</p>
+    <div class="pricing-cards">
+      <div class="card">
+        <h3>1500 <span>/ year</span></h3>
+        <p class="pkg">Basic Package</p>
+        <ul>
+          <li>Massage & Spa</li>
+          <li>Handstripping</li>
+          <li>Bath & Brush</li>
+          <li>Dog Walking</li>
+          <li>Day Care</li>
+        </ul>
+        <button>Choose</button>
+      </div>
+      <div class="card">
+        <h3>3599 <span>/ year</span></h3>
+        <p class="pkg">Advanced Package</p>
+        <ul>
+          <li>Haircut & Styling</li>
+          <li>Skin Moisturizing Massage</li>
+          <li>Paw Pad Conditioning</li>
+          <li>Full Body Fragrance Spray</li>
+          <li>Free Pet Accessory</li>
+        </ul>
+        <button>Choose</button>
+      </div>
+      <div class="card">
+        <h3>4999 <span>/ year</span></h3>
+        <p class="pkg">Pro Package</p>
+        <ul>
+          <li>Aromatherapy Fragrance spray</li>
+          <li>Ear Cleaning & Ear Hair Removal</li>
+          <li>Teeth Cleaning & Oral Hygiene</li>
+          <li>24/7 Grooming Helpline Support</li>
+          <li>Free Pet Birthday Gift</li>
+        </ul>
+        <button>Choose</button>
+      </div>
+    </div>
+  </section>
+  <div class="download-section">
+    <h3 class="centered-heading">Download Our Mobile App to Book a Consultation</h3>
+    <div class="store-buttons">
+        <a href="https://apps.apple.com/" target="_blank">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="store-badge" />
+        </a>
+        <a href="https://play.google.com/store" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="store-badge" />
+        </a>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-columns">
+        <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">Doctor Login</a></li>
+                <li><a href="#">Our Vetz</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Terms Of Services</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="#">Preventive Care</a></li>
+                <li><a href="#">Grooming</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-logo">
+        <img src="https://petzz.org/static/petzz/images/new_logo.jpg" alt="Petzz Logo" />
+        <p>© 2017 Activx Animal Health Technologies Pvt Ltd</p>
+        <a href="tel:+919620103670" class="call-button">
+            <span>📞</span> +91 96201 03670
+        </a>
+    </div>
+</footer>
+</body>
+</html>

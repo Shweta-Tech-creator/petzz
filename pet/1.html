@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Profile</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+      color: #1e293b;
+      scroll-behavior: smooth;
+      /* Soft gradient background for modern feel */
+    }
+    
+    /* Container */
+    .container {
+      display: flex;
+      padding: 24px 30px;
+      max-width: 1400px;
+      margin: auto;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: #ffffffcc; /* slight transparency */
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow:
+        0 8px 16px rgba(0, 0, 0, 0.08),
+        0 0 20px rgba(0, 102, 255, 0.5);
+      margin-right: 24px;
+      position: sticky;
+      top: 24px;
+      height: fit-content;
+      backdrop-filter: blur(8px);
+      /* subtle blur behind sidebar for glass effect */
+      transition: box-shadow 0.3s ease;
+    }
+    .sidebar:hover {
+      box-shadow:
+        0 12px 24px rgba(0, 0, 0, 0.12),
+        0 0 30px rgba(0, 102, 255, 0.5);
+    }
+    
+    .sidebar .avatar {
+      width: 110px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.5);
+      transition: transform 0.3s ease;
+    }
+    .sidebar .avatar:hover {
+      transform: scale(1.05);
+    }
+    
+    .sidebar h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #102a60;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .sidebar li {
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      color: #475569;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
+    }
+    .sidebar li:hover,
+    .sidebar li.active {
+      background: linear-gradient(90deg, #4545ff, #3b2e92);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 110, 255, 0.4);
+      transform: translateX(6px);
+    }
+    .icon {
+      margin-right: 16px;
+      color: #4545ff,;
+      font-size: 18px;
+    }
+    
+    /* Main Content */
+    .main {
+      flex: 2;
+      background: #ffffffdd;
+      padding: 32px 28px;
+      border-radius: 24px;
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.07),
+        0 0 20px rgba(255, 159, 0, 0.12);
+      color: #1e293b;
+      transition: box-shadow 0.3s ease;
+    }
+    .main:hover {
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.1),
+        0 0 28px rgba(255, 159, 0, 0.2);
+    }
+    
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .doc-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #4545ff,;
+      box-shadow: 0 0 10px #4545ff,;
+      transition: box-shadow 0.3s ease;
+    }
+    .doc-img:hover {
+      box-shadow: 0 0 20px #ff9f00ee;
+    }
+    
+    .doc-info h2 {
+      margin: 0;
+      font-weight: 800;
+      font-size: 28px;
+      color: #0f172a;
+      letter-spacing: 0.02em;
+    }
+    
+    .license {
+      margin-left: auto;
+      background: #dcfce7;
+      color: #166534;
+      padding: 10px 18px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 2px 6px #16653455;
+    }
+    
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 28px;
+      margin: 24px 0 32px;
+      border-bottom: 3px solid #dbeafe;
+    }
+    .tab {
+      padding: 12px 16px;
+      cursor: pointer;
+      font-weight: 700;
+      color: #64748b;
+      letter-spacing: 0.03em;
+      border-bottom: 3px solid transparent;
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    }
+    .tab.active {
+      border-bottom-color: #3b2e92;
+      color: #3b2e92;
+      text-shadow: 0 0 5px #4545ff;
+    }
+    
+    /* Info Grid */
+    .info-grid p {
+      margin: 16px 0;
+      line-height: 1.6;
+      color: #334155;
+      font-size: 17px;
+    }
+    
+    /* How To Use */
+    .how-to h3 {
+      margin: 32px 0 20px;
+      color: #334155;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      background: #c1deff;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow:
+        0 2px 6px rgba(255, 124, 0, 0.25),
+        0 0 12px rgba(255, 124, 0, 0.15);
+      transition: background 0.3s ease;
+    }
+    .step:hover {
+      background: #ffedd5;
+    }
+    
+    .step span {
+      background:#3b2e92 ;
+      color: white;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 800;
+      border-radius: 10px;
+      font-size: 20px;
+      box-shadow: 0 0 8px #4545ff;
+    }
+    
+    /* Booking Card */
+    .booking-card {
+      width: 320px;
+      background: #ffffffcc;
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow:
+        0 10px 28px rgba(255, 159, 0, 0.2),
+        0 6px 12px rgba(0, 0, 0, 0.06);
+      color: #1e293b;
+      backdrop-filter: blur(6px);
+      transition: box-shadow 0.3s ease;
+      margin-left: 30px;
+    }
+    .booking-card:hover {
+      box-shadow:
+        0 16px 36px rgba(255, 159, 0, 0.35),
+        0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .booking-card h3 {
+      margin-bottom: 18px;
+      font-weight: 800;
+      font-size: 22px;
+      color: #0f172a;
+      letter-spacing: 0.03em;
+    }
+    
+    .date-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    
+    .date-row input {
+      flex: 1;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 2px solid #94a3b8;
+      font-size: 17px;
+      color: #1e293b;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    .date-row input:focus {
+      outline: none;
+      border-color: #3b2e92;
+      background-color: #fff7e6;
+      box-shadow: 0 0 8px #3b2e92;
+    }
+    
+    .timezone-btn {
+      background: #ffffffcc;
+      border: 2px solid #94a3b8;
+      padding: 12px 20px;
+      border-radius: 16px;
+      cursor: pointer;
+      color: #334155;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .timezone-btn:hover {
+      background: #3b2e92;
+      color: white;
+      border-color: #3b2e92;
+      box-shadow: 0 0 12px #3b2e92;
+    }
+    
+    .slots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .slots button {
+      padding: 14px 22px;
+      border: 2px solid #94a3b8;
+      background: #e0e7ff;
+      border-radius: 16px;
+      cursor: pointer;
+      font-weight: 700;
+      color: #334155;
+      font-size: 16px;
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.15s ease;
+    }
+    .slots button:hover {
+      background: #8dbaff;
+      border-color: #3b2e92;
+      color: #4545ff;
+      transform: scale(1.05);
+    }
+    .slots .active {
+      border-color: #4545ff;
+      background: #ffedd5;
+      color: #3b2e92;
+      box-shadow: 0 0 12px #4545ff;
+      transform: scale(1.1);
+    }
+    
+    .see-more {
+      margin: 20px 0 0;
+      color: #64748b;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+    .see-more:hover {
+      color: #3b2e92;
+      text-shadow: 0 0 6px #4545ff;
+    }
+    
+    .summary {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 28px;
+      font-weight: 800;
+      font-size: 20px;
+      color: #0f172a;
+      letter-spacing: 0.02em;
+    }
+    
+    .price {
+      color: #3b2e92;
+      text-shadow: 0 0 6px #4545ff;
+    }
+    
+    .continue {
+      margin-top: 35px; /* Increased from 24px to push it a little down */
+      width: 100%; /* Already 100%, ensures it takes full available width */
+      padding: 16px 0;
+      background: linear-gradient(90deg, #3b2e92 0%, #4545ff 100%);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 20px;
+      box-shadow:
+        0 6px 14px #cdcdff,
+        0 0 20px #ccccff;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    
+      /* --- ADDED/REINFORCED FOR YOUR REQUEST --- */
+      text-decoration: none; /* Explicitly removes any underline */
+      display: block;        /* Ensures it behaves as a block element, crucial for width: 100% and text-align: center */
+      text-align: center;    /* Centers the "Continue" text within the button */
+      /* --- END ADDED/REINFORCED --- */
+    }
+    
+    .continue:hover {
+      background: linear-gradient(90deg, #3b2e92 0%, #4545ff 100%);
+      box-shadow:
+        0 10px 26px#8181ff,
+        0 0 30px rgba(158, 167, 255, 0.9);
+    }
+    
+    /* Timezone Dropdown */
+    .timezone-wrapper {
+      position: relative;
+    }
+    
+    .timezone-list {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background: #ffffffcc;
+      border: 2px solid #94a3b8;
+      width: 100%;
+      z-index: 1100;
+      border-radius: 16px;
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    
+    .timezone-list li {
+      padding: 12px 20px;
+      cursor: pointer;
+      color: #334155;
+      font-weight: 700;
+      transition: background 0.25s ease;
+    }
+    .timezone-list li:hover {
+      background-color: #ffedd5;
+      color: #3b2e92;
+      font-weight: 800;
+    }
+    
+    /* Slot Styling */
+    .slot {
+      display: inline-block;
+      margin: 8px;
+      padding: 16px 24px;
+      border: 2px solid #cbd5e1;
+      border-radius: 20px;
+      color: #1e293b;
+      background-color: #e0e7ff;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+    }
+    .slot:hover {
+      background-color: #6aafff;
+      border-color: #4545ff;
+      color: #4545ff;
+      transform: scale(1.1);
+    }
+    .extra-slots.hidden {
+      display: none;
+    }
+    
+    .review-card {
+      display: flex;
+      align-items: flex-start;
+      background: #f9fafb;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      gap: 18px;
+      transition: transform 0.3s ease;
+      list-style: none; 
+    }
+    
+    .review-card:hover {
+      transform: translateY(-4px);
+    }
+    
+    .review-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid #ff9f00;
+      object-fit: cover;
+    }
+    
+    .review-content {
+      flex: 1;
+    }
+    
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .review-stars {
+      color: #f59e0b;
+      font-size: 18px;
+    }
+    
+    /* Confirmation card container */
+    .confirmation-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(255,159,0,0.2), 0 6px 12px rgba(0,0,0,0.06);
+      backdrop-filter: blur(6px);
+      position: fixed; /* Changed to fixed */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      width: 90%;
+      max-width: 800px; /* Increased max-width */
+      display: none; /* Hidden by default */
+      grid-template-columns: 1fr 1fr; /* Two columns for content */
+      gap: 30px; /* Space between columns */
+    }
+
+    .confirmation-card h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      color: #0f172a;
+      grid-column: 1 / -1; /* Make header span all columns */
+    }
+    
+    /* Vet summary */
+    .vet-summary {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .vet-summary img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #ff9f00;
+    }
+    .vet-details h4 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .vet-details .stars {
+      color: #f59e0b;
+    }
+    .vet-details .location {
+      font-size: 14px;
+      color: #475569;
+    }
+    
+    /* Input groups */
+    .user-inputs label,
+    .pet-info label,
+    .photo-upload label { /* Added photo-upload label */
+      display: block;
+      font-weight: 600;
+      margin-top: 12px;
+      color: #334155;
+    }
+    .user-inputs input,
+    .pet-info input,
+    .pet-info textarea {
+      width: 100%;
+      padding: 10px 14px;
+      margin-top: 4px;
+      border: 1.5px solid #94a3b8;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box; /* Ensures padding doesn't increase total width */
+    }
+    .user-inputs input:focus,
+    .pet-info input:focus,
+    .pet-info textarea:focus {
+      border-color: #ff7c00;
+      box-shadow: 0 0 8px #ff7c00bb;
+    }
+
+    /* New styles for file input and preview */
+    .photo-upload input[type="file"] {
+      border: 1.5px solid #94a3b8;
+      border-radius: 10px;
+      padding: 8px;
+      margin-top: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .photo-preview-container {
+      margin-top: 15px;
+      text-align: center;
+      border: 1px dashed #94a3b8;
+      border-radius: 10px;
+      padding: 10px;
+      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8fafc;
+    }
+
+    #petPhotoPreview {
+      max-width: 100%;
+      max-height: 150px;
+      border-radius: 8px;
+      display: none; /* Hidden by default */
+    }
+    
+    /* Appt details and Save */
+    .appt-details {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      grid-column: 1 / -1; /* Make it span all columns */
+    }
+    .appt-details p {
+      margin: 0;
+      font-size: 16px;
+    }
+    #saveBooking {
+      padding: 10px 20px;
+      background: #3b2e92;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    #saveBooking:hover {
+      background: #3b2e92;
+      transform: translateY(-2px);
+    }
+
+    /* Overlay for modal */
+    #modalOverlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    /* Styling for the new "Book Appointment" button */
+    #openBookingForm {
+        margin-top: 24px;
+        width: 100%;
+        padding: 16px 0;
+        background: linear-gradient(90deg, #3b2e92 0%, #5e52af 100%);
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 800;
+        font-size: 20px;
+        box-shadow:
+            0 6px 14px rgba(143, 190, 255, 0.5),
+            0 0 20px rgba(215, 229, 255, 0.7);
+        transition: background 0.4s ease, box-shadow 0.4s ease;
+        display: none; /* Hidden by default */
+    }
+
+    #openBookingForm:hover {
+        background: linear-gradient(90deg, #5e52af 0%, #3b2e92  100%);
+        box-shadow:
+            0 10px 26px #5e52af,
+            0 0 30px rgba(158, 165, 255, 0.9);
+    }
+
+
+    /* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 1000;
+    text-align: center;
+  }
+  
+  .modal .note {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 16px;
+  }
+  
+  .summary-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    display: flex;
+    background: #f3f4f6;
+    border-radius: 12px;
+    padding: 12px;
+    flex: 1;
+  }
+  
+  .card img {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  .card h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #0f172a;
+  }
+  
+  .card .stars {
+    color: #f59e0b;
+    font-size: 14px;
+  }
+  
+  .reason-box {
+    background: #f3f4f6;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  
+  .date-time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #334155;
+    margin-bottom: 20px;
+  }
+  
+  #closeSummary {
+    background: #ff7c00;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  #closeSummary:hover {
+    background: #e67300;
+  }
+
+
+  .sidebar ul li a {
+    display: block;           /* makes the whole <a> clickable like <li> */
+    color: inherit;           /* inherits text color from li if any */
+    text-decoration: none;    /* removes underline */
+    padding: 10px 15px;       /* adjust spacing if needed */
+  }
+  
+  .sidebar ul li.active a {
+    font-weight: bold;
+    background-color: #f0f0f0; /* highlight active link */
+    border-radius: 8px;
+  }
+  
+  </style>
+</head>
+<body>
+  <main class="container">
+    <aside class="sidebar">
+      <img src="Shweta-1.jpg" class="avatar" alt="User">
+      <h3>Shweta Kadam</h3>
+      <ul>
+        <li><a href="index.html">📅 Book Appointments</a></li>
+  <li><a href="new/index.html">📊 Dashboard</a></li>
+  <li><a href="#">🧾 Patient Card</a></li>
+  <li><a href="#">🔁 Sign Out</a></li>
+      
+      </ul>
+    </aside>
+    
+    <main class="main">
+      <div class="profile-header">
+        <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Doctor" class="doc-img">
+        <div class="doc-info">
+          <h2>Dr. Kavita Patel</h2>
+          <p>Animal Behavior Specialist</p>
+          <p>⭐⭐⭐⭐⭐ (42)</p>
+          <p>📍 Pawfect Care Clinic, Mumbai, India</p>
+        </div>
+        <span class="license">License verified</span>
+      </div>
+    
+      <div class="tabs">
+        <span class="tab active" onclick="switchTab('overview')">Overview</span>
+        <span class="tab" onclick="switchTab('reviews')">Reviews</span>
+      </div>
+    
+      <div id="overview" class="tab-content">
+        <div class="info-grid">
+          <p><strong>Experience:</strong> 6 years</p>
+          <p><strong>Languages:</strong> English, Hindi, Marathi</p>
+          <p><strong>What it will help with:</strong> Animal behavior issues; Pet training and obedience; Anxiety and stress management</p>
+          <p><strong>Species treated:</strong> Cat, Dog, Rodents</p>
+          <p><strong>Description:</strong>Dr. Kavita Patel is a dedicated Veterinary Surgeon and Animal Behavior Specialist with extensive experience in animal healthcare. She combines surgical expertise with deep knowledge of pet behavior to provide compassionate, holistic treatment. Her mission is to enhance the overall well-being of animals through both medical care and behavioral understanding.</p>
+        </div>
+    
+        <div class="how-to">
+          <h3>How to use?</h3>
+          <div class="step"><span>1</span><div><strong>Book an online consultation</strong><p>Select a clinic, veterinarian, date and time</p></div></div>
+          <div class="step"><span>2</span><div><strong>Pay for online consultation</strong><p>After payment, expect a consultation on the specified date and time</p></div></div>
+          <div class="step"><span>3</span><div><strong>Get a veterinarian's recommendation</strong><p>After the consultation, you will receive recommendations</p></div></div>
+        </div>
+      </div>
+    
+      <div id="reviews" class="tab-content" style="display: none;">
+        <h3>Reviews</h3>
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/80?img=5" class="review-avatar" alt="User Photo">   
+          <div class="review-content">
+            <h4>Riya Sharma</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>
+              Dr. Emma was incredibly gentle and caring. My dog has always been
+              nervous around strangers, but she managed to calm him down within
+              minutes. The check-up was thorough, and she explained everything in
+              detail. I truly felt like my pet was in good hands. Highly recommended!
+            </p>
+          </div>
+        </div>
+    
+        <div class="review-card">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="review-avatar" alt="User Photo" />
+          <div class="review-content">
+            <h4>Rahul Deshmukh</h4>
+            <div class="stars">⭐⭐⭐⭐</div>
+            <p>
+              I booked a home consultation through the platform and was pleasantly surprised by how smooth everything was.
+              Dr. Arjun arrived on time, thoroughly checked my older Labrador, and gave great advice on his joint care.
+              The convenience of not having to travel with my dog is a huge relief. Would definitely use this service again.
+            </p>
+          </div>
+        </div>
+              
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/80?img=3" class="review-avatar" alt="User Photo">
+          <div class="review-content">
+            <h4>Arjun Mehta</h4>
+            <div class="stars">⭐⭐⭐⭐</div>
+            <p>
+              We visited for a behavioral consultation. Dr. Emma gave us a lot of
+              practical advice. It’s only been a week, and we already see changes in
+              our cat’s behavior. The clinic is clean and staff is polite.
+            </p>
+          </div>
+        </div>
+        
+        <div class="review-card extra-review" >
+          <img src="https://i.pravatar.cc/80?img=10" class="review-avatar" alt="User Photo">   
+          <div class="review-content">
+            <h4>Neha Kulkarni</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>
+              Absolutely fantastic! The appointment started on time, the vet was very
+              professional, and most importantly, my Labrador felt very comfortable.
+              They even followed up after the visit to check on his progress, which I
+              truly appreciated. Service like this is rare.
+            </p>
+          </div>
+        </div>
+        
+        <div class="review-card extra-review">
+          <img src="https://i.pravatar.cc/80?img=8" class="review-avatar" alt="User Photo">
+          <div class="review-content">
+            <h4>Rahul Verma</h4>
+            <div class="stars">⭐⭐⭐⭐</div>
+            <p>
+              The staff was warm and welcoming. Dr. Emma gave detailed insights into
+              my pet’s condition and answered all my questions patiently. The only
+              reason I’m giving 4 stars instead of 5 is the slight delay in starting
+              the appointment.
+            </p>
+          </div>
+        </div>
+        
+        <button onclick="toggleReviews()" id="seeMoreBtn">See more</button>
+      </div>
+    </main>
+    
+    <section class="booking-card">
+      <h3>Select a slot</h3>
+      <div class="date-row">
+        <input type="date" value="2025-04-29" id="bookingDateInput"/>
+        <div class="timezone-wrapper">
+          <button class="timezone-btn" onclick="toggleTimezones()">Time zone ⌄</button>
+          <ul class="timezone-list" id="timezoneList">
+            <li onclick="selectTimezone('GMT')">GMT</li>
+            <li onclick="selectTimezone('EST')">EST</li>
+            <li onclick="selectTimezone('IST')">IST</li>
+            <li onclick="selectTimezone('PST')">PST</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slots" id="slotButtons">
+        <button>08:00 AM</button>
+        <button>08:10 AM</button>
+        <button>08:20 AM</button>
+        <button>08:30 AM</button>
+        <button>08:40 AM</button>
+        <button>08:50 AM</button>
+        <button>09:00 AM</button>
+        <button>09:10 AM</button>
+        <button>09:20 AM</button>
+        
+        <div class="extra-slots hidden">
+          <button>09:30 AM</button>
+          <button>09:40 AM</button>
+          <button>09:50 AM</button>
+          <button>10:00 AM</button>
+        </div>
+      </div>
+      
+      <p class="see-more" onclick="showMoreSlots()">See more &gt;</p>
+
+      <button id="openBookingForm">Book Appointment</button>
+
+      <div class="summary">
+        <span>Total</span>
+        <span class="price">₹240.00</span>
+      </div>
+   
+    </section>
+  </main>
+
+  <div id="modalOverlay"></div>
+
+  <section class="confirmation-card" id="confirmationCard">
+    <h3>Confirm Your Booking</h3>
+    
+    <div class="vet-summary">
+      <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Dr. Kavita Patel">
+      <div class="vet-details">
+        <h4>Dr. Kavita Patel</h4>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="location">Pawfect Care Clinic, Mumbai</div>
+      </div>
+    </div>
+    
+    <div class="user-inputs">
+      <label>Your Name</label>
+      <input type="text" placeholder="Enter your name">
+      
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email">
+      
+      <label>Password</label>
+      <input type="password" placeholder="Set a password">
+    </div>
+    
+    <div class="pet-info">
+      <label>Pet Name</label>
+      <input type="text" placeholder="Your pet's name">
+      
+      <label>Breed</label>
+      <input type="text" placeholder="Your pet's breed">
+      
+      <label>Reason for Visit</label>
+      <textarea placeholder="Explain briefly"></textarea>
+    </div>
+
+    <div class="photo-upload">
+      <label for="petInjuryPhoto">Upload Pet's Photo (Optional)</label>
+      <input type="file" id="petInjuryPhoto" accept="image/*">
+      <div class="photo-preview-container">
+        <img id="petPhotoPreview" src="#" alt="Pet Injury Photo Preview">
+      </div>
+    </div>
+    
+    <div class="appt-details">
+      <p><strong>Date:</strong> <span id="confDate"></span></p>
+      <p><strong>Time:</strong> <span id="confTime"></span></p>
+      <button id="saveBooking">Save & Continue</button>
+    </div>
+  </section>
+
+  <!-- Modal Overlay -->
+<div id="modalOverlay" class="overlay"></div>
+
+<!-- Booking Summary Modal -->
+<section id="bookingSummaryModal" class="modal">
+  <h3>Booking Summary</h3>
+  <p class="note">Please note: the consultation may take between 15 to 20 minutes, depending on the case</p>
+  
+  <div class="summary-section">
+    <div class="card vet-card">
+      <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Dr. Kavita Patel">
+      <div class="info">
+        <h4>Dr. Kavita Patel</h4>
+        <p>Animal Behavior Specialist</p>
+        <div class="stars">⭐⭐⭐⭐⭐ (42)</div>
+      </div>
+    </div>
+    <div class="card pet-card">
+      <img src="#" id="summaryPetPhoto" alt="Pet Photo">
+      <div class="info">
+        <h4 id="summaryPetName"></h4>
+        <p id="summaryBreed"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reason-box">
+    <strong>Reason for visit</strong>
+    <p id="summaryReason"></p>
+  </div>
+
+  <div class="date-time">
+    <span><strong>Date:</strong> <span id="summaryDate"></span></span>
+    <span><strong>Time:</strong> <span id="summaryTime"></span></span>
+  </div>
+
+  <button id="closeSummary">Close</button>
+</section>
+
+  
+  <script>
+   // Slot Selection + Booking Form Display
+let slotButtons = document.querySelectorAll("#slotButtons button");
+const openBookingFormBtn = document.getElementById('openBookingForm');
+
+function updateSlotListeners() {
+  slotButtons = document.querySelectorAll("#slotButtons button");
+  slotButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      slotButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      openBookingFormBtn.style.display = 'block';
+
+      // Store date and time in localStorage
+      const date = document.getElementById('bookingDateInput')?.value;
+      localStorage.setItem("selectedDate", new Date(date).toLocaleDateString('en-GB', {
+        day: '2-digit', month: 'short', year: 'numeric'
+      }));
+      localStorage.setItem("selectedTime", btn.textContent.trim());
+    });
+  });
+}
+updateSlotListeners();
+
+// Tab Switching
+function switchTab(tabId) {
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".tab-content").forEach(tc => tc.style.display = "none");
+  document.querySelector(`.tab[onclick="switchTab('${tabId}')"]`).classList.add("active");
+  document.getElementById(tabId).style.display = "block";
+}
+
+// Review Toggle
+function toggleReviews() {
+  const reviews = document.querySelectorAll(".extra-review");
+  const btn = document.getElementById("seeMoreBtn");
+  const isHidden = reviews[0].style.display === "none";
+
+  reviews.forEach(r => r.style.display = isHidden ? "flex" : "none");
+  btn.innerText = isHidden ? "See less" : "See more";
+}
+
+// Initialize Reviews Hidden
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.extra-review').forEach(review => {
+    review.style.display = 'none';
+  });
+});
+
+// Timezone Dropdown
+function toggleTimezones() {
+  const tzList = document.getElementById("timezoneList");
+  tzList.style.display = tzList.style.display === "block" ? "none" : "block";
+}
+function selectTimezone(zone) {
+  document.querySelector(".timezone-btn").innerText = `${zone} ⌄`;
+  document.getElementById("timezoneList").style.display = "none";
+}
+
+// Show Extra Time Slots
+function showMoreSlots() {
+  const extraSlots = document.querySelector('.extra-slots');
+  const seeMoreText = document.querySelector('.see-more');
+  if (extraSlots.classList.contains('hidden')) {
+    extraSlots.classList.remove('hidden');
+    seeMoreText.style.display = 'none';
+    updateSlotListeners(); // Attach listeners to new buttons
+  }
+}
+
+// Confirmation Modal
+const modal = document.getElementById('confirmationCard');
+const overlay = document.getElementById('modalOverlay');
+
+openBookingFormBtn.addEventListener('click', () => {
+  modal.style.display = 'grid';
+  overlay.style.display = 'block';
+});
+overlay.addEventListener('click', () => {
+  modal.style.display = 'none';
+  overlay.style.display = 'none';
+});
+
+document.getElementById('saveBooking').addEventListener('click', () => {
+  const dateVal = document.getElementById('bookingDateInput')?.value || '';
+  const timeVal = document.querySelector('#slotButtons button.active')?.textContent || '';
+
+  document.getElementById('confDate').textContent = new Date(dateVal).toLocaleDateString('en-GB', {
+    day: '2-digit', month: 'short', year: 'numeric'
+  });
+  document.getElementById('confTime').textContent = timeVal;
+
+  alert('Booking saved! Now click Continue.');
+  modal.style.display = 'none';
+  overlay.style.display = 'none';
+});
+
+// Image Preview on Upload
+document.getElementById('petInjuryPhoto').addEventListener('change', function (event) {
+  const [file] = event.target.files;
+  if (file) {
+    const preview = document.getElementById('petPhotoPreview');
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = 'block';
+  }
+});
+
+// CLOSE SUMMARY MODAL
+document.getElementById("closeSummaryModal").addEventListener("click", function () {
+  document.getElementById("summaryModal").classList.add("hidden");
+});
+  
+  </script>
+</body>
+</html>

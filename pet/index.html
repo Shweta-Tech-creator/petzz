@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointments</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">
+        <img src="pet-care (2).png" alt="Petzz Logo">
+        <span class="logo-text">Petzz..</span>
+      </div>
+      
+    <nav>
+      <a href="#">Help now</a>
+      <a href="#">Testimonials</a>
+      <a href="our vets/index.html">Our Vets</a>
+      <a href="#">How it works</a>
+      <a href="#">FAQ</a>
+    </nav>
+    <div class="right-actions">
+      <button class="notif-btn" onclick="openNotificationPage()">🔔</button>
+
+      <button class="profile-btn">👤</button>
+      <button class="book-btn">BOOK NOW</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <img src="Shweta-1.jpg" class="avatar" alt="User">
+      <h3>Shweta Kadam</h3>
+      <ul>
+        <li><a href="#">📅 Book Appointments</a></li>
+        <li><a href="new/index.html">📊 Dashboard</a></li>
+        <li><a href="#">🧾 Patient Card</a></li>
+        <li><a href="#">🔁 Sign Out</a></li>
+            </ul>
+   
+    </aside>
+
+    <section class="main-content">
+      <div class="breadcrumb">Home / Book Appointments</div>
+      <h2>Book Appointments</h2>
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Dr. Kavita Patel">
+        <div class="vet-info">
+            <h3><a href="1.html" class="doctor-link">Dr. Kavita Patel <span>›</span></a></h3>
+          <p>Veterinary Surgeon</p>
+          <p>⭐ 42 | Pawfect Care Clinic, Mumbai, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹1000</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>9:00 AM</button>
+            <button>9:30 AM</button>
+            <button>10:00 AM</button>
+            <button>10:30 AM</button>
+            <button class="extra-time" style="display:none;">12:40 PM</button>
+            <button class="extra-time" style="display:none;">1:00 PM</button>
+
+            <button>12:00 PM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Dr. Ramesh Iyer">
+        <div class="vet-info">
+          <h3><a href="2.html" class="doctor-link">Dr. Ramesh Iyer <span>›</span></a></h3>
+          <p>Animal Cardiologist</p>
+          <p>⭐ 36 | Pet Pulse Clinic, Chennai, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹1200</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>11:00 AM</button>
+            <button>11:30 AM</button>
+            <button>12:00 PM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/women/13.jpg" alt="Dr. Sneha Roy">
+        <div class="vet-info">
+          <h3>Dr. Sneha Roy <span>›</span></h3>
+          <p>Exotic Animal Specialist</p>
+          <p>⭐ 58 | Urban Pet Care, Kolkata, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹1500</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>2:00 PM</button>
+            <button>2:30 PM</button>
+            <button>3:00 PM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Dr. Aarav Verma">
+        <div class="vet-info">
+          <h3>Dr. Aarav Verma <span>›</span></h3>
+          <p>Dermatology Specialist</p>
+          <p>⭐ 67 | Healing Paws Hospital, Delhi, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹1100</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>4:00 PM</button>
+            <button>4:30 PM</button>
+            <button>5:00 PM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/women/15.jpg" alt="Dr. Priya Mehta">
+        <div class="vet-info">
+          <h3>Dr. Priya Mehta <span>›</span></h3>
+          <p>Pet Nutritionist</p>
+          <p>⭐ 29 | PetWell Clinic, Pune, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹900</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>10:30 AM</button>
+            <button>11:00 AM</button>
+            <button>11:30 AM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Dr. Vikram Shetty">
+        <div class="vet-info">
+          <h3>Dr. Vikram Shetty <span>›</span></h3>
+          <p>Orthopedic Specialist</p>
+          <p>⭐ 40 | PawPatch Clinic, Bengaluru, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹1300</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>12:00 PM</button>
+            <button>12:30 PM</button>
+            <button>1:00 PM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/women/17.jpg" alt="Dr. Anjali Desai">
+        <div class="vet-info">
+          <h3>Dr. Anjali Desai <span>›</span></h3>
+          <p>General Vet Practitioner</p>
+          <p>⭐ 33 | Safe Paws Clinic, Ahmedabad, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹850</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>9:30 AM</button>
+            <button>10:00 AM</button>
+            <button>10:30 AM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="Dr. Neeraj Kumar">
+        <div class="vet-info">
+          <h3>Dr. Neeraj Kumar <span>›</span></h3>
+          <p>Radiologist</p>
+          <p>⭐ 51 | VetScan Imaging Center, Lucknow, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹1400</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>3:00 PM</button>
+            <button>3:30 PM</button>
+            <button>4:00 PM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/women/19.jpg" alt="Dr. Tanya Bhatia">
+        <div class="vet-info">
+          <h3>Dr. Tanya Bhatia <span>›</span></h3>
+          <p>Pet Dental Expert</p>
+          <p>⭐ 45 | MyPet Dental Care, Jaipur, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹1000</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>5:00 PM</button>
+            <button>5:30 PM</button>
+            <button>6:00 PM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vet-card">
+        <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Dr. Rajesh Naik">
+        <div class="vet-info">
+          <h3>Dr. Rajesh Naik <span>›</span></h3>
+          <p>Emergency & Critical Care</p>
+          <p>⭐ 62 | Lifeline Vets, Hyderabad, India</p>
+          <span class="badge">License verified</span>
+        </div>
+        <div class="consult">
+          <p>1 hour video consultation <strong>₹1600</strong></p>
+          <button>BOOK APPOINTMENT</button>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="times">
+          <label>Today</label>
+          <div class="slots">
+            <button>7:00 PM</button>
+            <button>7:30 PM</button>
+            <button>8:00 PM</button>
+            <button class="more">See more ›</button>
+          </div>
+        </div>
+      </div>
+      
+      
+
+   
+      
+            
+
+<script>
+  function openNotificationPage() {
+    window.location.href = "new/note.html"; // Replace with your actual file path if needed
+  }
+
+    document.querySelectorAll('.star-rating').forEach(function(ratingContainer) {
+      const stars = ratingContainer.querySelectorAll('.star');
+  
+      stars.forEach(function(star) {
+        star.addEventListener('click', function () {
+          const value = this.getAttribute('data-value');
+          stars.forEach(s => {
+            s.style.color = s.getAttribute('data-value') <= value ? 'gold' : '#ccc';
+          });
+        });
+      });
+    });
+    
+
+    document.querySelectorAll('.more').forEach(function(button) {
+      button.addEventListener('click', function () {
+        const parent = button.closest('.slots');
+        const extras = parent.querySelectorAll('.extra-time');
+        extras.forEach(e => e.style.display = 'inline-block');
+        button.style.display = 'none'; // hide "See more" after clicked
+      });
+    });
+  
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

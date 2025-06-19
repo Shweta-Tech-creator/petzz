@@ -1,0 +1,328 @@
+body {
+  margin: 0;
+    font-family: 'Poppins', sans-serif; /* Changed font to Poppins for a modern feel */
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); /* Softer, modern gradient */
+    color: #1e293b; /* Darker, sophisticated text color */
+    scroll-behavior: smooth;
+    line-height: 1.6;
+  }
+  .logo-text {
+    font-size: 28px; /* Larger, more impactful */
+    font-weight: 800; /* Bolder */
+    margin-left: 10px;
+    letter-spacing: 0.05em; /* Slight letter spacing */
+    background: linear-gradient(90deg, #3b2e92, #68a5ff); /* Golden gradient for logo text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px; /* Increased padding */
+    background: #001444; /* Deep blue-black */
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    font-size: 18px; /* Slightly adjusted font size */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures it stays on top */
+  }
+  .topbar nav a {
+    margin: 0 15px; /* Increased spacing */
+    color: #cbd5e1; /* Softer white for nav links */
+    text-decoration: none;
+    font-weight: 500; /* Medium weight */
+    position: relative; /* For underline effect */
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  .topbar nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color:  #3b2e92; /* Orange underline */
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.topbar nav a:hover {
+    color:  #3b2e92; /* Vibrant orange on hover */
+    transform: translateY(-2px);
+}
+
+.topbar nav a:hover::after {
+    width: 100%;
+}
+
+.right-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap */
+}
+
+.book-btn {
+  background: linear-gradient(90deg,#3b2e92 0%, #ffd78e 100%); /* Vibrant orange gradient */
+  color: white;
+  padding: 10px 22px; /* More padding */
+  border: none;
+  border-radius: 25px; /* Pill-shaped button */
+  cursor: pointer;
+  font-weight: 700; /* Bolder */
+  letter-spacing: 0.02em;
+  box-shadow: 0 5px 15px rgba(255, 124, 0, 0.4); /* Stronger shadow */
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 8px 20px rgba(255, 124, 0, 0.6); /* More prominent shadow on hover */
+  background: linear-gradient(90deg, #3b2e92 0%, #ff7c00 100%); /* Reverse gradient on hover */
+}
+
+  
+  .container {
+    display: flex;
+    padding: 30px; /* Increased padding */
+    max-width: 1400px; /* Max width for content */
+    margin: auto; /* Center the container */
+  }
+  
+  .sidebar {
+    width: 280px; /* Slightly wider */
+    background: #ffffffcc; /* Subtle transparency */
+    border-radius: 20px; /* More rounded corners */
+    padding: 30px 25px; /* More padding */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 25px rgba(255, 159, 0, 0.15); /* Modern shadow */
+    margin-right: 30px; /* More spacing */
+    position: sticky;
+    top: 30px; /* Adjusted top position */
+    height: fit-content;
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    transition: box-shadow 0.3s ease;
+}
+
+.sidebar:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12), 0 0 35px rgba(255, 159, 0, 0.3);
+}
+
+.sidebar .avatar {
+    width: 120px; /* Larger avatar */
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px; /* More spacing below */
+    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.5); /* Glowing effect */
+    border: 4px solid  #3b2e92; /* Orange border */
+    transition: transform 0.3s ease;
+}
+
+.sidebar .avatar:hover {
+    transform: scale(1.08); /* Pop effect on hover */
+}
+
+.sidebar h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #0f172a; /* Darker heading */
+    letter-spacing: 0.05em;
+    text-transform: uppercase; /* Uppercase for prominence */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 14px 18px; /* More padding */
+    border-radius: 12px; /* More rounded */
+    margin-bottom: 12px; /* More spacing */
+    cursor: pointer;
+    display: flex; /* For icon alignment if you use them */
+    align-items: center;
+    font-weight: 600;
+    color: #475569; /* Muted text color */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.sidebar li .icon { /* Placeholder for icon styling if you add Font Awesome or similar */
+    margin-right: 15px;
+    font-size: 20px;
+    color: #ff9f00; /* Icon color */
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+    background: linear-gradient(90deg, #4545ff, #3b2e92); /* Orange gradient on hover/active */
+    color: white; /* White text */
+    box-shadow: 0 6px 15px rgba(0, 110, 255, 0.4); /* Stronger shadow */
+    transform: translateX(8px); /* Slide effect */
+}
+
+  .main-content {
+    flex: 1;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .breadcrumb {
+    font-size: 14px;
+    color: #6c7a89;
+  }
+  h2 {
+    margin: 10px 0 20px;
+    color: #102a60;
+  }
+  
+  .vet-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .vet-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .vet-card img {
+    width: 100px;
+    border-radius: 10px;
+    border: 3px solid #102a60;
+  }
+  
+  .vet-info {
+    flex: 2;
+  }
+  
+  .vet-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #0e1a35;
+  }
+  .vet-info span {
+    font-weight: bold;
+    margin-left: 4px;
+    color: #ffd700;
+  }
+  .badge {
+    display: inline-block;
+    background: #d4f5d0;
+    color: #26a269;
+    font-size: 12px;
+    padding: 4px 10px;
+    margin-top: 8px;
+    border-radius: 6px;
+  }
+  
+  .consult {
+    flex: 1;
+    text-align: right;
+  }
+  .consult strong {
+    font-size: 18px;
+    color: #ff7f00;
+  }
+  .consult button {
+    background: #3b2e92;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .consult button:hover {
+    background: #604aee;
+  }
+  
+  
+
+  
+  .times {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .times .slots {
+    margin-top: 6px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    max-height: 120px;
+  }
+  .slots button {
+    padding: 6px 10px;
+    background: #eef2ff;
+    border: 1px solid #b2bfff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #102a60;
+    font-weight: 500;
+  }
+  .slots button:hover {
+    background: #d6e0ff;
+  }
+  .slots .more {
+    background: #c5d4ff;
+  }
+
+  .star-rating {
+    margin-left: 40px;
+    gap: 4px;
+    user-select: none;
+  }
+  .star {
+    font-size: 20px;
+    color: grey;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  .star.yellow {
+    color: gold;
+  }
+  .doctor-link {
+    text-decoration: none;
+    color: #102a60;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .doctor-link:hover {
+    color: #ff7c00;
+    text-shadow: 0 0 1px #ff7c00aa;
+  }
+  
+
+
+  .sidebar ul li a {
+    display: block;           /* makes the whole <a> clickable like <li> */
+    color: inherit;           /* inherits text color from li if any */
+    text-decoration: none;    /* removes underline */
+    padding: 10px 15px;       /* adjust spacing if needed */
+  }
+  
+  .sidebar ul li.active a {
+    font-weight: bold;
+    background-color: #f0f0f0; /* highlight active link */
+    border-radius: 8px;
+  }

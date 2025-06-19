@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Notification Alerts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #dbeafe, #e0f2fe);
+      padding: 30px;
+      color: #1e3a8a;
+      min-height: 100vh;
+    }
+  
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 3rem;
+      color: #1e40af;
+      background: linear-gradient(to right, #3b82f6, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+  
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    .notification {
+      background: linear-gradient(145deg, #ffffff, #f0f9ff);
+      border-left: 6px solid #3b82f6;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 24px 28px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .notification::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 50%;
+      z-index: 0;
+    }
+  
+    .notification:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+  
+    .title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #1d4ed8;
+      z-index: 1;
+      position: relative;
+    }
+  
+    .pet-name {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #2563eb;
+      margin-bottom: 8px;
+      z-index: 1;
+      position: relative;
+    }
+  
+    .time {
+      font-size: 0.95rem;
+      color: #475569;
+      z-index: 1;
+      position: relative;
+    }
+  </style>
+  
+</head>
+<body>
+
+  <h1>🐾 From Woofs to Wellness</h1>
+
+  <div class="container">
+    <div class="notification">
+      <div class="title">💉 Vaccination Reminder</div>
+      <div class="pet-name">Pet: Bella</div>
+      <div class="time">Time: 10:00 AM, 18 June 2025</div>
+    </div>
+
+    <div class="notification">
+      <div class="title">🪱 Deworming Schedule Alert</div>
+      <div class="pet-name">Pet: Tuffy</div>
+      <div class="time">Time: 9:00 AM, 20 June 2025</div>
+    </div>
+
+    <div class="notification">
+      <div class="title">🩺 Annual Check-up Reminder</div>
+      <div class="pet-name">Pet: Rockey</div>
+      <div class="time">Time: 11:30 AM, 25 June 2025</div>
+    </div>
+
+    <div class="notification">
+      <div class="title">📅 Follow-up Appointment</div>
+      <div class="pet-name">Pet: Bella</div>
+      <div class="time">Time: 3:00 PM, 22 June 2025</div>
+    </div>
+
+    <div class="notification">
+      <div class="title">🧪 Lab Test Result Notification</div>
+      <div class="pet-name">Pet: Tuffy</div>
+      <div class="time">Time: 4:00 PM, 19 June 2025</div>
+    </div>
+
+    <div class="notification">
+      <div class="title">💊 Prescription Renewal Reminder</div>
+      <div class="pet-name">Pet: Rockey</div>
+      <div class="time">Time: 5:00 PM, 21 June 2025</div>
+    </div>
+  </div>
+
+</body>
+</html>

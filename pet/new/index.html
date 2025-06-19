@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointments</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">
+        <img src="pet-care (2).png" alt="Petzz Logo">
+        <span class="logo-text">Petzz..</span>
+      </div>
+      
+    <nav>
+      <a href="#">Help now</a>
+      <a href="#">Testimonials</a>
+      <a href="/pet/our vets/index.html">Our Vets</a>
+      <a href="#">How it works</a>
+      <a href="#">FAQ</a>
+    </nav>
+    <div class="right-actions">
+        <button class="notif-btn" onclick="openNotificationPage()">🔔</button>
+
+
+      <button class="profile-btn">👤</button>
+      <button class="book-btn">BOOK NOW</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <img src="Shweta-1.jpg" class="avatar" alt="User">
+      <h3>Shweta Kadam</h3>
+      <ul>
+        <li><a href="../index.html">📅 Book Appointments</a></li>
+  <li><a href="#">📊 Dashboard</a></li>
+  <li><a href="#">🧾 Patient Card</a></li>
+  <li><a href="#">🔁 Sign Out</a></li>
+      </ul>
+    </aside>
+    <!-- Upcoming Confirmed Appointments -->
+    <div class="appointments-wrapper">
+
+        <!-- Upcoming Appointments -->
+        <div class="upcoming">
+          <h2>Upcoming Appointments</h2>
+          <div class="appointments-container">
+            <div class="appointment-card">
+              <div class="appointment-header">🐾 Bella - Vaccination</div>
+              <div class="appointment-details">
+                <p><strong>Date:</strong> 15th June 2025</p>
+                <p><strong>Time:</strong> 10:00 AM</p>
+                <p><strong>Vet:</strong> Dr. Aditi Sharma</p>
+                <p><strong>Location:</strong> Paws & Care Clinic, Thane</p>
+                <span class="status-tag">Confirmed</span>
+              </div>
+            </div>
+      
+            <div class="appointment-card">
+              <div class="appointment-header">🐾 Tuffy - Grooming</div>
+              <div class="appointment-details">
+                <p><strong>Date:</strong> 25th June 2025</p>
+                <p><strong>Time:</strong> 4:00 PM</p>
+                <p><strong>Vet:</strong> Dr. Rhea Kapoor</p>
+                <p><strong>Location:</strong> FurEver Pet Spa, Navi Mumbai</p>
+                <span class="status-tag">Confirmed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Pending Appointments -->
+        <div class="pending">
+          <h2>Pending Appointments</h2>
+          <div class="appointments-container">
+            <div class="appointment-card">
+              <div class="appointment-header">🐾 Rocky - General Checkup</div>
+              <div class="appointment-details">
+                <p><strong>Date:</strong> 22nd June 2025</p>
+                <p><strong>Time:</strong> 2:30 PM</p>
+                <p><strong>Vet:</strong> Dr. Karan Mehta</p>
+                <p><strong>Location:</strong> PetWell Clinic, Mumbai</p>
+                <span class="status-tag pending">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+      
+      <div class="appointments-wrapper">
+        <div class="precautions">
+          <h2>Precautions Before Visit - Bella's Vaccination</h2>
+          <div class="appointments1-container">
+            <div class="appointment1-card">
+              <div class="appointment-details">
+                <p>✅ Carry your pet's vaccination card.</p>
+                <p>✅ Avoid feeding 6 hours prior to scan.</p>
+                <p>✅ Bring previous medical reports if available.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="upload-records">
+          <h2>Upload Pet Medical Records</h2>
+          <div class="appointments-container2">
+            <div class="appointment2-card">
+              <div class="appointment-details">
+                <p>📁 Double-check the pet's name and species before submitting..</p>
+                <p>✅ Be descriptive but concise in the medical notes</p>
+                <p>📱 Contact your vet if you’re unsure about details before entry.</p>
+                <p>📅 Include vaccination and prescription history.</p>
+                <a href="form.html" class="upload-button">🧾 Fill Record Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+     <script>
+        function openNotificationPage() {
+            window.location.href = "note.html"; // Replace with your actual file path if needed
+          }
+     </script>
+        
+       
+              
+
+
+             
+</body>
+</html>

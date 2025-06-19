@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veterinary Medicine Doctors</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      body {
+        background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+        padding: 40px;
+        color: #333;
+      }
+      
+      .container {
+        max-width: 1400px; 
+        margin: auto;
+        padding: 20px;
+      }
+      
+      
+      .breadcrumb {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+      }
+      
+      .breadcrumb a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      
+      .title {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #004d40;
+      }
+      
+      .doctor-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 30px;
+      }
+      
+      
+      .card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        padding: 25px 20px;
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .card::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        left: -40%;
+        width: 180%;
+        height: 180%;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(0, 200, 83, 0.15));
+        transform: rotate(45deg);
+        z-index: 0;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+      }
+      
+      .card:hover::before {
+        opacity: 1;
+      }
+      
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        border: 4px solid #e0f7fa;
+        z-index: 1;
+        position: relative;
+      }
+      
+      .card h3 {
+        font-size: 20px;
+        color: #00796b;
+        margin-bottom: 6px;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .card p {
+        font-size: 14px;
+        margin: 8px 0 18px;
+        color: #666;
+        z-index: 1;
+        position: relative;
+      }
+      
+      /* Button Style */
+      .card button {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        z-index: 1;
+        position: relative;
+      }
+      
+      .card button:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+      }
+      
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+</head>
+<body>
+    
+      
+          
+            <div class="container">
+                <nav class="breadcrumb">
+                  <a href="index.html">Home</a> > <a href="#">Our Doctors</a> > <strong>Veterinary Ophthalmology</strong>
+                </nav>
+              
+                <h2 class="title">Veterinary Ophthalmology Doctors</h2>
+              
+                <div class="doctor-cards">
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpveCmjpg853i52p1kN9YasfJA9QoEeqQV3g&s" alt="Doctor" />
+                    <h3>Dr. Ayesha Ghosh</h3>
+                    <p>Specialist in corneal disease and dry eye syndrome with 6 years of experience.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQFbdWFtW5O8-g/profile-displayphoto-shrink_400_400/B56ZYy18tfHQAk-/0/1744609726782?e=2147483647&v=beta&t=15oYQgGlp-O7jm7zaTJZtJnYbJ8ffex8sveRgSHSdGo" alt="Doctor" />
+                    <h3>Dr. Ankit Menon</h3>
+                    <p>Veterinary ophthalmologist focused on glaucoma and cataract surgeries.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQHien6j9cI1Zw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1718282066523?e=2147483647&v=beta&t=l0exd4wYUmUC3JEDmXidk6_LSqutlCDfFO5Xpd-GMbs" alt="Doctor" />
+                    <h3>Dr. Bhavna Shetty</h3>
+                    <p>7 years of experience in retinal diseases and ocular trauma treatment.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://media.licdn.com/dms/image/v2/C4E03AQHn950YVwuF_A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1633532820349?e=2147483647&v=beta&t=E0xuzBhBLShd5IvDAym8iTZtAazf20bCWsnQj4_7jAg" alt="Doctor" />
+                    <h3>Dr. Pratik Sinha</h3>
+                    <p>Expert in pet vision correction and intraocular lens procedures.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://pbs.twimg.com/profile_images/987777975323160576/4gHmp5gT_400x400.jpg" alt="Doctor" />
+                    <h3>Dr. Ritika Shah</h3>
+                    <p>Certified veterinary eye surgeon with 8 years in ocular diagnostics.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://justbreathemag.com/wp-content/uploads/2016/06/Nilesh-240x.jpg" alt="Doctor" />
+                    <h3>Dr. Nilesh Deshmukh</h3>
+                    <p>Performs advanced eyelid surgeries and tear duct corrections for pets.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://www.palliativecare.in/wp-content/uploads/2024/07/Dr-Karishma-Jain-2023-Ongoing-811x1024.jpeg" alt="Doctor" />
+                    <h3>Dr. Karishma Jain</h3>
+                    <p>Focuses on diagnosing genetic eye disorders in dogs and cats.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://cdn.hexahealth.com/Image/webp/480x480/1739597628476-258693134.webp" alt="Doctor" />
+                    <h3>Dr. Mohit Rawat</h3>
+                    <p>Renowned for laser therapy in treating early-stage cataracts in pets.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://media.licdn.com/dms/image/v2/C4D03AQG7R6WIIzqjVw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1602060024752?e=2147483647&v=beta&t=1M8fHet7r7-t_rFtPr6APZ0DoLg74NGLkGdF5tbLiR0" alt="Doctor" />
+                    <h3>Dr. Tanvi Patel</h3>
+                    <p>Skilled in post-op care and recovery plans for eye surgeries in small animals.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://content.jdmagicbox.com/v2/comp/mumbai/x6/022pxx22.xx22.240808220316.r7x6/catalogue/dr-arjun-gaurang-shah-mumbai-neurologists-z71axn3yhr.jpg" alt="Doctor" />
+                    <h3>Dr. Arjun Bhatia</h3>
+                    <p>Expertise in managing glaucoma and optic nerve disorders in felines.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://media.licdn.com/dms/image/v2/C4E03AQFrqnnCqmmTJQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1534309682280?e=2147483647&v=beta&t=TUjOgkfal9gEtSHcNdW-ASHI47AH37jqK1bhf7HlQ9E" alt="Doctor" />
+                    <h3>Dr. Sneha Rao</h3>
+                    <p>Provides emergency eye trauma care and long-term pet eye health guidance.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGu2iLK486RSdBzPhSqMLdFqJRlu-yU5IVXw&s" alt="Doctor" />
+                    <h3>Dr. Ritesh Malhotra</h3>
+                    <p>10 years of experience treating complex ophthalmic cases in exotic pets.</p>
+                    <button>Book Appointment</button>
+                  </div>
+                </div>
+              </div>
+              
+          
+      
+</body>
+</html>

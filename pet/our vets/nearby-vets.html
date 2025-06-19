@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veterinary Medicine Doctors</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      body {
+        background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+        padding: 40px;
+        color: #333;
+      }
+      
+      .container {
+        max-width: 1400px; 
+        margin: auto;
+        padding: 20px;
+      }
+      
+      
+      .breadcrumb {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+      }
+      
+      .breadcrumb a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      
+      .title {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #004d40;
+      }
+      
+      .doctor-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 30px;
+      }
+      
+      
+      .card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        padding: 25px 20px;
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .card::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        left: -40%;
+        width: 180%;
+        height: 180%;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(0, 200, 83, 0.15));
+        transform: rotate(45deg);
+        z-index: 0;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+      }
+      
+      .card:hover::before {
+        opacity: 1;
+      }
+      
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        border: 4px solid #e0f7fa;
+        z-index: 1;
+        position: relative;
+      }
+      
+      .card h3 {
+        font-size: 20px;
+        color: #00796b;
+        margin-bottom: 6px;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .card p {
+        font-size: 14px;
+        margin: 8px 0 18px;
+        color: #666;
+        z-index: 1;
+        position: relative;
+      }
+      
+      /* Button Style */
+      .card button {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        z-index: 1;
+        position: relative;
+      }
+      
+      .card button:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+      }
+      
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+</head>
+<body>
+    
+      
+          
+            <div class="container">
+                <nav class="breadcrumb">
+                  <a href="index.html">Home</a> > <a href="#">Our Doctors</a> > <strong>NearBy Veterinary Doctors</strong>
+                </nav>
+              
+                <h2 class="title">NearBy Veterinary Doctors</h2>
+              
+                <div class="doctor-cards">
+                  <div class="card">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQH-0K61mwa7FA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726084145017?e=2147483647&v=beta&t=TQMxIJW8h8IDEBbFGbsWvcA9WVWT0mmUSk3ePBPYRbU" alt="Vetic Pet Clinic"/>
+                    <h3>Dr. Anaya Rane</h3>
+                    <p>Full‑service vet + grooming + diagnostics—open 9:30 AM–8 PM.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5-J6G6k-U8axHVoAhaXq4M9TDxzHqntWPvA&s" alt="Dr. Bapat’s Pet Animal Hospital"/>
+                    <h3>Dr. Mahesh Bapat</h3>
+                    <p>3 vets, ₹350 consult—X‑ray, surgery & boarding. 30 yrs experience.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://www.froedtert.com/sites/default/files/styles/square/public/image/2020-04/kavita-naik-headshot-200x200.jpg?h=6b9bf2e9&itok=U1Q_c6gu" alt="Planet Animal Hospital"/>
+                    <h3>Dr. Kavita Naik</h3>
+                    <p>Major & minor surgery, boarding & preventive care since 2005.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://media.licdn.com/dms/image/v2/C5603AQHkh4opOSc_AQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1586509611666?e=2147483647&v=beta&t=Y7f0PWAo89l0SCO2zYOLyIjf6EI69-f9dEoqY2Uql5w" alt="Petvets Manpada"/>
+                    <h3>Dr. Rakesh Tiwari</h3>
+                    <p>Vaccination, diagnostics, exotics & large-animal care.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://images1-fabric.practo.com/dr-shruti-dhir-1458102216-56e8dfc87a0ab.jpg" alt="Dr. Chariar’s Pets Specialty Clinic"/>
+                    <h3>Dr. Shruti Chariar</h3>
+                    <p>24×7 advanced clinic: laparoscopy, radiology & surgeries.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://drsarangdeshpande.com/wp-content/uploads/2021/10/Sarang_Deshpande.jpg" alt="Dr. S R Despande Vet Clinic"/>
+                    <h3>Dr. S. R. Despande</h3>
+                    <p>51 years experience; treats pets & injured street animals.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://content.jdmagicbox.com/v2/comp/mumbai/y2/022pxx22.xx22.171108105248.i1y2/catalogue/dr-deepak-mulchandani-p-d-hinduja-hospital-khar-khar-west-mumbai-nursing-homes-dlu70dojoa.jpg" alt="Tapase’s Petcare Clinic"/>
+                    <h3>Dr. Amol Tapase</h3>
+                    <p>Nutrition consulting, surgery & grooming—open daily evenings.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://vspmscop.edu.in/wp-content/uploads/2022/07/photo-pooja-laddha.jpg" alt="My Lovely Pet Shop & Clinic"/>
+                    <h3>Dr. Pooja Laddha</h3>
+                    <p>Clinic + pet supplies, open 24×7; deep experience with all pets.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://prime.horizonhospital.com/wp-content/uploads/2019/07/Dr.-rajeedp-More2.png" alt="Pets World India"/>
+                    <h3>Dr. Rajiv More</h3>
+                    <p>Diagnostics, vaccinations, grooming & boarding services.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0DhVusZAc_aPDCClZ8mwnURE4pha_hNqZHA&s" alt="Petcare Veterinary Clinic"/>
+                    <h3>Dr. Anjali Mehta</h3>
+                    <p>Full-service vet clinic with grooming & checkups.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNX9dpkoO6C9VEd8_wi4Ytcu8bW_cPBch68w&s" alt="Vet 4 Amazing Pets"/>
+                    <h3>Dr. Abhishek Joshi</h3>
+                    <p>Neighborhood vet clinic offering wellness exams & grooming.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                
+                  <div class="card">
+                    <img src="https://api.qonaqhealth.com/public/image/doctor/dr-neha-abhijit-pawar-consultant-obstetrics-gynaecology" alt="Animaux Clinique"/>
+                    <h3>Dr. Nisha Pawar</h3>
+                    <p>Cat & dog spaying, vaccinations with caring staff.</p>
+                    <button>📞 Book Appointment</button>
+                  </div>
+                </div>
+                
+              
+          
+      
+</body>
+</html>

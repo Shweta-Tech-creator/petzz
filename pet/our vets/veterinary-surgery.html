@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veterinary Medicine Doctors</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      body {
+        background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+        padding: 40px;
+        color: #333;
+      }
+      
+      .container {
+        max-width: 1400px; 
+        margin: auto;
+        padding: 20px;
+      }
+      
+      
+      .breadcrumb {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+      }
+      
+      .breadcrumb a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      
+      .title {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #004d40;
+      }
+      
+      .doctor-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 30px;
+      }
+      
+      
+      .card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        padding: 25px 20px;
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .card::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        left: -40%;
+        width: 180%;
+        height: 180%;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(0, 200, 83, 0.15));
+        transform: rotate(45deg);
+        z-index: 0;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+      }
+      
+      .card:hover::before {
+        opacity: 1;
+      }
+      
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        border: 4px solid #e0f7fa;
+        z-index: 1;
+        position: relative;
+      }
+      
+      .card h3 {
+        font-size: 20px;
+        color: #00796b;
+        margin-bottom: 6px;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .card p {
+        font-size: 14px;
+        margin: 8px 0 18px;
+        color: #666;
+        z-index: 1;
+        position: relative;
+      }
+      
+      /* Button Style */
+      .card button {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        z-index: 1;
+        position: relative;
+      }
+      
+      .card button:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+      }
+      
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+</head>
+<body>
+    
+      
+        <div class="container">
+            <nav class="breadcrumb">
+              <a href="index.html">Home</a> > <a href="#">Our Doctors</a> > <strong>Veterinary Surgery</strong>
+            </nav>
+          
+            <h2 class="title">Veterinary Surgery Doctors</h2>
+          
+            <div class="doctor-cards">
+              <div class="card">
+                <img src="https://www.gleneagleshospitals.co.in/assets/doctors/migrate/m_840807_34.jpg?VersionId=v9k6vU70XKCAGCKcVv8_cNyJs.h4tiKt" alt="Doctor" />
+                <h3>Dr. Meera Bhosale</h3>
+                <p>Orthopedic surgeon for pets with over 9 years of clinical excellence.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNTEUoukLDaEl-5NWUxgQqSETxmWCIX6zGhg&s" alt="Doctor" />
+                <h3>Dr. Kunal Rane</h3>
+                <p>Soft tissue surgery expert with 7 years in advanced pet care.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://www.motherhoodindia.com/wp-content/uploads/2022/06/Dr-Nidhi-Shetty-Photo.jpg" alt="Doctor" />
+                <h3>Dr. Nidhi Verma</h3>
+                <p>Experienced in tumor excision and reconstructive veterinary surgery.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://www.asterhospitals.in/sites/default/files/2022-12/anirudh.jpg" alt="Doctor" />
+                <h3>Dr. Anirudh Deshpande</h3>
+                <p>12+ years performing complex bone and spinal surgeries in small animals.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://www.narayananethralaya.org/wp-content/uploads/2025/04/Dr-Snehal-Bavaskar.jpg" alt="Doctor" />
+                <h3>Dr. Snehal Joshi</h3>
+                <p>Specialist in post-operative rehabilitation and keyhole surgery.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOacjPhZQtMaNOg5Q0dSxFU6jLtJ7gvYoByw&s" alt="Doctor" />
+                <h3>Dr. Sameer Patil</h3>
+                <p>Laparoscopic and abdominal surgery specialist with 8 years experience.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://ik.imagekit.io/d7t01fhx2/Ovum_Hospitals/Doctors/kalyan-nagar/Dr-2.jpg?updatedAt=1702298742065" alt="Doctor" />
+                <h3>Dr. Avni Shah</h3>
+                <p>Surgeon skilled in wound management and emergency trauma procedures.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://venuswomenshospital.com/uploads/image/dravanikannar.jpg" alt="Doctor" />
+                <h3>Dr. Raghav Iyer</h3>
+                <p>Handles complex fracture repairs and joint dislocations in pets.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://drshwetashah.com/wp-content/uploads/2024/02/Dr.-Shweta-Shah.jpg" alt="Doctor" />
+                <h3>Dr. Shweta Kapoor</h3>
+                <p>5+ years of experience in spay/neuter surgeries and surgical sterilization programs.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmp3imkQmrWzK_1Rg6Pdc5BT5Xs81jOcqS8g&s" alt="Doctor" />
+                <h3>Dr. Rahul Nair</h3>
+                <p>Veterinary orthopedic and dental surgeon with expertise in small mammals.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://kdahweb-static.kokilabenhospital.com/kdah-2019/product/1684232326.jpg" alt="Doctor" />
+                <h3>Dr. Pranali Kulkarni</h3>
+                <p>Expert in ocular surgeries and eyelid reconstruction for pets.</p>
+                <button>Book Appointment</button>
+              </div>
+              <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDgIIIzYeeetTKgtiz1xcb2Kyb-nXJuRripA&s" alt="Doctor" />
+                <h3>Dr. Manav Shetty</h3>
+                <p>Advanced surgical techniques for tumors, hernias, and foreign object removal.</p>
+                <button>Book Appointment</button>
+              </div>
+            </div>
+          </div>
+          
+      
+</body>
+</html>
